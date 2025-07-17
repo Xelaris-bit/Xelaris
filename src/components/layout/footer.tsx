@@ -4,7 +4,7 @@ import { Logo } from '@/components/logo';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="flex flex-col gap-4">
@@ -12,11 +12,11 @@ const Footer = () => {
                 <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline">Xelaris</span>
             </Link>
-            <p className="text-sm text-primary-foreground/80">Reliable & Scalable Software Testing Solutions.</p>
+            <p className="text-sm text-secondary-foreground/80">Reliable & Scalable Software Testing Solutions.</p>
             <div className="flex space-x-4">
-              <Link href="#" aria-label="Twitter" className="text-primary-foreground/80 hover:text-accent transition-colors"><Twitter /></Link>
-              <Link href="#" aria-label="Facebook" className="text-primary-foreground/80 hover:text-accent transition-colors"><Facebook /></Link>
-              <Link href="#" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-accent transition-colors"><Linkedin /></Link>
+              <Link href="#" aria-label="Twitter" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Twitter /></Link>
+              <Link href="#" aria-label="Facebook" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Facebook /></Link>
+              <Link href="#" aria-label="LinkedIn" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Linkedin /></Link>
             </div>
           </div>
           <div>
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
            <div>
             <h4 className="font-semibold text-lg">Contact</h4>
-            <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
+            <ul className="mt-4 space-y-2 text-sm text-secondary-foreground/80">
                 <li>123 Tech Avenue, Suite 500</li>
                 <li>Innovate City, 12345</li>
                 <li className='pt-2'><a href="mailto:contact@xelaris.com" className="hover:text-accent transition-colors">contact@xelaris.com</a></li>
@@ -46,7 +46,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
+        <div className="mt-12 border-t border-secondary-foreground/20 pt-8 text-center text-sm text-secondary-foreground/60">
           <p>&copy; {new Date().getFullYear()} Xelaris. All rights reserved.</p>
         </div>
       </div>
