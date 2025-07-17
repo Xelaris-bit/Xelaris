@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
@@ -20,6 +21,7 @@ const navLinks = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +42,24 @@ const Header = () => {
           <span className="font-headline">Xelaris</span>
         </Link>
         
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-2 rounded-full bg-secondary/50 p-1">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className={cn(
+                  "text-sm font-medium transition-colors px-4 py-2 rounded-full",
+                  isActive 
+                    ? "bg-background text-primary shadow" 
+                    : "text-foreground/80 hover:text-primary"
+                )}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
