@@ -1,31 +1,8 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-
-const jobOpenings = [
-  {
-    title: 'Senior QA Automation Engineer',
-    location: 'Innovate City (Remote)',
-    type: 'Full-time',
-  },
-  {
-    title: 'Manual Test Analyst',
-    location: 'Innovate City (On-site)',
-    type: 'Full-time',
-  },
-  {
-    title: 'Performance Test Lead',
-    location: 'Remote',
-    type: 'Contract',
-  },
-   {
-    title: 'Junior QA Tester',
-    location: 'Innovate City (Hybrid)',
-    type: 'Internship',
-  },
-];
+import { Archive } from 'lucide-react';
 
 export default function CareersPage() {
   return (
@@ -41,32 +18,21 @@ export default function CareersPage() {
 
         <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">Current Openings</h2>
-            <div className="space-y-6">
-                {jobOpenings.map((job, index) => (
-                    <Card key={index} className="hover:shadow-lg transition-shadow">
-                        <CardHeader className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-                            <div>
-                                <CardTitle>{job.title}</CardTitle>
-                                <CardDescription>{job.location}</CardDescription>
-                            </div>
-                            <div className="text-muted-foreground md:text-center">
-                                {job.type}
-                            </div>
-                            <div className="md:text-right">
-                                <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                                    <Link href="#">Apply Now</Link>
-                                </Button>
-                            </div>
-                        </CardHeader>
-                    </Card>
-                ))}
-            </div>
-             <div className="text-center mt-12">
-                <p className="text-muted-foreground">Don't see a role that fits? Send us your resume anyway!</p>
-                <Button variant="outline" className="mt-4">
-                    <a href="mailto:careers@xelaris.com">Submit Your Resume</a>
-                </Button>
-            </div>
+            <Card className="text-center p-8 md:p-12">
+              <CardContent className="flex flex-col items-center gap-4">
+                <Archive className="w-16 h-16 text-muted-foreground/50" />
+                <h3 className="text-2xl font-semibold">No Openings Currently</h3>
+                <p className="text-muted-foreground max-w-md">
+                    We are not actively hiring for any positions at the moment. However, we are always on the lookout for talented individuals.
+                </p>
+                 <div className="mt-6">
+                    <p className="text-muted-foreground">Feel free to send us your resume for future consideration!</p>
+                    <Button variant="outline" className="mt-4">
+                        <a href="mailto:careers@xelaris.com">Submit Your Resume</a>
+                    </Button>
+                </div>
+              </CardContent>
+            </Card>
         </div>
       </main>
       <Footer />
