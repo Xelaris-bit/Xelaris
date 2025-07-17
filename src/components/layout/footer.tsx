@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
-          <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="flex flex-col gap-4 items-start">
              <Link href="/" className="flex items-center gap-2 font-bold text-2xl">
                 <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline">Xelaris</span>
