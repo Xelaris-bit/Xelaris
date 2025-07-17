@@ -9,15 +9,15 @@ export const Logo = ({ className }: { className?: string }) => (
         <defs>
             <linearGradient id="logoPrimaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" style={{ stopColor: "hsl(var(--primary))" }} />
-                <stop offset="100%" style={{ stopColor: "hsl(var(--primary) / 0.8)" }} />
+                <stop offset="100%" style={{ stopColor: "hsl(var(--primary) / 0.7)" }} />
             </linearGradient>
-            <linearGradient id="logoAccentGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+            <linearGradient id="logoAccentGradient" x1="100%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" style={{ stopColor: "hsl(var(--accent))" }} />
-                <stop offset="100%" style={{ stopColor: "hsl(var(--accent) / 0.8)" }} />
+                <stop offset="100%" style={{ stopColor: "hsl(var(--accent) / 0.7)" }} />
             </linearGradient>
             <filter id="logoDropShadow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
-                <feOffset dx="2" dy="2" result="offsetblur" />
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                <feOffset dx="2" dy="3" result="offsetblur" />
                 <feMerge>
                     <feMergeNode />
                     <feMergeNode in="SourceGraphic" />
@@ -25,15 +25,16 @@ export const Logo = ({ className }: { className?: string }) => (
             </filter>
         </defs>
         <g style={{ filter: "url(#logoDropShadow)" }}>
-            {/* Back part of the 'X' - Primary Color */}
+            {/* First checkmark, in primary color */}
             <path
-                d="M32 24 L48 24 L80 96 L64 96 Z"
+                d="M24 68 L52 96 L104 24 L88 12 L52 64 L40 52 Z"
                 fill="url(#logoPrimaryGradient)"
             />
-             {/* Front part of 'X' forming a checkmark - Accent Color */}
+            {/* Second, overlapping checkmark in accent color, creating an 'X' shape */}
             <path
-                d="M52 24 L104 24 L72 96 L48 96 L80 56 L32 104 L24 96 L72 48 Z"
+                d="M24 36 L52 64 L104 116 L88 128 L52 76 L40 88 Z"
                 fill="url(#logoAccentGradient)"
+                transform="translate(0, -12)"
             />
         </g>
     </svg>
