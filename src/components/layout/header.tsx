@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, TestTube2 } from 'lucide-react';
+import { Menu, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -32,7 +32,7 @@ const Header = () => {
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-primary">
-          <TestTube2 className="h-8 w-8 text-accent" />
+          <ShieldCheck className="h-8 w-8 text-accent" />
           <span className="font-headline">Xelaris</span>
         </Link>
         
@@ -61,7 +61,7 @@ const Header = () => {
             <SheetContent side="right">
               <div className="flex flex-col p-6 space-y-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
-                  <TestTube2 className="h-7 w-7 text-accent" />
+                  <ShieldCheck className="h-7 w-7 text-accent" />
                   <span className="font-headline">Xelaris</span>
                 </Link>
                 <nav className="flex flex-col items-start gap-4">
