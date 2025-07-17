@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ShieldCheck, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Logo } from '@/components/logo';
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div className="flex flex-col gap-4">
              <Link href="/" className="flex items-center gap-2 font-bold text-2xl">
-                <ShieldCheck className="h-8 w-8 text-accent" />
+                <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline">Xelaris</span>
             </Link>
             <p className="text-sm text-primary-foreground/80">Reliable & Scalable Software Testing Solutions.</p>
