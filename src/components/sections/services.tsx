@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Stethoscope, Bot, Waypoints, Zap, Smartphone } from "lucide-react";
+import { Stethoscope, Bot, Waypoints, Zap, Smartphone, GraduationCap, ShieldCheck } from "lucide-react";
 
 const services = [
     {
@@ -26,6 +26,16 @@ const services = [
         icon: <Smartphone className="w-10 h-10 text-accent" />,
         title: "Mobile App Testing",
         description: "Ensure your mobile application works perfectly across all devices, platforms, and network conditions."
+    },
+    {
+        icon: <GraduationCap className="w-10 h-10 text-accent" />,
+        title: "eLearning Testing",
+        description: "Guarantee a seamless and effective learning experience with our specialized eLearning testing services."
+    },
+     {
+        icon: <ShieldCheck className="w-10 h-10 text-accent" />,
+        title: "Selenium Testing",
+        description: "Leverage the power of Selenium for robust, browser-based automation testing of your web applications."
     }
 ];
 
