@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,16 @@ import Image from 'next/image';
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const ContactSection = () => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null; // or a loading skeleton
+    }
+    
     return (
         <section id="contact" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
