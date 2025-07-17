@@ -6,7 +6,7 @@ import { MoveDown } from 'lucide-react';
 const HeroSection = () => {
     return (
         <section id="home" className="relative h-screen flex items-center justify-center text-white">
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://placehold.co/1920x1080.png)', filter: 'brightness(0.4)'}} data-ai-hint="software development"></div>
+            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920)', filter: 'brightness(0.4)'}} data-ai-hint="software development"></div>
              <div className="absolute inset-0 bg-primary/60"></div>
             
             <div className="relative z-10 text-center px-4">

@@ -13,37 +13,37 @@ const allCaseStudies = [
   {
     title: 'Boosting E-commerce Performance by 200%',
     description: 'Discover how our performance testing helped a major e-commerce platform handle massive traffic spikes during peak seasons, resulting in a 200% performance boost and zero downtime.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=600',
     aiHint: 'e-commerce website',
   },
   {
     title: 'Ensuring Flawless Mobile Banking App Launch',
     description: 'We partnered with a fintech startup to conduct comprehensive manual and automated testing for their new mobile banking app, ensuring a secure and bug-free launch that earned a 4.8-star rating.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1580974928064-07aeef7061a2?q=80&w=600',
     aiHint: 'mobile banking',
   },
   {
     title: 'Automating API Testing for a SaaS Provider',
     description: 'Our team implemented a robust API automation framework that reduced testing time by 80% and increased test coverage by 95% for a leading SaaS company.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600',
     aiHint: 'software dashboard',
   },
   {
     title: 'Securing a Healthcare Platform',
     description: 'We performed extensive security testing for a healthcare data platform, identifying and mitigating critical vulnerabilities to ensure HIPAA compliance and protect sensitive patient information.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1576091062334-5ef8843941aa?q=80&w=600',
     aiHint: 'healthcare technology',
   },
   {
     title: 'Enhancing User Experience for an EdTech App',
     description: 'Through detailed usability testing, we provided actionable insights that led to a 40% improvement in user engagement for a popular educational technology application.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1491841550275-5b462bf985ca?q=80&w=600',
     aiHint: 'online learning',
   },
   {
     title: 'Cross-Browser Compatibility for a Corporate Portal',
     description: 'Our team ensured a consistent user experience across all major browsers for a large enterprise\'s internal portal, eliminating bugs and improving employee productivity.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600',
     aiHint: 'corporate office',
   },
 ];

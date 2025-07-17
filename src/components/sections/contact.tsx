@@ -59,7 +59,7 @@ const ContactSection = () => {
                         </div>
                         <div className="rounded-lg overflow-hidden border">
                              <Image
-                                src="https://placehold.co/600x400.png"
+                                src="https://images.unsplash.com/photo-1519017684936-8e7c191a34d5?q=80&w=600"
                                 alt="Map to Xelaris office"
                                 width={600}
                                 height={400}

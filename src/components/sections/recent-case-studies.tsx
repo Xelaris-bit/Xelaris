@@ -7,19 +7,19 @@ const caseStudies = [
   {
     title: 'Boosting E-commerce Performance by 200%',
     description: 'Discover how our performance testing helped a major e-commerce platform handle massive traffic spikes during peak seasons, resulting in a 200% performance boost and zero downtime.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1522204523234-8729aa6e3d5f?q=80&w=600',
     aiHint: 'e-commerce website',
   },
   {
     title: 'Ensuring Flawless Mobile Banking App Launch',
     description: 'We partnered with a fintech startup to conduct comprehensive manual and automated testing for their new mobile banking app, ensuring a secure and bug-free launch that earned a 4.8-star rating.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1580974928064-07aeef7061a2?q=80&w=600',
     aiHint: 'mobile banking',
   },
   {
     title: 'Automating API Testing for a SaaS Provider',
     description: 'Our team implemented a robust API automation framework that reduced testing time by 80% and increased test coverage by 95% for a leading SaaS company.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600',
     aiHint: 'software dashboard',
   },
 ];

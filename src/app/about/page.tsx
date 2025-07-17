@@ -34,14 +34,14 @@ const teamMembers = [
   {
     name: 'Anshuman',
     role: 'CEO',
-    imageUrl: 'https://placehold.co/200x200.png',
+    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600',
     aiHint: 'male portrait',
     description: 'Visionary leader driving the company towards new frontiers of quality and innovation.'
   },
   {
     name: 'Anurag',
     role: 'CFO',
-    imageUrl: 'https://placehold.co/200x200.png',
+    imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600',
     aiHint: 'male portrait',
     description: 'Financial strategist ensuring the company\'s sustainable growth and economic stability.'
   }
@@ -85,7 +85,7 @@ export default function AboutUsPage() {
                     </div>
                     <div>
                         <Image
-                            src="https://placehold.co/600x400.png"
+                            src="https://images.unsplash.com/photo-1521737852577-684822188716?q=80&w=600"
                             alt="Team discussing project at Xelaris"
                             width={600}
                             height={400}
