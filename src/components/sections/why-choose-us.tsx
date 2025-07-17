@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, Gauge, Users, Rocket, BarChart, Bug } from "lucide-react";
+import { ShieldCheck, Gauge, Users, Rocket, BarChart, Bug, Clock, Award, Star } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
 
 const benefits = [
@@ -27,19 +27,21 @@ const benefits = [
 
 const stats = [
     {
-        icon: <BarChart className="w-8 h-8 text-accent mb-2" />,
-        value: 1500,
-        label: "Test Cases Executed"
+        icon: <Award className="w-8 h-8 text-accent mb-2" />,
+        value: 8,
+        label: "Years in Business",
+        suffix: '+'
     },
     {
         icon: <Users className="w-8 h-8 text-accent mb-2" />,
-        value: 250,
-        label: "Happy Clients"
+        value: 50,
+        label: "Happy Clients",
+        suffix: '+'
     },
     {
-        icon: <Bug className="w-8 h-8 text-accent mb-2" />,
-        value: 50000,
-        label: "Bugs Found"
+        icon: <Clock className="w-8 h-8 text-accent mb-2" />,
+        textValue: '24/7',
+        label: "Support"
     }
 ]
 
@@ -72,7 +74,14 @@ const WhyChooseUsSection = () => {
                                 <div key={index} className="flex flex-col items-center">
                                     {stat.icon}
                                     <div className="text-4xl md:text-5xl font-bold text-primary">
-                                       <AnimatedCounter value={stat.value} />+
+                                        {stat.value ? (
+                                            <>
+                                                <AnimatedCounter value={stat.value} />
+                                                {stat.suffix}
+                                            </>
+                                        ) : (
+                                            <span className="font-bold text-4xl md:text-5xl text-primary">{stat.textValue}</span>
+                                        )}
                                     </div>
                                     <p className="text-muted-foreground mt-2">{stat.label}</p>
                                 </div>
