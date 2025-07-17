@@ -12,7 +12,7 @@ const Footer = () => {
                 <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline">Xelaris</span>
             </Link>
-            <p className="text-sm text-secondary-foreground/80">At Xelaris, we deliver unparalleled software testing solutions, ensuring your applications are reliable, scalable, and secure through our expert-driven, meticulous processes.</p>
+            <p className="text-sm text-secondary-foreground/80">Xelaris a Leading QA Company Providing Top-Tier Software Testing Solutions.</p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="Twitter" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Twitter /></Link>
               <Link href="#" aria-label="Facebook" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Facebook /></Link>
