@@ -28,7 +28,9 @@ const HeroSection = () => {
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
                 <Link href="#why-us" aria-label="Scroll down">
-                    <MoveDown className="w-8 h-8 text-white animate-bounce" />
+                    <div className="animate-bounce text-accent text-4xl">
+                      <MoveDown className="w-10 h-10" />
+                    </div>
                 </Link>
             </div>
 
