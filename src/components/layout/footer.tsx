@@ -22,10 +22,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-lg">Quick Links</h4>
             <ul className="mt-4 space-y-2">
-              <li><Link href="#services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
-              <li><Link href="#why-us" className="hover:text-accent transition-colors text-sm">Why Xelaris</Link></li>
-              <li><Link href="#tools" className="hover:text-accent transition-colors text-sm">Tools</Link></li>
-              <li><Link href="#contact" className="hover:text-accent transition-colors text-sm">Contact</Link></li>
+              <li><Link href="/about" className="hover:text-accent transition-colors text-sm">About Us</Link></li>
+              <li><Link href="/services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
+              <li><Link href="/case-studies" className="hover:text-accent transition-colors text-sm">Case Studies</Link></li>
+              <li><Link href="/careers" className="hover:text-accent transition-colors text-sm">Careers</Link></li>
+              <li><Link href="/contact" className="hover:text-accent transition-colors text-sm">Contact</Link></li>
             </ul>
           </div>
           <div>

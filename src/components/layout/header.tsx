@@ -8,10 +8,13 @@ import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
 
 const navLinks = [
-  { href: '#services', label: 'Services' },
-  { href: '#why-us', label: 'Why Xelaris' },
-  { href: '#tools', label: 'Tools' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/services', label: 'Services' },
+  { href: '/tools', label: 'Our Tools' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/careers', label: 'Careers' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 const Header = () => {
@@ -37,7 +40,7 @@ const Header = () => {
           <span className="font-headline">Xelaris</span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               {link.label}
@@ -45,13 +48,13 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
             <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="#contact">Get a Free Quote</Link>
+                <Link href="/contact">Get a Free Quote</Link>
             </Button>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -73,7 +76,7 @@ const Header = () => {
                   ))}
                 </nav>
                  <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                    <Link href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
                 </Button>
               </div>
             </SheetContent>

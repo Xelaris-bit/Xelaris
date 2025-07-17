@@ -18,16 +18,16 @@ const HeroSection = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
                     <Button asChild size="lg" variant="secondary" className="bg-white/90 text-primary hover:bg-white">
-                        <Link href="#services">Explore Services</Link>
+                        <Link href="/services">Explore Services</Link>
                     </Button>
                     <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                        <Link href="#contact">Get a Free Quote</Link>
+                        <Link href="/contact">Get a Free Quote</Link>
                     </Button>
                 </div>
             </div>
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-                <Link href="#why-us" aria-label="Scroll down">
+                <Link href="/about" aria-label="Scroll down">
                     <div className="animate-bounce text-accent text-4xl">
                       <MoveDown className="w-10 h-10" />
                     </div>
