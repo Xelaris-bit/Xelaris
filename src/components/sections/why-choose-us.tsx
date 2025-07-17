@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, Gauge, Users, Rocket, BarChart, Bug, Clock, Award, Star } from "lucide-react";
+import { ShieldCheck, Gauge, Users, Rocket, BarChart, Bug, Clock, Award, FolderKanban } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
 
 const benefits = [
@@ -39,6 +39,12 @@ const stats = [
         suffix: '+'
     },
     {
+        icon: <FolderKanban className="w-8 h-8 text-accent mb-2" />,
+        value: 1500,
+        label: "Projects Completed",
+        suffix: '+'
+    },
+    {
         icon: <Clock className="w-8 h-8 text-accent mb-2" />,
         textValue: '24/7',
         label: "Support"
@@ -69,7 +75,7 @@ const WhyChooseUsSection = () => {
 
                 <Card className="bg-background">
                     <CardContent className="p-8 md:p-12">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                             {stats.map((stat, index) => (
                                 <div key={index} className="flex flex-col items-center">
                                     {stat.icon}
