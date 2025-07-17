@@ -1,0 +1,56 @@
+import Link from 'next/link';
+import { TestTube2, Linkedin, Twitter, Facebook } from 'lucide-react';
+
+const Footer = () => {
+  return (
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 md:px-6 py-12">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div className="flex flex-col gap-4">
+             <Link href="/" className="flex items-center gap-2 font-bold text-2xl">
+                <TestTube2 className="h-8 w-8 text-accent" />
+                <span className="font-headline">Xelaris</span>
+            </Link>
+            <p className="text-sm text-primary-foreground/80">Reliable & Scalable Software Testing Solutions.</p>
+            <div className="flex space-x-4">
+              <Link href="#" aria-label="Twitter" className="text-primary-foreground/80 hover:text-accent transition-colors"><Twitter /></Link>
+              <Link href="#" aria-label="Facebook" className="text-primary-foreground/80 hover:text-accent transition-colors"><Facebook /></Link>
+              <Link href="#" aria-label="LinkedIn" className="text-primary-foreground/80 hover:text-accent transition-colors"><Linkedin /></Link>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-semibold text-lg">Quick Links</h4>
+            <ul className="mt-4 space-y-2">
+              <li><Link href="#services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
+              <li><Link href="#why-us" className="hover:text-accent transition-colors text-sm">Why Xelaris</Link></li>
+              <li><Link href="#tools" className="hover:text-accent transition-colors text-sm">Tools</Link></li>
+              <li><Link href="#contact" className="hover:text-accent transition-colors text-sm">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-lg">Resources</h4>
+            <ul className="mt-4 space-y-2">
+                <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
+                <li><a href="#" className="hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-accent transition-colors text-sm">Terms of Service</a></li>
+            </ul>
+          </div>
+           <div>
+            <h4 className="font-semibold text-lg">Contact</h4>
+            <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
+                <li>123 Tech Avenue, Suite 500</li>
+                <li>Innovate City, 12345</li>
+                <li className='pt-2'><a href="mailto:contact@xelaris.com" className="hover:text-accent transition-colors">contact@xelaris.com</a></li>
+                <li><a href="tel:+1234567890" className="hover:text-accent transition-colors">+1 (234) 567-890</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/60">
+          <p>&copy; {new Date().getFullYear()} Xelaris. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
