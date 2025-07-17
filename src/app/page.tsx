@@ -7,6 +7,7 @@ import TestimonialsSection from '@/components/sections/testimonials';
 import { FadeIn } from '@/components/fade-in';
 import RecentCaseStudiesSection from '@/components/sections/recent-case-studies';
 import PartnerSection from '@/components/sections/partner-section';
+import KeyDifferentiatorsSection from '@/components/sections/key-differentiators';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <FadeIn><RecentCaseStudiesSection /></FadeIn>
         <FadeIn><TestimonialsSection /></FadeIn>
         <FadeIn><PartnerSection /></FadeIn>
+        <FadeIn><KeyDifferentiatorsSection /></FadeIn>
       </main>
       <Footer />
     </div>
