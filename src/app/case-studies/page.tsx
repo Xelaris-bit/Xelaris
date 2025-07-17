@@ -70,7 +70,7 @@ export default function CaseStudiesPage() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3 mb-12">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12">
           {visibleCaseStudies.map((study, index) => (
             <Card key={index} className="overflow-hidden flex flex-col">
               <Image
