@@ -39,7 +39,7 @@ const ContactSection = () => {
                                 <MapPin className="h-6 w-6 text-accent mt-1" />
                                 <div>
                                     <h4 className="font-semibold">Our Office</h4>
-                                    <p className="text-muted-foreground">123 Tech Avenue, Suite 500, Innovate City, 12345</p>
+                                    <p className="text-muted-foreground">89, Kulasukarpada, Cuttack City, 754209</p>
                                 </div>
                             </div>
                              <div className="flex items-start gap-4">
@@ -53,7 +53,7 @@ const ContactSection = () => {
                                 <Phone className="h-6 w-6 text-accent mt-1" />
                                 <div>
                                     <h4 className="font-semibold">Call Us</h4>
-                                    <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary">+1 (234) 567-890</a>
+                                    <a href="tel:+919776198414" className="text-muted-foreground hover:text-primary">+91 9776198414</a>
                                 </div>
                             </div>
                         </div>

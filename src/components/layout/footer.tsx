@@ -40,10 +40,9 @@ const Footer = () => {
            <div>
             <h4 className="font-semibold text-lg">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-secondary-foreground/80">
-                <li>123 Tech Avenue, Suite 500</li>
-                <li>Innovate City, 12345</li>
+                <li>89, Kulasukarpada, Cuttack City, 754209</li>
                 <li className='pt-2'><a href="mailto:contact@xelaris.com" className="hover:text-accent transition-colors">contact@xelaris.com</a></li>
-                <li><a href="tel:+1234567890" className="hover:text-accent transition-colors">+1 (234) 567-890</a></li>
+                <li><a href="tel:+919776198414" className="hover:text-accent transition-colors">+91 9776198414</a></li>
             </ul>
           </div>
         </div>
