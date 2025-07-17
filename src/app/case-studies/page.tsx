@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import TestimonialsSection from '@/components/sections/testimonials';
@@ -6,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-const caseStudies = [
+const allCaseStudies = [
   {
     title: 'Boosting E-commerce Performance by 200%',
     description: 'Discover how our performance testing helped a major e-commerce platform handle massive traffic spikes during peak seasons, resulting in a 200% performance boost and zero downtime.',
@@ -25,9 +28,37 @@ const caseStudies = [
     imageUrl: 'https://placehold.co/600x400.png',
     aiHint: 'software dashboard',
   },
+  {
+    title: 'Securing a Healthcare Platform',
+    description: 'We performed extensive security testing for a healthcare data platform, identifying and mitigating critical vulnerabilities to ensure HIPAA compliance and protect sensitive patient information.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'healthcare technology',
+  },
+  {
+    title: 'Enhancing User Experience for an EdTech App',
+    description: 'Through detailed usability testing, we provided actionable insights that led to a 40% improvement in user engagement for a popular educational technology application.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'online learning',
+  },
+  {
+    title: 'Cross-Browser Compatibility for a Corporate Portal',
+    description: 'Our team ensured a consistent user experience across all major browsers for a large enterprise\'s internal portal, eliminating bugs and improving employee productivity.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    aiHint: 'corporate office',
+  },
 ];
 
+const INITIAL_VISIBLE_COUNT = 3;
+
 export default function CaseStudiesPage() {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+
+  const handleLoadMore = () => {
+    setVisibleCount(allCaseStudies.length);
+  };
+
+  const visibleCaseStudies = allCaseStudies.slice(0, visibleCount);
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -39,8 +70,8 @@ export default function CaseStudiesPage() {
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3 mb-16">
-          {caseStudies.map((study, index) => (
+        <div className="grid gap-8 lg:grid-cols-3 mb-12">
+          {visibleCaseStudies.map((study, index) => (
             <Card key={index} className="overflow-hidden flex flex-col">
               <Image
                 src={study.imageUrl}
@@ -60,6 +91,14 @@ export default function CaseStudiesPage() {
             </Card>
           ))}
         </div>
+
+        {visibleCount < allCaseStudies.length && (
+          <div className="text-center mb-16">
+            <Button onClick={handleLoadMore} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              Load More
+            </Button>
+          </div>
+        )}
 
         <TestimonialsSection />
       </main>
