@@ -5,6 +5,7 @@ import WhyChooseUsSection from '@/components/sections/why-choose-us';
 import ToolsSection from '@/components/sections/tools';
 import TestimonialsSection from '@/components/sections/testimonials';
 import { FadeIn } from '@/components/fade-in';
+import RecentCaseStudiesSection from '@/components/sections/recent-case-studies';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <HeroSection />
         <FadeIn><WhyChooseUsSection /></FadeIn>
         <FadeIn><ToolsSection /></FadeIn>
+        <FadeIn><RecentCaseStudiesSection /></FadeIn>
         <FadeIn><TestimonialsSection /></FadeIn>
       </main>
       <Footer />
