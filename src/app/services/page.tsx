@@ -1,8 +1,9 @@
+
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import ServicesSection from '@/components/sections/services';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { LayoutPanelLeft, Palette, Cube } from 'lucide-react';
+import { LayoutPanelLeft, Palette, Box } from 'lucide-react';
 
 const devServices = [
     {
@@ -16,7 +17,7 @@ const devServices = [
         description: "Our UI/UX experts create intuitive and engaging user experiences that delight users and drive conversions."
     },
     {
-        icon: <Cube className="w-10 h-10 text-accent" />,
+        icon: <Box className="w-10 h-10 text-accent" />,
         title: "3D Model Design",
         description: "Leverage the power of three-dimensional design with our custom 3D modeling services for any application."
     }
