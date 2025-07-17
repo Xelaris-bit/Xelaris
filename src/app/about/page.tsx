@@ -1,9 +1,9 @@
 
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Image from 'next/image';
-import { CheckCircle, Eye, Handshake, Lightbulb, Users, ShieldCheck, Gauge, Rocket } from 'lucide-react';
+import { CheckCircle, Eye, Handshake, Lightbulb, Users, ShieldCheck, Gauge, Rocket, UserTie } from 'lucide-react';
 import WhyChooseUsSection from '@/components/sections/why-choose-us';
 import { FadeIn } from '@/components/fade-in';
 
@@ -28,6 +28,23 @@ const values = [
     title: 'Innovation',
     description: 'We constantly pursue new ideas and creative solutions to drive success and stay ahead in a dynamic industry.',
   },
+];
+
+const teamMembers = [
+  {
+    name: 'Anshuman',
+    role: 'CEO',
+    imageUrl: 'https://placehold.co/400x400.png',
+    aiHint: 'male portrait',
+    description: 'Visionary leader driving the company towards new frontiers of quality and innovation.'
+  },
+  {
+    name: 'Anurag',
+    role: 'CFO',
+    imageUrl: 'https://placehold.co/400x400.png',
+    aiHint: 'male portrait',
+    description: 'Financial strategist ensuring the company\'s sustainable growth and economic stability.'
+  }
 ];
 
 const journey = [
@@ -132,6 +149,40 @@ export default function AboutUsPage() {
                 </div>
             </div>
         </section>
+
+        {/* Our Core Team Section */}
+        <section className="py-16 md:py-24 bg-primary/5">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold">Our Core Team</h2>
+                    <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                        Meet the leaders driving our mission forward.
+                    </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
+                    {teamMembers.map((member) => (
+                        <Card key={member.name} className="overflow-hidden text-center hover:shadow-xl transition-shadow duration-300">
+                             <Image
+                                src={member.imageUrl}
+                                alt={`Portrait of ${member.name}`}
+                                width={400}
+                                height={400}
+                                className="w-full h-auto object-cover"
+                                data-ai-hint={member.aiHint}
+                            />
+                            <CardHeader>
+                                <CardTitle className="text-2xl">{member.name}</CardTitle>
+                                <CardDescription className="text-accent font-semibold">{member.role}</CardDescription>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">{member.description}</p>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </section>
+
 
         {/* Our Journey Section */}
         <section className="py-16 md:py-24 bg-secondary">
