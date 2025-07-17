@@ -34,14 +34,14 @@ const teamMembers = [
   {
     name: 'Anshuman',
     role: 'CEO',
-    imageUrl: 'https://placehold.co/400x400.png',
+    imageUrl: 'https://placehold.co/200x200.png',
     aiHint: 'male portrait',
     description: 'Visionary leader driving the company towards new frontiers of quality and innovation.'
   },
   {
     name: 'Anurag',
     role: 'CFO',
-    imageUrl: 'https://placehold.co/400x400.png',
+    imageUrl: 'https://placehold.co/200x200.png',
     aiHint: 'male portrait',
     description: 'Financial strategist ensuring the company\'s sustainable growth and economic stability.'
   }
@@ -161,13 +161,13 @@ export default function AboutUsPage() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
                     {teamMembers.map((member) => (
-                        <Card key={member.name} className="overflow-hidden text-center hover:shadow-xl transition-shadow duration-300">
+                        <Card key={member.name} className="overflow-hidden text-center hover:shadow-xl transition-shadow duration-300 flex flex-col items-center pt-8">
                              <Image
                                 src={member.imageUrl}
                                 alt={`Portrait of ${member.name}`}
-                                width={400}
-                                height={400}
-                                className="w-full h-auto object-cover"
+                                width={160}
+                                height={160}
+                                className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg"
                                 data-ai-hint={member.aiHint}
                             />
                             <CardHeader>
