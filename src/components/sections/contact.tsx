@@ -1,13 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { useFormState } from 'react-dom';
+import { useState, useEffect, useActionState, useTransition } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { handleContactForm } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 
@@ -23,15 +22,13 @@ const SubmitButton = ({ pending }: { pending: boolean }) => {
 const ContactSection = () => {
     const [isClient, setIsClient] = useState(false);
     const { toast } = useToast();
-    const [formState, formAction] = useFormState(handleContactForm, { error: null, data: null });
-    const [pending, setPending] = useState(false);
+    const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
     useEffect(() => {
-        setPending(false);
         if (formState.error) {
             const errorMessage = typeof formState.error === 'string'
                 ? formState.error
@@ -50,11 +47,6 @@ const ContactSection = () => {
             // Consider resetting the form here
         }
     }, [formState, toast]);
-
-    const handleSubmit = (formData: FormData) => {
-        setPending(true);
-        formAction(formData);
-    }
 
     if (!isClient) {
         return null;
@@ -115,7 +107,7 @@ const ContactSection = () => {
                             <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form action={handleSubmit} className="space-y-4">
+                            <form action={formAction} className="space-y-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Full Name</Label>
                                     <Input id="name" name="name" placeholder="John Doe" required />
@@ -132,7 +124,7 @@ const ContactSection = () => {
                                     <Label htmlFor="message">Message</Label>
                                     <Textarea id="message" name="message" placeholder="Your message here..." rows={5} required />
                                 </div>
-                                <SubmitButton pending={pending} />
+                                <SubmitButton pending={isPending} />
                             </form>
                         </CardContent>
                     </Card>
