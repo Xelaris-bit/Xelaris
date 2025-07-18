@@ -2,14 +2,14 @@ import Image from "next/image";
 import { Card } from "@/components/ui/card";
 
 const tools = [
-    { name: "Selenium", hint: "Selenium logo", src: "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=200" },
-    { name: "Appium", hint: "Appium logo", src: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=200" },
-    { name: "JMeter", hint: "JMeter logo", src: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?q=80&w=200" },
-    { name: "Postman", hint: "Postman logo", src: "https://images.unsplash.com/photo-1633355444132-695d58763b38?q=80&w=200" },
-    { name: "Cypress", hint: "Cypress logo", src: "https://images.unsplash.com/photo-1629661413938-e04e84386764?q=80&w=200" },
-    { name: "Playwright", hint: "Playwright logo", src: "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=200" },
-    { name: "TestRail", hint: "TestRail logo", src: "https://images.unsplash.com/photo-1529612700005-e35377bf1415?q=80&w=200" },
-    { name: "Jira", hint: "Jira logo", src: "https://images.unsplash.com/photo-1616469829935-c2f334623b83?q=80&w=200" },
+    { name: "Selenium", hint: "Selenium logo", src: "https://cdn.simpleicons.org/selenium/43B02A" },
+    { name: "Appium", hint: "Appium logo", src: "https://cdn.simpleicons.org/appium/" },
+    { name: "JMeter", hint: "JMeter logo", src: "https://cdn.simpleicons.org/apachejmeter/D22128" },
+    { name: "Postman", hint: "Postman logo", src: "https://cdn.simpleicons.org/postman/FF6C37" },
+    { name: "Cypress", hint: "Cypress logo", src: "https://cdn.simpleicons.org/cypress/" },
+    { name: "Playwright", hint: "Playwright logo", src: "https://cdn.simpleicons.org/playwright/2EAD33" },
+    { name: "TestRail", hint: "TestRail logo", src: "https://cdn.simpleicons.org/testrail/78C678" },
+    { name: "Jira", hint: "Jira logo", src: "https://cdn.simpleicons.org/jirasoftware/0052CC" },
 ];
 
 const ToolsSection = () => {
