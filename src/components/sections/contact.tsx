@@ -1,22 +1,63 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useFormState } from 'react-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { handleContactForm } from '@/app/actions';
+import { useToast } from '@/hooks/use-toast';
+
+const SubmitButton = ({ pending }: { pending: boolean }) => {
+    return (
+        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+            {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
+        </Button>
+    );
+};
+
 
 const ContactSection = () => {
     const [isClient, setIsClient] = useState(false);
+    const { toast } = useToast();
+    const [formState, formAction] = useFormState(handleContactForm, { error: null, data: null });
+    const [pending, setPending] = useState(false);
 
     useEffect(() => {
         setIsClient(true);
     }, []);
 
+    useEffect(() => {
+        setPending(false);
+        if (formState.error) {
+            const errorMessage = typeof formState.error === 'string'
+                ? formState.error
+                : Object.values(formState.error).flat().join(' ');
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: errorMessage,
+            });
+        }
+        if (formState.data) {
+            toast({
+                title: "Success!",
+                description: formState.data.message,
+            });
+            // Consider resetting the form here
+        }
+    }, [formState, toast]);
+
+    const handleSubmit = (formData: FormData) => {
+        setPending(true);
+        formAction(formData);
+    }
+
     if (!isClient) {
-        return null; // or a loading skeleton
+        return null;
     }
     
     return (
@@ -74,24 +115,24 @@ const ContactSection = () => {
                             <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form className="space-y-4">
+                            <form action={handleSubmit} className="space-y-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Full Name</Label>
-                                    <Input id="name" placeholder="John Doe" />
+                                    <Input id="name" name="name" placeholder="John Doe" required />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="email">Email Address</Label>
-                                    <Input id="email" type="email" placeholder="john.doe@example.com" />
+                                    <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="subject">Subject</Label>
-                                    <Input id="subject" placeholder="e.g., Automation Testing Quote" />
+                                    <Input id="subject" name="subject" placeholder="e.g., Automation Testing Quote" required />
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="message">Message</Label>
-                                    <Textarea id="message" placeholder="Your message here..." rows={5} />
+                                    <Textarea id="message" name="message" placeholder="Your message here..." rows={5} required />
                                 </div>
-                                <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">Send Message</Button>
+                                <SubmitButton pending={pending} />
                             </form>
                         </CardContent>
                     </Card>
