@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
@@ -63,7 +63,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild>
                 <Link href="/contact">Get a Free Quote</Link>
             </Button>
         </div>
@@ -77,6 +77,9 @@ const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col p-6 space-y-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
                   <Logo className="h-7 w-7" />
@@ -89,7 +92,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </nav>
-                 <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                 <Button asChild className="w-full">
                     <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
                 </Button>
               </div>
