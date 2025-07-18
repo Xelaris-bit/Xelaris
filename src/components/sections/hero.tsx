@@ -5,9 +5,20 @@ import { MoveDown } from 'lucide-react';
 
 const HeroSection = () => {
     return (
-        <section id="home" className="relative h-screen flex items-center justify-center text-white">
-            <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920)', filter: 'brightness(0.4)'}} data-ai-hint="software development"></div>
-             <div className="absolute inset-0 bg-primary/60"></div>
+        <section id="home" className="relative h-screen flex items-center justify-center text-white overflow-hidden">
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute z-0 w-full h-full object-cover"
+                poster="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920"
+            >
+                {/* Video by Tima Miroshnichenko: https://www.pexels.com/video/a-man-in-black-shirt-typing-on-his-keyboard-7578539/ */}
+                <source src="https://videos.pexels.com/video-files/7578539/7578539-hd_1920_1080_25fps.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+             <div className="absolute inset-0 bg-primary/70"></div>
             
             <div className="relative z-10 text-center px-4">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-4 animate-fade-in-down">
@@ -27,7 +38,7 @@ const HeroSection = () => {
             </div>
 
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-                <Link href="/about" aria-label="Scroll down">
+                <Link href="/#why-us" aria-label="Scroll down">
                     <div className="animate-bounce text-accent text-4xl">
                       <MoveDown className="w-10 h-10" />
                     </div>
