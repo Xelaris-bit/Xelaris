@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Rocket, Award, Clock, FolderKanban } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
 import { ShieldCheck, Gauge, CheckCircle } from "lucide-react";
+import { FadeIn } from "../fade-in";
 
 const benefits = [
     {
@@ -135,18 +136,20 @@ const WhyChooseUsSection = () => {
                     <div className="hidden md:block absolute top-5 left-1/2 w-0.5 h-[calc(100%-2.5rem)] bg-border -translate-x-1/2"></div>
 
                     {differentiators.map((item, index) => (
-                        <div key={index} className={`relative flex items-center mb-12 md:mb-0 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                            <div className="hidden md:block absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                               <CheckCircle className="h-10 w-10 text-accent p-2 bg-secondary rounded-full border-4 border-secondary"/>
-                            </div>
-                            <div className={`md:w-5/12 p-6 rounded-lg shadow-lg bg-background ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                                <div className="flex items-center gap-4">
-                                     <span className="text-5xl font-bold text-primary/20">{item.number}</span>
-                                     <h3 className="text-xl font-semibold">{item.title}</h3>
+                        <FadeIn key={index}>
+                            <div className={`relative flex items-center mb-12 md:mb-0 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                                <div className="hidden md:block absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <CheckCircle className="h-10 w-10 text-accent p-2 bg-secondary rounded-full border-4 border-secondary"/>
                                 </div>
-                                <p className="text-muted-foreground mt-2 pl-16">{item.description}</p>
+                                <div className={`md:w-5/12 p-6 rounded-lg shadow-lg bg-background ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
+                                    <div className="flex items-center gap-4">
+                                        <span className="text-5xl font-bold text-primary/20">{item.number}</span>
+                                        <h3 className="text-xl font-semibold">{item.title}</h3>
+                                    </div>
+                                    <p className="text-muted-foreground mt-2 pl-16">{item.description}</p>
+                                </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
                 </div>
             </div>
