@@ -39,7 +39,7 @@ const Header = () => {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-0 font-bold text-2xl text-primary">
           <Logo className="h-8 w-8" />
-          <span className="font-headline">elaris</span>
+          <span className="font-headline -ml-2">elaris</span>
         </Link>
         
         <nav className="hidden lg:flex items-center gap-6">
@@ -83,7 +83,7 @@ const Header = () => {
               <div className="flex flex-col p-6 space-y-6">
                 <Link href="/" className="flex items-center gap-0 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
                   <Logo className="h-7 w-7" />
-                  <span className="font-headline">elaris</span>
+                  <span className="font-headline -ml-2">elaris</span>
                 </Link>
                 <nav className="flex flex-col items-start gap-4">
                   {navLinks.map((link) => (
