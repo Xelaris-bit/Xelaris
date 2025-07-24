@@ -2,22 +2,17 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MoveDown } from 'lucide-react';
+import { Player } from '@lottiefiles/react-lottie-player';
 
 const HeroSection = () => {
     return (
         <section id="home" className="relative h-screen flex items-center justify-center text-white overflow-hidden">
-            <video
-                autoPlay
+            <Player
+                autoplay
                 loop
-                muted
-                playsInline
+                src="https://lottie.host/0f2504c3-13ac-4d3e-86db-4f5e5d3a5058/3X3Q7gJ2QJ.json"
                 className="absolute z-0 w-full h-full object-cover"
-                poster="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1920"
-            >
-                {/* Video by Tima Miroshnichenko: https://www.pexels.com/video/a-man-in-black-shirt-typing-on-his-keyboard-7578539/ */}
-                <source src="https://videos.pexels.com/video-files/7578539/7578539-hd_1920_1080_25fps.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            />
              <div className="absolute inset-0 bg-primary/70"></div>
             
             <div className="relative z-10 text-center px-4">
