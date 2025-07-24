@@ -1,3 +1,4 @@
+// This component is not used anymore.
 'use client';
 
 import { useState, useEffect } from 'react';

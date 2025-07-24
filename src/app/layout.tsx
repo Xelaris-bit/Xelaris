@@ -2,7 +2,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils"
-import ScrollProgress from '@/components/scroll-progress';
 
 export const metadata: Metadata = {
   title: 'Xelaris: Software Testing Excellence',
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body className={cn(
         "min-h-screen bg-background font-body text-foreground antialiased"
       )}>
-        <ScrollProgress />
         {children}
         <Toaster />
       </body>
