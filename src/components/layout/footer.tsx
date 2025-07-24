@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4 items-start">
              <Link href="/" className="flex items-center gap-2 font-bold text-2xl">
                 <Logo className="h-8 w-8 text-accent" />
-                <span className="font-headline">Xelaris</span>
+                <span className="font-headline">elaris</span>
             </Link>
             <p className="text-sm text-secondary-foreground/80">Xelaris a Leading QA Company Providing Top-Tier Software Testing Solutions.</p>
             <div className="flex space-x-4">
