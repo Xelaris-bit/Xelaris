@@ -37,7 +37,7 @@ const Header = () => {
       isScrolled ? "bg-background/80 backdrop-blur-sm shadow-md" : "bg-transparent"
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-2xl text-primary">
+        <Link href="/" className="flex items-center gap-1 font-bold text-2xl text-primary">
           <Logo className="h-8 w-8" />
           <span className="font-headline">elaris</span>
         </Link>
@@ -81,7 +81,7 @@ const Header = () => {
                 <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col p-6 space-y-6">
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/" className="flex items-center gap-1 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
                   <Logo className="h-7 w-7" />
                   <span className="font-headline">elaris</span>
                 </Link>
