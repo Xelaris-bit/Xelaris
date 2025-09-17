@@ -24,16 +24,22 @@ export default function ContactForm() {
     const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
     const [formKey, setFormKey] = useState(1);
     const [emailValue, setEmailValue] = useState('');
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
 
     const emailSchema = z.string().email();
 
     const emailValidation = useMemo(() => {
-        if (emailValue === '') {
-            return { isValid: null }; // No validation state if empty
+        if (!isMounted || emailValue === '') {
+            return { isValid: null }; // No validation state if not mounted or empty
         }
         const result = emailSchema.safeParse(emailValue);
         return { isValid: result.success };
-    }, [emailValue, emailSchema]);
+    }, [emailValue, emailSchema, isMounted]);
 
 
     useEffect(() => {
