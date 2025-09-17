@@ -40,8 +40,8 @@ export async function handleContactForm(prevState: any, formData: FormData) {
     try {
         const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
-            from: 'Xelaris Contact Form <contact@xelaris.com>',
-            to: 'contact.xelaris@gmail.com',
+            from: 'Xelaris Contact Form <onboarding@resend.dev>',
+            to: 'anshumanseoczar+resend@gmail.com',
             subject: `New Contact Form Submission: ${subject}`,
             reply_to: email,
             html: `
