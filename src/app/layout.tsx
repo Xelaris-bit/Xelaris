@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils"
 import { ScrollProgress } from '@/components/scroll-progress';
 import ContactFABs from '@/components/contact-fabs';
+import ScrollToTopButton from '@/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
   title: 'Xelaris: Software Testing Excellence',
@@ -29,6 +30,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <ContactFABs />
+        <ScrollToTopButton />
       </body>
     </html>
   );
