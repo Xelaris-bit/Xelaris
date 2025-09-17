@@ -15,7 +15,7 @@ import { cn } from '@/lib/utils';
 
 const SubmitButton = ({ pending }: { pending: boolean }) => {
     return (
-        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/ho >
+        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
             {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
         </Button>
     );
