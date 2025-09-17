@@ -24,7 +24,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className={cn(
-        "min-h-screen bg-background font-body text-foreground antialiased"
+        "min-h-screen bg-background font-body text-foreground antialiased overflow-x-hidden"
       )}>
         <ScrollProgress />
         {children}
