@@ -21,7 +21,7 @@ const quotes = [
 ];
 
 export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onOpen?: () => void }) {
-  const [currentQuote, setCurrentQuote] = useState({ quote: '', author: '' });
+  const [currentQuote, setCurrentQuote] = useState<{ quote: string; author: string } | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   // This should only run on the client after hydration
@@ -52,10 +52,16 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">A Quote for You</h4>
-             <blockquote className="text-sm italic text-accent-foreground/80">
-              &ldquo;{currentQuote.quote}&rdquo;
-            </blockquote>
-            <cite className="block text-right text-xs not-italic text-accent-foreground/60">&mdash; {currentQuote.author}</cite>
+            {currentQuote ? (
+              <>
+                <blockquote className="text-sm italic text-accent-foreground/80">
+                  &ldquo;{currentQuote.quote}&rdquo;
+                </blockquote>
+                <cite className="block text-right text-xs not-italic text-accent-foreground/60">&mdash; {currentQuote.author}</cite>
+              </>
+            ) : (
+                <div className="text-sm text-accent-foreground/80">Loading quote...</div>
+            )}
           </div>
         </div>
       </PopoverContent>
