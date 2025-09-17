@@ -51,9 +51,9 @@ const Header = () => {
                 key={link.href} 
                 href={link.href} 
                 className={cn(
-                  "text-sm font-medium transition-colors",
+                  "relative text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100",
                   isActive 
-                    ? "text-primary" 
+                    ? "text-primary after:scale-x-100 after:origin-bottom-left" 
                     : "text-foreground/60 hover:text-primary"
                 )}
               >
