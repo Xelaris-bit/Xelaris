@@ -3,7 +3,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Image from 'next/image';
-import { CheckCircle, Eye, Handshake, Lightbulb, Users, ShieldCheck, Gauge, Rocket, UserTie } from 'lucide-react';
+import { CheckCircle, Eye, Handshake, Lightbulb, Users, ShieldCheck, User } from 'lucide-react';
 import WhyChooseUsSection from '@/components/sections/why-choose-us';
 import { FadeIn } from '@/components/fade-in';
 
@@ -34,15 +34,11 @@ const teamMembers = [
   {
     name: 'Anshuman',
     role: 'CEO',
-    imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600',
-    aiHint: 'male portrait',
     description: 'Visionary leader driving the company towards new frontiers of quality and innovation.'
   },
   {
     name: 'Anurag',
     role: 'CFO',
-    imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600',
-    aiHint: 'male portrait',
     description: 'Financial strategist ensuring the company\'s sustainable growth and economic stability.'
   }
 ];
@@ -162,14 +158,9 @@ export default function AboutUsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
                     {teamMembers.map((member) => (
                         <Card key={member.name} className="overflow-hidden text-center hover:shadow-xl transition-shadow duration-300 flex flex-col items-center p-8">
-                            <Image
-                                src={member.imageUrl}
-                                alt={`Photo of ${member.name}`}
-                                width={128}
-                                height={128}
-                                className="w-32 h-32 rounded-full mb-6 object-cover"
-                                data-ai-hint={member.aiHint}
-                            />
+                            <div className="w-32 h-32 rounded-full mb-6 bg-muted flex items-center justify-center">
+                                <User className="w-16 h-16 text-muted-foreground" />
+                            </div>
                             <CardHeader>
                                 <CardTitle className="text-2xl">{member.name}</CardTitle>
                                 <CardDescription className="text-accent font-semibold">{member.role}</CardDescription>
