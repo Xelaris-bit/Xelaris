@@ -44,7 +44,7 @@ const ContactFABs = () => {
             ))}
             <Button
                 size="icon"
-                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-transform duration-200 hover:scale-110 hover:shadow-2xl"
+                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
             >
