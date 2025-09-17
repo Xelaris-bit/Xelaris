@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex flex-col gap-4 items-start md:max-w-xs">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="flex flex-col gap-4 items-start md:col-span-1">
              <Link href="/" className="flex items-center gap-0 font-bold text-2xl">
                 <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline -ml-1">elaris</span>
@@ -19,7 +19,7 @@ const Footer = () => {
               <Link href="#" aria-label="LinkedIn" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Linkedin /></Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:col-span-3">
             <div>
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-3 antialiased">
