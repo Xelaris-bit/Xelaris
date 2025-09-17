@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
-              <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased">
+              <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased break-words">
                   <li>89, Kulasukarpada, Cuttack City, 754209</li>
                   <li><a href="mailto:contact.xelaris@gmail.com" className="hover:text-accent transition-colors">contact.xelaris@gmail.com</a></li>
                   <li><a href="tel:+919776198414" className="hover:text-accent transition-colors">+91 9776198414</a></li>
