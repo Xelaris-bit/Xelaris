@@ -3,8 +3,6 @@
 import { z } from 'zod';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const ContactFormSchema = z.object({
   name: z.string().min(1, { message: 'Name is required.' }),
   email: z.string().email({ message: 'A valid email is required.' }),
@@ -33,12 +31,14 @@ export async function handleContactForm(prevState: any, formData: FormData) {
     if (!process.env.RESEND_API_KEY) {
         console.error('Resend API key is not configured.');
         return {
-            message: "Sorry, we couldn't send your message at this time. Please try again later.",
+            message: "Sorry, we couldn't send your message at this time. The service is not configured.",
             success: false,
+            errors: {},
         };
     }
 
     try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
             from: 'onboarding@resend.dev', // You can use this for testing
             to: 'contact.xelaris@gmail.com',
