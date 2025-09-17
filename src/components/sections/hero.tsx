@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MoveDown } from 'lucide-react';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { QuoteDialog } from '@/components/quote-dialog';
 
 const HeroSection = () => {
     return (
@@ -26,9 +27,11 @@ const HeroSection = () => {
                     <Button asChild size="lg" variant="secondary" className="bg-white/90 text-primary hover:bg-white">
                         <Link href="/services">Explore Services</Link>
                     </Button>
-                    <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                        <Link href="/contact">Get a Free Quote</Link>
-                    </Button>
+                    <QuoteDialog trigger={
+                        <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                           Get Quotes
+                        </Button>
+                    } />
                 </div>
             </div>
 

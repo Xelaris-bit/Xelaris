@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/co
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
+import { QuoteDialog } from '@/components/quote-dialog';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -63,9 +64,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-            <Button asChild>
-                <Link href="/contact">Get a Free Quote</Link>
-            </Button>
+            <QuoteDialog trigger={<Button>Get Quotes</Button>} />
         </div>
 
         <div className="lg:hidden">
@@ -92,9 +91,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </nav>
-                 <Button asChild className="w-full">
-                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Get a Free Quote</Link>
-                </Button>
+                 <QuoteDialog trigger={<Button className="w-full">Get Quotes</Button>} onOpen={() => setIsMobileMenuOpen(false)} />
               </div>
             </SheetContent>
           </Sheet>
