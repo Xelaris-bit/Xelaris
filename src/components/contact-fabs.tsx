@@ -25,17 +25,11 @@ const ContactFABs = () => {
                 <div 
                     key={index}
                     className={cn(
-                        'transition-all duration-300 ease-in-out flex items-center gap-3',
+                        'transition-all duration-300 ease-in-out',
                         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
                     )}
                     style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
                 >
-                    <span className={cn(
-                         'bg-card text-card-foreground text-sm font-medium py-1 px-3 rounded-md shadow-lg transition-opacity duration-300',
-                         isOpen ? 'opacity-100' : 'opacity-0'
-                    )}>
-                        {action.label}
-                    </span>
                     <Button
                         asChild
                         size="icon"
