@@ -62,6 +62,11 @@ export async function handleContactForm(
         data: null,
       };
     }
+
+    if (!process.env.RESEND_API_KEY) {
+        console.error('Resend API key is not configured.');
+        return { error: 'The email service is not configured. Please contact support.', data: null };
+    }
     
     // Process form with Genkit AI
     const aiResult = await processContactForm(validatedFields.data);
