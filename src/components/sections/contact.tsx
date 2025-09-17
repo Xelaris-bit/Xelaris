@@ -25,7 +25,7 @@ const SubmitButton = ({ pending }: { pending: boolean }) => {
 const ContactSection = () => {
     const { toast } = useToast();
     const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
-    const [formKey, setFormKey] = useState(Date.now());
+    const [formKey, setFormKey] = useState(1);
     const [emailValue, setEmailValue] = useState('');
 
     const emailSchema = z.string().email();
@@ -56,7 +56,7 @@ const ContactSection = () => {
                 description: formState.data.message,
             });
             // Reset the form by changing the key
-            setFormKey(Date.now());
+            setFormKey(prevKey => prevKey + 1);
             setEmailValue('');
         }
     }, [formState, toast]);
