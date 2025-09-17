@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { MessageSquare, Mail, Phone, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const ContactFABs = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +20,18 @@ const ContactFABs = () => {
         { icon: <Phone className="w-6 h-6" />, href: `tel:${phone}`, label: 'Call', className: 'bg-[#4285F4] hover:bg-[#4285F4]/90 text-white' },
     ];
 
+    const handleMainButtonClick = (e: React.MouseEvent) => {
+        // This function will only be called if the button was not dragged.
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4">
+        <motion.div
+            drag
+            dragMomentum={false} // Disables the "flick" effect
+            whileDrag={{ scale: 1.05, cursor: 'grabbing' }}
+            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4"
+        >
             {fabActions.map((action, index) => (
                 <div 
                     key={index}
@@ -44,8 +55,8 @@ const ContactFABs = () => {
             ))}
             <Button
                 size="icon"
-                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl"
-                onClick={() => setIsOpen(!isOpen)}
+                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl cursor-grab"
+                onPointerUp={handleMainButtonClick}
                 aria-expanded={isOpen}
             >
                 <div className="relative w-8 h-8 flex items-center justify-center">
@@ -54,7 +65,7 @@ const ContactFABs = () => {
                 </div>
                 <span className="sr-only">{isOpen ? 'Close contact options' : 'Open contact options'}</span>
             </Button>
-        </div>
+        </motion.div>
     );
 };
 
