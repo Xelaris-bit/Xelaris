@@ -6,8 +6,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import { Button } from './ui/button';
-import { RefreshCw } from 'lucide-react';
 
 const quotes = [
   { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
@@ -39,7 +37,6 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
     if (open) {
-        selectRandomQuote();
         if (onOpen) {
             onOpen();
         }
@@ -61,9 +58,6 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
             </blockquote>
             <cite className="block text-right text-xs not-italic text-muted-foreground">&mdash; {currentQuote.author}</cite>
           </div>
-          <Button variant="outline" size="sm" onClick={selectRandomQuote} className="w-full justify-start">
-              <RefreshCw className="mr-2 h-4 w-4" /> Another One
-          </Button>
         </div>
       </PopoverContent>
     </Popover>
