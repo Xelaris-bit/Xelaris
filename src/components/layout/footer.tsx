@@ -23,7 +23,7 @@ const Footer = () => {
             <div>
               <h4 className="font-semibold text-lg mb-4 relative">
                 Quick Links
-                <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                <span className="absolute left-0 -bottom-1 h-1 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
               <ul className="space-y-3 antialiased pt-2">
                 <li><Link href="/about" className="hover:text-accent transition-colors text-sm">About Us</Link></li>
@@ -36,7 +36,7 @@ const Footer = () => {
             <div>
                <h4 className="font-semibold text-lg mb-4 relative">
                 Resources
-                <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                <span className="absolute left-0 -bottom-1 h-1 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
               <ul className="space-y-3 antialiased pt-2">
                   <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
@@ -47,7 +47,7 @@ const Footer = () => {
             <div>
                <h4 className="font-semibold text-lg mb-4 relative">
                 Contact
-                 <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                 <span className="absolute left-0 -bottom-1 h-1 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
               <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased pt-2 break-words">
                   <li>89, Kulasukarpada, Cuttack City, 754209</li>
