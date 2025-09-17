@@ -53,7 +53,7 @@ const Header = () => {
                 className={cn(
                   "relative text-sm font-medium transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100",
                   isActive 
-                    ? "text-primary after:scale-x-100 after:origin-bottom-left" 
+                    ? "text-primary" 
                     : "text-foreground/60 hover:text-primary"
                 )}
               >
