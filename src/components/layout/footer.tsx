@@ -21,11 +21,11 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:col-span-7">
             <div>
-              <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
-                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+              <h4 className="font-semibold text-lg mb-4 relative">
                 Quick Links
+                <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
-              <ul className="space-y-3 antialiased">
+              <ul className="space-y-3 antialiased pt-2">
                 <li><Link href="/about" className="hover:text-accent transition-colors text-sm">About Us</Link></li>
                 <li><Link href="/services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
                 <li><Link href="/case-studies" className="hover:text-accent transition-colors text-sm">Case Studies</Link></li>
@@ -34,22 +34,22 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-               <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
-                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+               <h4 className="font-semibold text-lg mb-4 relative">
                 Resources
+                <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
-              <ul className="space-y-3 antialiased">
+              <ul className="space-y-3 antialiased pt-2">
                   <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
                   <li><a href="#" className="hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
                   <li><a href="#" className="hover:text-accent transition-colors text-sm">Terms of Service</a></li>
               </ul>
             </div>
             <div>
-               <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
-                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+               <h4 className="font-semibold text-lg mb-4 relative">
                 Contact
+                 <span className="absolute left-0 -bottom-1 h-0.5 w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
-              <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased break-words">
+              <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased pt-2 break-words">
                   <li>89, Kulasukarpada, Cuttack City, 754209</li>
                   <li><a href="mailto:contact.xelaris@gmail.com" className="hover:text-accent transition-colors">contact.xelaris@gmail.com</a></li>
                   <li><a href="tel:+919776198414" className="hover:text-accent transition-colors">+91 9776198414</a></li>
