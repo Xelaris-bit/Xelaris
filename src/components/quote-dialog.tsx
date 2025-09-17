@@ -24,13 +24,12 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
   const [currentQuote, setCurrentQuote] = useState({ quote: '', author: '' });
   const [isOpen, setIsOpen] = useState(false);
 
-  const selectRandomQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
-  };
-  
-  // Set initial quote
+  // This should only run on the client after hydration
   useEffect(() => {
+    const selectRandomQuote = () => {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      setCurrentQuote(quotes[randomIndex]);
+    };
     selectRandomQuote();
   }, []);
 
@@ -49,14 +48,14 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
       <PopoverTrigger asChild>
         {trigger}
       </PopoverTrigger>
-      <PopoverContent side="left" className="w-80">
+      <PopoverContent side="left" className="w-80 bg-primary text-primary-foreground border-primary-foreground/20">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">A Quote for You</h4>
-             <blockquote className="text-sm italic text-muted-foreground">
+             <blockquote className="text-sm italic text-primary-foreground/80">
               &ldquo;{currentQuote.quote}&rdquo;
             </blockquote>
-            <cite className="block text-right text-xs not-italic text-muted-foreground">&mdash; {currentQuote.author}</cite>
+            <cite className="block text-right text-xs not-italic text-primary-foreground/60">&mdash; {currentQuote.author}</cite>
           </div>
         </div>
       </PopoverContent>
