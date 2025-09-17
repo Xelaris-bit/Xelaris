@@ -20,7 +20,7 @@ const ContactFABs = () => {
     ];
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4">
             {fabActions.map((action, index) => (
                 <div 
                     key={index}
@@ -33,7 +33,7 @@ const ContactFABs = () => {
                     <Button
                         asChild
                         size="icon"
-                        className={cn("rounded-full w-14 h-14 shadow-lg", action.className)}
+                        className={cn("rounded-full w-14 h-14 shadow-lg transition-transform duration-200 hover:scale-110 hover:shadow-xl", action.className)}
                         aria-label={action.label}
                     >
                         <Link href={action.href} target="_blank" rel="noopener noreferrer">
@@ -44,11 +44,14 @@ const ContactFABs = () => {
             ))}
             <Button
                 size="icon"
-                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl"
+                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl transition-transform duration-200 hover:scale-110 hover:shadow-2xl"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-expanded={isOpen}
             >
-                {isOpen ? <X className="w-8 h-8 transition-transform duration-300 rotate-90" /> : <MessageSquare className="w-8 h-8 transition-transform duration-300" />}
+                <div className="relative w-8 h-8 flex items-center justify-center">
+                    <X className={cn("w-8 h-8 transition-all duration-300 absolute", isOpen ? 'transform rotate-0 opacity-100' : 'transform -rotate-90 opacity-0')} />
+                    <MessageSquare className={cn("w-8 h-8 transition-all duration-300 absolute", isOpen ? 'transform rotate-90 opacity-0' : 'transform rotate-0 opacity-100')} />
+                </div>
                 <span className="sr-only">{isOpen ? 'Close contact options' : 'Open contact options'}</span>
             </Button>
         </div>
