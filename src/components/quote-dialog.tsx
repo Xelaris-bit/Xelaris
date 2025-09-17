@@ -2,14 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
-} from '@/components/ui/dialog';
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 import { Button } from './ui/button';
 import { RefreshCw } from 'lucide-react';
 
@@ -34,47 +30,42 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
   };
-
-  // Select a quote when the component mounts and when the dialog opens
-  useEffect(() => {
-    if (isOpen) {
-        selectRandomQuote();
-        if (onOpen) {
-            onOpen();
-        }
-    }
-  }, [isOpen]);
   
   // Set initial quote
   useEffect(() => {
     selectRandomQuote();
   }, []);
 
+  const handleOpenChange = (open: boolean) => {
+    setIsOpen(open);
+    if (open) {
+        selectRandomQuote();
+        if (onOpen) {
+            onOpen();
+        }
+    }
+  };
+
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
+    <Popover open={isOpen} onOpenChange={handleOpenChange}>
+      <PopoverTrigger asChild>
         {trigger}
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>A Quote for You</DialogTitle>
-        </DialogHeader>
-        <div className="py-4 text-center">
-            <blockquote className="text-lg italic">
+      </PopoverTrigger>
+      <PopoverContent side="left" className="w-80">
+        <div className="grid gap-4">
+          <div className="space-y-2">
+            <h4 className="font-medium leading-none">A Quote for You</h4>
+             <blockquote className="text-sm italic text-muted-foreground">
               &ldquo;{currentQuote.quote}&rdquo;
             </blockquote>
-            <cite className="block text-right mt-2 not-italic text-muted-foreground">&mdash; {currentQuote.author}</cite>
+            <cite className="block text-right text-xs not-italic text-muted-foreground">&mdash; {currentQuote.author}</cite>
+          </div>
+          <Button variant="outline" size="sm" onClick={selectRandomQuote} className="w-full justify-start">
+              <RefreshCw className="mr-2 h-4 w-4" /> Another One
+          </Button>
         </div>
-        <DialogFooter>
-            <Button variant="outline" onClick={selectRandomQuote}>
-                <RefreshCw className="mr-2 h-4 w-4" /> Another One
-            </Button>
-            <DialogClose asChild>
-                <Button>Close</Button>
-            </DialogClose>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      </PopoverContent>
+    </Popover>
   );
 }
