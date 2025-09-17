@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils"
 import { ScrollProgress } from '@/components/scroll-progress';
+import WhatsAppFAB from '@/components/whatsapp-fab';
 
 export const metadata: Metadata = {
   title: 'Xelaris: Software Testing Excellence',
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ScrollProgress />
         {children}
         <Toaster />
+        <WhatsAppFAB />
       </body>
     </html>
   );

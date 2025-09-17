@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useActionState, useTransition } from 'react';
+import { useState, useEffect, useActionState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,7 @@ const ContactSection = () => {
     const [isClient, setIsClient] = useState(false);
     const { toast } = useToast();
     const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
+    const [formKey, setFormKey] = useState(Date.now());
 
     useEffect(() => {
         setIsClient(true);
@@ -44,7 +45,8 @@ const ContactSection = () => {
                 title: "Success!",
                 description: formState.data.message,
             });
-            // Consider resetting the form here
+            // Reset the form by changing the key
+            setFormKey(Date.now());
         }
     }, [formState, toast]);
 
@@ -79,7 +81,7 @@ const ContactSection = () => {
                                 <Mail className="h-6 w-6 text-accent mt-1" />
                                 <div>
                                     <h4 className="font-semibold">Email Us</h4>
-                                    <a href="mailto:contact@xelaris.com" className="text-muted-foreground hover:text-primary">contact@xelaris.com</a>
+                                    <a href="mailto:contact.xelaris@gmail.com" className="text-muted-foreground hover:text-primary">contact.xelaris@gmail.com</a>
                                 </div>
                             </div>
                              <div className="flex items-start gap-4">
@@ -107,7 +109,7 @@ const ContactSection = () => {
                             <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <form action={formAction} className="space-y-4">
+                            <form key={formKey} action={formAction} className="space-y-4">
                                 <div className="space-y-2">
                                     <Label htmlFor="name">Full Name</Label>
                                     <Input id="name" name="name" placeholder="John Doe" required />

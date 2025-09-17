@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex flex-col gap-4 items-start">
              <Link href="/" className="flex items-center gap-0 font-bold text-2xl">
                 <Logo className="h-8 w-8 text-accent" />
-                <span className="font-headline">elaris</span>
+                <span className="font-headline -ml-1">elaris</span>
             </Link>
             <p className="text-sm text-secondary-foreground/80 antialiased">Xelaris a Leading QA Company Providing Top-Tier Software Testing Solutions.</p>
             <div className="flex space-x-4">
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
           <div className="md:pl-[50px]">
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 antialiased">
               <li><Link href="/about" className="hover:text-accent transition-colors text-sm">About Us</Link></li>
               <li><Link href="/services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
               <li><Link href="/case-studies" className="hover:text-accent transition-colors text-sm">Case Studies</Link></li>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className="md:pl-[50px]">
             <h4 className="font-semibold text-lg mb-4">Resources</h4>
-            <ul className="space-y-3">
+            <ul className="space-y-3 antialiased">
                 <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
                 <li><a href="#" className="hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
                 <li><a href="#" className="hover:text-accent transition-colors text-sm">Terms of Service</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
             <h4 className="font-semibold text-lg mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased">
                 <li>89, Kulasukarpada, Cuttack City, 754209</li>
-                <li><a href="mailto:contact@xelaris.com" className="hover:text-accent transition-colors">contact@xelaris.com</a></li>
+                <li><a href="mailto:contact.xelaris@gmail.com" className="hover:text-accent transition-colors">contact.xelaris@gmail.com</a></li>
                 <li><a href="tel:+919776198414" className="hover:text-accent transition-colors">+91 9776198414</a></li>
             </ul>
           </div>
