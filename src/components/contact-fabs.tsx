@@ -14,19 +14,19 @@ const ContactFABs = () => {
     const whatsappLink = `https://wa.me/${phone.replace('+', '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
     const fabActions = [
-        { icon: <MessageSquare className="w-6 h-6" />, href: whatsappLink, label: 'WhatsApp' },
-        { icon: <Mail className="w-6 h-6" />, href: `mailto:${email}`, label: 'Email' },
-        { icon: <Phone className="w-6 h-6" />, href: `tel:${phone}`, label: 'Call' },
+        { icon: <MessageSquare className="w-6 h-6" />, href: whatsappLink, label: 'WhatsApp', className: 'bg-[#25D366] hover:bg-[#25D366]/90 text-white' },
+        { icon: <Mail className="w-6 h-6" />, href: `mailto:${email}`, label: 'Email', className: 'bg-[#EA4335] hover:bg-[#EA4335]/90 text-white' },
+        { icon: <Phone className="w-6 h-6" />, href: `tel:${phone}`, label: 'Call', className: 'bg-[#4285F4] hover:bg-[#4285F4]/90 text-white' },
     ];
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4">
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
             {fabActions.map((action, index) => (
                 <div 
                     key={index}
                     className={cn(
                         'transition-all duration-300 ease-in-out flex items-center gap-3',
-                        isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+                        isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
                     )}
                     style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
                 >
@@ -39,7 +39,7 @@ const ContactFABs = () => {
                     <Button
                         asChild
                         size="icon"
-                        className="rounded-full w-14 h-14 bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-lg"
+                        className={cn("rounded-full w-14 h-14 shadow-lg", action.className)}
                         aria-label={action.label}
                     >
                         <Link href={action.href} target="_blank" rel="noopener noreferrer">
