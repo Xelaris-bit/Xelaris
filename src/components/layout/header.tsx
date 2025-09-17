@@ -88,7 +88,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </nav>
-                 <QuoteDialog trigger={<Button className="w-full">Get Quotes</Button>} onOpen={() => setIsMobileMenuOpen(false)} />
+                 <QuoteDialog trigger={<Button className="w-full">Get Quotes</Button>} />
               </div>
             </SheetContent>
           </Sheet>
