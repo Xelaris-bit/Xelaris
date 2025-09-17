@@ -1,18 +1,21 @@
+
 'use client';
-import { useState, useEffect, useActionState } from 'react';
+import { useState, useEffect, useActionState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, Check, X } from "lucide-react";
 import { handleContactForm } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
+import { z } from 'zod';
+import { cn } from '@/lib/utils';
 
 const SubmitButton = ({ pending }: { pending: boolean }) => {
     return (
-        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/ho >
             {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
         </Button>
     );
@@ -20,14 +23,21 @@ const SubmitButton = ({ pending }: { pending: boolean }) => {
 
 
 const ContactSection = () => {
-    const [isClient, setIsClient] = useState(false);
     const { toast } = useToast();
     const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
     const [formKey, setFormKey] = useState(Date.now());
+    const [emailValue, setEmailValue] = useState('');
 
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
+    const emailSchema = z.string().email();
+
+    const emailValidation = useMemo(() => {
+        if (emailValue === '') {
+            return { isValid: null }; // No validation state if empty
+        }
+        const result = emailSchema.safeParse(emailValue);
+        return { isValid: result.success };
+    }, [emailValue, emailSchema]);
+
 
     useEffect(() => {
         if (formState.error) {
@@ -47,12 +57,13 @@ const ContactSection = () => {
             });
             // Reset the form by changing the key
             setFormKey(Date.now());
+            setEmailValue('');
         }
     }, [formState, toast]);
 
-    if (!isClient) {
-        return null;
-    }
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmailValue(e.target.value);
+    };
     
     return (
         <section id="contact" className="w-full py-16 md:py-24 bg-secondary">
@@ -114,9 +125,27 @@ const ContactSection = () => {
                                     <Label htmlFor="name">Full Name</Label>
                                     <Input id="name" name="name" placeholder="John Doe" required />
                                 </div>
-                                <div className="space-y-2">
+                                <div className="space-y-2 relative">
                                     <Label htmlFor="email">Email Address</Label>
-                                    <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
+                                    <Input 
+                                        id="email" 
+                                        name="email" 
+                                        type="email" 
+                                        placeholder="john.doe@example.com" 
+                                        required 
+                                        value={emailValue}
+                                        onChange={handleEmailChange}
+                                        className={cn({
+                                            'border-green-500 focus-visible:ring-green-500': emailValidation.isValid === true,
+                                            'border-red-500 focus-visible:ring-red-500': emailValidation.isValid === false,
+                                        })}
+                                    />
+                                    {emailValidation.isValid === true && (
+                                        <Check className="absolute right-3 top-9 h-5 w-5 text-green-500" />
+                                    )}
+                                    {emailValidation.isValid === false && (
+                                        <X className="absolute right-3 top-9 h-5 w-5 text-red-500" />
+                                    )}
                                 </div>
                                 <div className="space-y-2">
                                     <Label htmlFor="subject">Subject</Label>
