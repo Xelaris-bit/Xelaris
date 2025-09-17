@@ -1,78 +1,66 @@
 
 'use client';
-import { useState, useEffect, useActionState, useMemo } from 'react';
+import { useState, useMemo, type FormEvent } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Loader2, Check, X } from "lucide-react";
-import { handleContactForm } from '@/app/actions';
+import { Check, X } from "lucide-react";
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 import { cn } from '@/lib/utils';
 
-const SubmitButton = ({ pending }: { pending: boolean }) => {
-    return (
-        <Button type="submit" disabled={pending} className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-            {pending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Send Message'}
-        </Button>
-    );
-};
 
 export default function ContactForm() {
     const { toast } = useToast();
-    const [formState, formAction, isPending] = useActionState(handleContactForm, { error: null, data: null });
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [subject, setSubject] = useState('');
+    const [message, setMessage] = useState('');
     const [formKey, setFormKey] = useState(1);
-    const [emailValue, setEmailValue] = useState('');
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
 
     const emailSchema = z.string().email();
 
     const emailValidation = useMemo(() => {
-        if (!isMounted || emailValue === '') {
-            return { isValid: null }; // No validation state if not mounted or empty
+        if (email === '') {
+            return { isValid: null };
         }
-        const result = emailSchema.safeParse(emailValue);
+        const result = emailSchema.safeParse(email);
         return { isValid: result.success };
-    }, [emailValue, emailSchema, isMounted]);
+    }, [email, emailSchema]);
 
+    const handleSubmit = (e: FormEvent) => {
+        e.preventDefault();
+        const contactEmail = 'contact.xelaris@gmail.com';
+        const mailtoSubject = encodeURIComponent(`Contact Form: ${subject}`);
+        const mailtoBody = encodeURIComponent(
+`Name: ${name}
+Email: ${email}
 
-    useEffect(() => {
-        if (formState.error) {
-            const errorMessage = typeof formState.error === 'string'
-                ? formState.error
-                : Object.values(formState.error).flat().join(' ');
-            toast({
-                variant: "destructive",
-                title: "Error",
-                description: errorMessage,
-            });
-        }
-        if (formState.data) {
-            toast({
-                title: "Success!",
-                description: formState.data.message,
-            });
-            // Reset the form by changing the key
-            setFormKey(prevKey => prevKey + 1);
-            setEmailValue('');
-        }
-    }, [formState, toast]);
+Message:
+${message}`
+        );
+        
+        window.location.href = `mailto:${contactEmail}?subject=${mailtoSubject}&body=${mailtoBody}`;
+        
+        toast({
+            title: "Success!",
+            description: "Your email client has been opened with the message ready to send.",
+        });
 
-    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setEmailValue(e.target.value);
+        // Reset the form
+        setFormKey(prevKey => prevKey + 1);
+        setName('');
+        setEmail('');
+        setSubject('');
+        setMessage('');
     };
 
     return (
-        <form key={formKey} action={formAction} className="space-y-4">
+        <form key={formKey} onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" placeholder="John Doe" required />
+                <Input id="name" name="name" placeholder="John Doe" required value={name} onChange={e => setName(e.target.value)} />
             </div>
             <div className="space-y-2 relative">
                 <Label htmlFor="email">Email Address</Label>
@@ -82,8 +70,8 @@ export default function ContactForm() {
                     type="email"
                     placeholder="john.doe@example.com"
                     required
-                    value={emailValue}
-                    onChange={handleEmailChange}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     className={cn({
                         'border-green-500 focus-visible:ring-green-500': emailValidation.isValid === true,
                         'border-red-500 focus-visible:ring-red-500': emailValidation.isValid === false,
@@ -98,13 +86,15 @@ export default function ContactForm() {
             </div>
             <div className="space-y-2">
                 <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" name="subject" placeholder="e.g., Automation Testing Quote" required />
+                <Input id="subject" name="subject" placeholder="e.g., Automation Testing Quote" required value={subject} onChange={e => setSubject(e.target.value)} />
             </div>
             <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" name="message" placeholder="Your message here..." rows={5} required />
+                <Textarea id="message" name="message" placeholder="Your message here..." rows={5} required value={message} onChange={e => setMessage(e.target.value)} />
             </div>
-            <SubmitButton pending={isPending} />
+            <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                Send Message
+            </Button>
         </form>
     );
 }
