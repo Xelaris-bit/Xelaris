@@ -48,14 +48,14 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
       <PopoverTrigger asChild>
         {trigger}
       </PopoverTrigger>
-      <PopoverContent side="left" className="w-80 bg-primary text-primary-foreground border-primary-foreground/20">
+      <PopoverContent side="left" className="w-80 bg-[#6ac110] text-accent-foreground border-accent-foreground/20">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">A Quote for You</h4>
-             <blockquote className="text-sm italic text-primary-foreground/80">
+             <blockquote className="text-sm italic text-accent-foreground/80">
               &ldquo;{currentQuote.quote}&rdquo;
             </blockquote>
-            <cite className="block text-right text-xs not-italic text-primary-foreground/60">&mdash; {currentQuote.author}</cite>
+            <cite className="block text-right text-xs not-italic text-accent-foreground/60">&mdash; {currentQuote.author}</cite>
           </div>
         </div>
       </PopoverContent>
