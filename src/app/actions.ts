@@ -29,7 +29,6 @@ export async function handleContactForm(prevState: any, formData: FormData) {
     const { name, email, subject, message } = validatedFields.data;
     
     if (!process.env.RESEND_API_KEY) {
-        console.error('Resend API key is not configured.');
         return {
             message: "Sorry, we couldn't send your message at this time. The service is not configured.",
             success: false,
@@ -40,7 +39,7 @@ export async function handleContactForm(prevState: any, formData: FormData) {
     try {
         const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({
-            from: 'onboarding@resend.dev', // You can use this for testing
+            from: 'delivered@resend.dev', // Use a more flexible test address
             to: 'contact.xelaris@gmail.com',
             subject: `New Contact Form Submission: ${subject}`,
             reply_to: email,
