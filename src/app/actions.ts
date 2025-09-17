@@ -3,6 +3,7 @@
 import { generateResponse, type GenerateResponseInput } from '@/ai/flows/generate-response';
 import { processContactForm } from '@/ai/flows/contact-us-flow';
 import { z } from 'zod';
+import { Resend } from 'resend';
 
 const ActionInputSchema = z.object({
   userInquiry: z.string().min(10, 'Inquiry must be at least 10 characters.'),
@@ -62,10 +63,37 @@ export async function handleContactForm(
       };
     }
     
-    const result = await processContactForm(validatedFields.data);
+    // Process form with Genkit AI
+    const aiResult = await processContactForm(validatedFields.data);
 
-    // This is where you would integrate with an email service to send the result
-    console.log('AI Processed Response:', result);
+    // Send email with Resend
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const toEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contact.xelaris@gmail.com';
+
+    const { data, error } = await resend.emails.send({
+      from: 'Xelaris Contact Form <onboarding@resend.dev>',
+      to: [toEmail],
+      subject: `New Contact Form Submission: ${validatedFields.data.subject}`,
+      reply_to: validatedFields.data.email,
+      html: `
+        <h1>New Contact Form Submission</h1>
+        <p><strong>Name:</strong> ${validatedFields.data.name}</p>
+        <p><strong>Email:</strong> ${validatedFields.data.email}</p>
+        <p><strong>Subject:</strong> ${validatedFields.data.subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${validatedFields.data.message}</p>
+        <hr />
+        <h2>AI Analysis</h2>
+        <p><strong>Category:</strong> ${aiResult.category}</p>
+        <p><strong>Suggested Reply:</strong></p>
+        <p>${aiResult.reply}</p>
+      `,
+    });
+
+    if (error) {
+      console.error('Resend Error:', error);
+      return { error: 'Failed to send the message. Please try again later.', data: null };
+    }
 
     return { data: { message: 'Thank you for your message! We will get back to you shortly.' }, error: null };
 
