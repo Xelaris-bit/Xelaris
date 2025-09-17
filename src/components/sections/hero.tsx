@@ -6,7 +6,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 
 const HeroSection = () => {
     return (
-        <section id="home" className="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <section id="home" className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
             <Player
                 autoplay
                 loop
