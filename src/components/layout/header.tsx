@@ -88,7 +88,7 @@ const Header = () => {
                     </Link>
                   ))}
                 </nav>
-                 <QuoteDialog trigger={<Button className="w-full">Get Quotes</Button>} />
+                 <QuoteDialog trigger={<Button className="w-full">Get Quotes</Button>} side="bottom" />
               </div>
             </SheetContent>
           </Sheet>

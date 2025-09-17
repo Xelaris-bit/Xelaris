@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { PopoverContentProps } from '@radix-ui/react-popover';
 import {
   Popover,
   PopoverContent,
@@ -20,18 +21,26 @@ const quotes = [
   { quote: "Success doesn’t just find you. You have to go out and get it.", author: "Xelaris" },
 ];
 
-export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onOpen?: () => void }) {
+interface QuoteDialogProps {
+  trigger: React.ReactNode;
+  onOpen?: () => void;
+  side?: PopoverContentProps['side'];
+}
+
+export function QuoteDialog({ trigger, onOpen, side = "left" }: QuoteDialogProps) {
   const [currentQuote, setCurrentQuote] = useState<{ quote: string; author: string } | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   // This should only run on the client after hydration to avoid mismatch
   useEffect(() => {
-    const selectRandomQuote = () => {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      setCurrentQuote(quotes[randomIndex]);
-    };
-    selectRandomQuote();
-  }, []);
+    if (isOpen) {
+      const selectRandomQuote = () => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        setCurrentQuote(quotes[randomIndex]);
+      };
+      selectRandomQuote();
+    }
+  }, [isOpen]);
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
@@ -48,7 +57,7 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
       <PopoverTrigger asChild>
         {trigger}
       </PopoverTrigger>
-      <PopoverContent side="left" className="w-80 bg-[#6ac110] text-accent-foreground border-accent-foreground/20">
+      <PopoverContent side={side} className="w-80 bg-[#6ac110] text-accent-foreground border-accent-foreground/20">
         <div className="grid gap-4">
           <div className="space-y-2">
             <h4 className="font-medium leading-none">A Quote for You</h4>
