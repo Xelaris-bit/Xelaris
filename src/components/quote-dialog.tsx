@@ -19,11 +19,11 @@ const quotes = [
   { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
   { quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
   { quote: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
-  { quote: "Your limitation—it's only your imagination.", author: "Unknown" },
-  { quote: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
-  { quote: "Great things never come from comfort zones.", author: "Unknown" },
-  { quote: "Dream it. Wish it. Do it.", author: "Unknown" },
-  { quote: "Success doesn’t just find you. You have to go out and get it.", author: "Unknown" },
+  { quote: "Your limitation—it's only your imagination.", author: "Xelaris" },
+  { quote: "Push yourself, because no one else is going to do it for you.", author: "Xelaris" },
+  { quote: "Great things never come from comfort zones.", author: "Xelaris" },
+  { quote: "Dream it. Wish it. Do it.", author: "Xelaris" },
+  { quote: "Success doesn’t just find you. You have to go out and get it.", author: "Xelaris" },
 ];
 
 export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onOpen?: () => void }) {
