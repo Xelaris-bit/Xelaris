@@ -21,7 +21,10 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:col-span-7">
             <div>
-              <h4 className="relative font-semibold text-lg mb-4 pb-2 inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-2/3 after:bg-gradient-to-r after:from-primary after:to-accent">Quick Links</h4>
+              <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
+                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                Quick Links
+              </h4>
               <ul className="space-y-3 antialiased">
                 <li><Link href="/about" className="hover:text-accent transition-colors text-sm">About Us</Link></li>
                 <li><Link href="/services" className="hover:text-accent transition-colors text-sm">Services</Link></li>
@@ -31,7 +34,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="relative font-semibold text-lg mb-4 pb-2 inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-2/3 after:bg-gradient-to-r after:from-primary after:to-accent">Resources</h4>
+               <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
+                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                Resources
+              </h4>
               <ul className="space-y-3 antialiased">
                   <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
                   <li><a href="#" className="hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
@@ -39,7 +45,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="relative font-semibold text-lg mb-4 pb-2 inline-block after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-2/3 after:bg-gradient-to-r after:from-primary after:to-accent">Contact</h4>
+               <h4 className="flex items-center gap-2 font-semibold text-lg mb-4">
+                <span className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></span>
+                Contact
+              </h4>
               <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased break-words">
                   <li>89, Kulasukarpada, Cuttack City, 754209</li>
                   <li><a href="mailto:contact.xelaris@gmail.com" className="hover:text-accent transition-colors">contact.xelaris@gmail.com</a></li>
