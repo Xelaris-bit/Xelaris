@@ -19,7 +19,7 @@ const Footer = () => {
               <Link href="#" aria-label="LinkedIn" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Linkedin /></Link>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div>
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-3 antialiased">
