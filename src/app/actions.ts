@@ -1,3 +1,4 @@
+
 'use server';
 import { generateResponse, type GenerateResponseInput } from '@/ai/flows/generate-response';
 import { processContactForm } from '@/ai/flows/contact-us-flow';
@@ -42,7 +43,10 @@ const ContactFormSchema = z.object({
   message: z.string().min(10, 'Message must be at least 10 characters.'),
 });
 
-export async function handleContactForm(formData: FormData) {
+export async function handleContactForm(
+  prevState: { error: any; data: any },
+  formData: FormData
+) {
   try {
     const validatedFields = ContactFormSchema.safeParse({
       name: formData.get('name'),
@@ -54,6 +58,7 @@ export async function handleContactForm(formData: FormData) {
     if (!validatedFields.success) {
       return {
         error: validatedFields.error.flatten().fieldErrors,
+        data: null,
       };
     }
     
@@ -62,10 +67,10 @@ export async function handleContactForm(formData: FormData) {
     // This is where you would integrate with an email service to send the result
     console.log('AI Processed Response:', result);
 
-    return { data: { message: 'Thank you for your message! We will get back to you shortly.' } };
+    return { data: { message: 'Thank you for your message! We will get back to you shortly.' }, error: null };
 
   } catch (error) {
     console.error(error);
-    return { error: 'An unexpected error occurred. Please try again.' };
+    return { error: 'An unexpected error occurred. Please try again.', data: null };
   }
 }
