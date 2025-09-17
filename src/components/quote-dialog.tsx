@@ -24,7 +24,7 @@ export function QuoteDialog({ trigger, onOpen }: { trigger: React.ReactNode; onO
   const [currentQuote, setCurrentQuote] = useState<{ quote: string; author: string } | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // This should only run on the client after hydration
+  // This should only run on the client after hydration to avoid mismatch
   useEffect(() => {
     const selectRandomQuote = () => {
       const randomIndex = Math.floor(Math.random() * quotes.length);
