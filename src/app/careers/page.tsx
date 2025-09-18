@@ -11,14 +11,16 @@ export default function CareersPage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
-        <section className="relative py-20 md:py-32 bg-secondary text-center">
-          <div className="absolute inset-0 bg-primary/10" />
-          <div className="container mx-auto px-4 relative">
-            <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
-              Build Your Future with Xelaris.
-            </h1>
-          </div>
-        </section>
+        <FadeIn>
+          <section className="relative py-20 md:py-32 bg-secondary text-center">
+            <div className="absolute inset-0 bg-primary/10" />
+            <div className="container mx-auto px-4 relative">
+              <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
+                Build Your Future with Xelaris.
+              </h1>
+            </div>
+          </section>
+        </FadeIn>
 
         <FadeIn>
           <section className="container mx-auto px-4 md:px-6 py-12 md:py-16">
