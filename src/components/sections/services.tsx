@@ -44,7 +44,7 @@ const ServicesSection = () => {
         <section id="services" className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Our Services</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Our QA Services</h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         Comprehensive testing solutions tailored to your unique needs, ensuring quality from every angle.
                     </p>
