@@ -43,17 +43,8 @@ export function QuoteDialog({ trigger, onOpen, side = "left" }: QuoteDialogProps
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
-    if (open) {
-        // Select a new random quote every time the dialog is opened
-        const selectRandomQuote = () => {
-            const randomIndex = Math.floor(Math.random() * quotes.length);
-            setCurrentQuote(quotes[randomIndex]);
-        };
-        selectRandomQuote();
-
-        if (onOpen) {
-            onOpen();
-        }
+    if (open && onOpen) {
+        onOpen();
     }
   };
 
