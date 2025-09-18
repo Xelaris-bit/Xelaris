@@ -8,12 +8,12 @@ import ContactForm from "@/components/contact-form";
 
 const ContactSection = () => {
     return (
-        <section id="contact" className="w-full py-16 md:py-24 bg-secondary">
+        <section id="contact-form" className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold">Contact Us</h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        Have a project in mind or just want to say hello? We'd love to hear from you.
+                        Fill out the form below or use the contact details to get in touch.
                     </p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -59,7 +59,7 @@ const ContactSection = () => {
                     <Card>
                         <CardHeader>
                             <CardTitle>Send a Message</CardTitle>
-                            <CardDescription>Fill out the form below and we'll get back to you as soon as possible.</CardDescription>
+                            <CardDescription>We&apos;ll get back to you as soon as possible.</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <ContactForm />
