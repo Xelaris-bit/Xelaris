@@ -2,7 +2,6 @@
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import Image from 'next/image';
 import { Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "@/components/contact-form";
 
@@ -46,14 +45,16 @@ const ContactSection = () => {
                             </div>
                         </div>
                         <div className="rounded-lg overflow-hidden border">
-                             <Image
-                                src="https://images.unsplash.com/photo-1519017684936-8e7c191a34d5?q=80&w=600"
-                                alt="Map to Xelaris office"
-                                width={600}
-                                height={400}
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d371.0477525432783!2d86.23367077280695!3d20.463295488628745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a197d2acfba326b%3A0xb1358de08ae7b4a9!2sKULASUKARPADA%20POST%20OFFICE!5e0!3m2!1sen!2sin!4v1758165318807!5m2!1sen!2sin" 
+                                width="600" 
+                                height="450" 
+                                style={{border:0}} 
+                                allowFullScreen 
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
                                 className="w-full"
-                                data-ai-hint="city map"
-                            />
+                            ></iframe>
                         </div>
                     </div>
                     <Card>
