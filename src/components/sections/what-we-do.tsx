@@ -11,7 +11,7 @@ const services = [
     description: 'Seeking premium quality eLearning solutions at pocket-friendly rates? We deliver custom courses, mobile learning, and more to meet your needs.',
     imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600',
     aiHint: 'online education',
-    href: '/services'
+    href: '/services/elearning'
   },
   {
     title: 'Multimedia',
@@ -19,7 +19,7 @@ const services = [
     description: 'In this digital age, compelling multimedia is key. We create stunning 2D/3D animations, graphics, and UI/UX designs that captivate your audience.',
     imageUrl: 'https://images.unsplash.com/photo-1558655146-364adaf1fcc9?q=80&w=600',
     aiHint: 'graphic design',
-    href: '/services'
+    href: '/services/multimedia'
   },
   {
     title: 'Software',
@@ -27,7 +27,7 @@ const services = [
     description: 'We deliver top-tier software development services by blending extensive domain expertise with cutting-edge technology to build robust web apps and portals.',
     imageUrl: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600',
     aiHint: 'software development',
-    href: '/services'
+    href: '/services/software'
   },
   {
     title: 'Digital Marketing',
@@ -35,7 +35,7 @@ const services = [
     description: 'The internet has firmly established itself as the future for all of us. We help you navigate it with SEO, social media, and content marketing strategies.',
     imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600',
     aiHint: 'digital marketing',
-    href: '/services'
+    href: '/services/digital-marketing'
   },
   {
     title: 'QA/Testing',
@@ -43,7 +43,7 @@ const services = [
     description: 'Our final content delivery undergoes a rigorous Quality Assurance process to guarantee flawless performance, security, and user experience across all platforms.',
     imageUrl: 'https://images.unsplash.com/photo-1516116216624-53e6973bea12?q=80&w=600',
     aiHint: 'quality assurance',
-    href: '/services'
+    href: '/services/qa-testing'
   }
 ];
 

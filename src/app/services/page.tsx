@@ -2,12 +2,15 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Bot, Check, Code, GraduationCap, Megaphone, Palette } from 'lucide-react';
+import { Bot, Check, Code, GraduationCap, Megaphone, Palette, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const servicesByCategory = [
     {
         category: "eLearning",
         icon: <GraduationCap className="w-10 h-10 text-accent" />,
+        href: '/services/elearning',
         items: [
             "Custom eLearning",
             "SCORM & AICC",
@@ -19,6 +22,7 @@ const servicesByCategory = [
     {
         category: "Software",
         icon: <Code className="w-10 h-10 text-accent" />,
+        href: '/services/software',
         items: [
             "Portals/Websites",
             "WordPress",
@@ -28,6 +32,7 @@ const servicesByCategory = [
     {
         category: "3D & Multimedia",
         icon: <Palette className="w-10 h-10 text-accent" />,
+        href: '/services/multimedia',
         items: [
             "3D Animation",
             "2D Animation",
@@ -40,6 +45,7 @@ const servicesByCategory = [
     {
         category: "QA/Testing",
         icon: <Bot className="w-10 h-10 text-accent" />,
+        href: '/services/qa-testing',
         items: [
             "Manual Testing",
             "Automation Testing",
@@ -53,6 +59,7 @@ const servicesByCategory = [
     {
         category: "Digital Marketing",
         icon: <Megaphone className="w-10 h-10 text-accent" />,
+        href: '/services/digital-marketing',
         items: []
     }
 ];
@@ -78,9 +85,9 @@ export default function ServicesPage() {
                                 {service.icon}
                                 <CardTitle className="text-xl">{service.category}</CardTitle>
                             </CardHeader>
-                            <CardContent className="p-0 mt-6 flex-grow">
+                            <CardContent className="p-0 mt-6 flex-grow flex flex-col">
                                 {service.items.length > 0 ? (
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-2 flex-grow">
                                         {service.items.map((item, itemIndex) => (
                                             <li key={itemIndex} className="flex items-start gap-3">
                                                 <Check className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
@@ -89,8 +96,11 @@ export default function ServicesPage() {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <p className="text-muted-foreground">Comprehensive digital marketing strategies to elevate your brand.</p>
+                                    <p className="text-muted-foreground flex-grow">Comprehensive digital marketing strategies to elevate your brand.</p>
                                 )}
+                                <Button variant="outline" asChild className="self-start mt-4">
+                                    <Link href={service.href}>Learn More <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                                </Button>
                             </CardContent>
                         </Card>
                     ))}
