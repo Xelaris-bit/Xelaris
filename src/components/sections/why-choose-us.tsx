@@ -93,7 +93,7 @@ const WhyChooseUsSection = () => {
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold">Why Choose Xelaris?</h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                        We are more than just a testing company. We are your partners in quality, dedicated to your success.
+                        We deliver cutting-edge IT solutions designed to transform businesses. From custom web and software development to immersive eLearning platforms, 3D & multimedia design, quality assurance, and digital marketing—our team combines creativity and technology to bring your vision to life.
                     </p>
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
