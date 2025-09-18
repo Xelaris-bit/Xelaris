@@ -52,7 +52,7 @@ const WhatWeDoSection = () => {
         <section id="what-we-do" className="w-full py-16 md:py-24 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">What We Do</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Our Best Services</h2>
                     <div className="mt-4 w-24 h-1.5 bg-accent mx-auto rounded-full" />
                 </div>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
