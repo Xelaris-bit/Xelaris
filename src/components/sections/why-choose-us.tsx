@@ -41,7 +41,7 @@ const UnmatchedReliabilityIcon = ({ className }: { className?: string }) => (
 
 const benefits = [
     {
-        icon: <UnmatchedReliabilityIcon className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        icon: <UnmatchedReliabilityIcon className="w-10 h-10 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Unmatched Reliability",
         description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
