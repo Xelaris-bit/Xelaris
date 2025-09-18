@@ -55,7 +55,7 @@ const ContactFABs = () => {
             ))}
             <Button
                 size="icon"
-                className="rounded-full w-16 h-16 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl cursor-grab"
+                className="rounded-full w-14 h-14 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl cursor-grab"
                 onPointerUp={handleMainButtonClick}
                 aria-expanded={isOpen}
             >
