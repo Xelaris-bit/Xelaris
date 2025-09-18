@@ -149,7 +149,7 @@ export async function handleResumeSubmission(prevState: any, formData: FormData)
 
         await resend.emails.send({
             from: 'Xelaris Careers <delivered@resend.dev>',
-            to: 'anshumanseoczar+careers@gmail.com', 
+            to: 'anshumanseoczar+resend@gmail.com', 
             subject: `New Resume Submission from ${name}`,
             reply_to: email,
             html: `
