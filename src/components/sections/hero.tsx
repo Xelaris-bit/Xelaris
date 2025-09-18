@@ -33,7 +33,7 @@ const HeroSection = () => {
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="relative z-10 text-center md:text-left animate-fade-in">
                         <h1 className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight mb-4">
-                            Empowering Innovation Through Technology
+                            Empowering <span className="text-accent">Innovation</span> Through Technology
                         </h1>
                         <div className="h-12 mb-8 flex items-center justify-center md:justify-start">
                              <AnimatePresence mode="wait">
