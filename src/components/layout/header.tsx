@@ -76,6 +76,9 @@ const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px]">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col p-6 space-y-6">
                 <Link href="/" className="flex items-center gap-0 font-bold text-xl text-primary" onClick={() => setIsMobileMenuOpen(false)}>
                   <Logo className="h-7 w-7" />
