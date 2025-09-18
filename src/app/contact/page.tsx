@@ -3,6 +3,7 @@ import Footer from '@/components/layout/footer';
 import ContactSection from '@/components/sections/contact';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import { FadeIn } from '@/components/fade-in';
 
 export default function ContactPage() {
   return (
@@ -25,7 +26,9 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-        <ContactSection />
+        <FadeIn>
+          <ContactSection />
+        </FadeIn>
       </main>
       <Footer />
     </div>
