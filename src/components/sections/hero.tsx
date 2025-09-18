@@ -31,18 +31,29 @@ const HeroSection = () => {
                         <h1 className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight mb-4">
                             Empowering Innovation Through Technology
                         </h1>
-                        <div className="h-8 mb-8">
-                            <AnimatePresence mode="wait">
-                                <motion.p
+                        <div className="h-12 mb-8 flex items-center justify-center md:justify-start">
+                             <AnimatePresence mode="wait">
+                                <motion.div
                                     key={services[index]}
-                                    initial={{ opacity: 0, y: -20 }}
+                                    initial={{ opacity: 0, y: -25 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 20 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0"
+                                    exit={{ opacity: 0, y: 25 }}
+                                    transition={{ duration: 0.5, ease: 'easeInOut' }}
+                                    className="relative inline-block"
                                 >
-                                    {services[index]}
-                                </motion.p>
+                                    <motion.span 
+                                        className="absolute inset-0 bg-accent/20 -z-10 rounded-md"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: '100%' }}
+                                        exit={{ width: 0 }}
+                                        transition={{ duration: 0.4, ease: 'easeIn' }}
+                                    />
+                                    <p
+                                        className="text-lg md:text-xl text-primary font-semibold px-2"
+                                    >
+                                        {services[index]}
+                                    </p>
+                                </motion.div>
                             </AnimatePresence>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
