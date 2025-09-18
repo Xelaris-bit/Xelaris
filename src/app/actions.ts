@@ -2,6 +2,7 @@
 'use server';
 import { z } from 'zod';
 import { Resend } from 'resend';
+import { generateResponse, type GenerateResponseInput } from '@/ai/flows/generate-response';
 
 const ContactFormSchema = z.object({
   name: z.string().min(1, { message: 'Name is required.' }),
@@ -58,6 +59,36 @@ export async function handleContactForm(prevState: any, formData: FormData) {
             message: "Sorry, we couldn't send your message at this time. Please try again later.",
             success: false,
             errors: {},
+        };
+    }
+}
+
+const GenerateResponseSchema = z.object({
+    userInquiry: z.string().min(10, { message: 'Inquiry must be at least 10 characters.' }),
+    userType: z.enum(['potential_client', 'website_visitor', 'job_seeker']),
+});
+
+export async function generateCustomResponse(formData: FormData) {
+    const validatedFields = GenerateResponseSchema.safeParse({
+        userInquiry: formData.get('userInquiry'),
+        userType: formData.get('userType'),
+    });
+    
+    if (!validatedFields.success) {
+        return {
+            data: null,
+            error: validatedFields.error.flatten().fieldErrors,
+        };
+    }
+
+    try {
+        const response = await generateResponse(validatedFields.data as GenerateResponseInput);
+        return { data: response, error: null };
+    } catch (error: any) {
+        console.error('AI response error:', error);
+        return {
+            data: null,
+            error: error.message || "An unexpected error occurred.",
         };
     }
 }
