@@ -5,9 +5,43 @@ import AnimatedCounter from "@/components/animated-counter";
 import { CheckCircle } from "lucide-react";
 import { FadeIn } from "../fade-in";
 
+const UnmatchedReliabilityIcon = ({ className }: { className?: string }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+    >
+        <defs>
+            <linearGradient id="reliability-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 1 }} />
+                <stop offset="100%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 1 }} />
+            </linearGradient>
+        </defs>
+        <g stroke="url(#reliability-gradient)">
+            <path d="M14.5 13.5c1.1 0 2.1.2 3 .6.9.4 1.5.9 1.5 1.4v2.5" />
+            <path d="M12 11.5c-2.2 0-4 1.8-4 4v1h8v-1c0-2.2-1.8-4-4-4Z" />
+            <path d="M22 14v2.5c0 .6-.6 1.1-1.5 1.5-1 .4-2.1.5-3.5.5-1.7 0-3.1-.2-4.5-.7-.9-.3-1.5-.7-1.5-1.3V14" />
+            <path d="M12.5 16.5c1.4.5 2.8.8 4.5.8s3.1-.2 4.5-.8" />
+            <path d="M4 14.5c.9-.4 1.9-.6 3-.6s2.1.2 3 .6" />
+            <path d="M10 14.5c-.9-.4-1.5-.9-1.5-1.4V11.5" />
+            <path d="M4 14.5v-3c0-.6.6-1.1 1.5-1.5C6.4 9.6 7.5 9.5 9 9.5c1.7 0 3.1.2 4.5.8.9.3 1.5.7 1.5 1.3v3" />
+            <path d="M2 14v-2.5c0-.6.6-1.1 1.5-1.5C4.4 9.6 5.5 9.5 7 9.5c1.4 0 2.8.2 4 .7" />
+            <path d="m16 7 1-1 3 3-1 1" />
+            <path d="m8 7-1-1-3 3 1 1" />
+            <path d="M12 2 4 5v4c0 4 8 7 8 7s8-3 8-7V5l-8-3Z" />
+            <path d="m9 11 2 2 4-4" />
+        </g>
+    </svg>
+);
+
 const benefits = [
     {
-        icon: <ShieldCheck className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        icon: <UnmatchedReliabilityIcon className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Unmatched Reliability",
         description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
