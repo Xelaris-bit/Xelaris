@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Rocket, Award, Clock, FolderKanban, ShieldCheck, Scaling, Gauge } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
