@@ -1,3 +1,4 @@
+
 'use client';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -70,7 +71,7 @@ const HeroSection = () => {
                             </AnimatePresence>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                            <Button asChild size="lg">
                                 <Link href="/services">Explore Services</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline">
