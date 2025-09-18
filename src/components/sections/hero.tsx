@@ -10,7 +10,7 @@ const HeroSection = () => {
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="relative z-10 text-center md:text-left animate-fade-in">
                         <h1 className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight mb-4">
-                            Reliable & Scalable Software Testing Solutions
+                            Empowering Innovation Through Technology
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto md:mx-0 mb-8">
                             We ensure your software is bug-free, fast, and ready for the world.
