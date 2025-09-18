@@ -33,18 +33,24 @@ export function QuoteDialog({ trigger, onOpen, side = "left" }: QuoteDialogProps
 
   // This should only run on the client after hydration to avoid mismatch
   useEffect(() => {
-    if (isOpen) {
-      const selectRandomQuote = () => {
+    // Set an initial quote when the component mounts
+    const selectRandomQuote = () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         setCurrentQuote(quotes[randomIndex]);
-      };
-      selectRandomQuote();
-    }
-  }, [isOpen]);
+    };
+    selectRandomQuote();
+  }, []);
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
     if (open) {
+        // Select a new random quote every time the dialog is opened
+        const selectRandomQuote = () => {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            setCurrentQuote(quotes[randomIndex]);
+        };
+        selectRandomQuote();
+
         if (onOpen) {
             onOpen();
         }
