@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 
 const services = [
     "Software Development",
@@ -39,20 +40,30 @@ const HeroSection = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 25 }}
                                     transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                    className="relative inline-block"
+                                    className="relative flex items-center"
                                 >
-                                    <motion.span 
-                                        className="absolute inset-0 bg-accent/20 -z-10 rounded-md"
-                                        initial={{ width: 0 }}
-                                        animate={{ width: '100%' }}
-                                        exit={{ width: 0 }}
-                                        transition={{ duration: 0.4, ease: 'easeIn' }}
-                                    />
-                                    <p
-                                        className="text-lg md:text-xl text-primary font-semibold px-2"
+                                     <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        exit={{ scale: 0 }}
+                                        transition={{ delay: 0.2, duration: 0.3 }}
                                     >
-                                        {services[index]}
-                                    </p>
+                                        <CheckCircle className="w-6 h-6 text-accent mr-3" />
+                                    </motion.div>
+                                    <div className="relative inline-block">
+                                        <motion.span 
+                                            className="absolute inset-0 bg-accent/20 -z-10 rounded-md"
+                                            initial={{ width: 0 }}
+                                            animate={{ width: '100%' }}
+                                            exit={{ width: 0 }}
+                                            transition={{ duration: 0.4, ease: 'easeIn' }}
+                                        />
+                                        <p
+                                            className="text-lg md:text-xl text-primary font-semibold px-2"
+                                        >
+                                            {services[index]}
+                                        </p>
+                                    </div>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
