@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Linkedin, Twitter, Facebook } from 'lucide-react';
 import { Logo } from '@/components/logo';
@@ -12,7 +13,7 @@ const Footer = () => {
                 <Logo className="h-8 w-8 text-accent" />
                 <span className="font-headline -ml-1">elaris</span>
             </Link>
-            <p className="text-sm text-secondary-foreground/80 antialiased">Delivering a full spectrum of IT solutions, from software development and eLearning to immersive multimedia, QA, and digital marketing.</p>
+            <p className="text-sm text-secondary-foreground/80 antialiased">Expert IT solutions across software development, eLearning, multimedia, QA, and digital marketing.</p>
             <div className="flex space-x-4">
               <Link href="#" aria-label="Twitter" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Twitter /></Link>
               <Link href="#" aria-label="Facebook" className="text-secondary-foreground/80 hover:text-accent transition-colors"><Facebook /></Link>
