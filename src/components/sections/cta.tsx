@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -8,7 +9,7 @@ const CtaSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
           <h2 className="text-3xl md:text-4xl font-bold max-w-lg">
-            Business growth solutions & problem solving
+            Business <span className="text-accent">growth solutions</span> & problem solving
           </h2>
           <Button asChild size="lg" className="bg-background text-foreground hover:bg-background/90 flex-shrink-0">
             <Link href="/contact">

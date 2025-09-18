@@ -59,7 +59,7 @@ export default function AboutUsPage() {
         {/* Hero Section */}
         <section className="bg-primary/5 py-20 md:py-32">
             <div className="container mx-auto px-4 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">About Xelaris</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">About <span className="text-accent">Xelaris</span></h1>
                 <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
                     Your dedicated partner in achieving software excellence and unparalleled quality.
                 </p>
@@ -71,7 +71,7 @@ export default function AboutUsPage() {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                        <h2 className="text-3xl font-bold text-primary">Who We Are</h2>
+                        <h2 className="text-3xl font-bold text-primary">Who <span className="text-accent">We Are</span></h2>
                         <p className="text-muted-foreground leading-relaxed">
                             Xelaris is a premier software testing and quality assurance company dedicated to helping businesses deliver flawless, high-performing, and secure software. Founded by a team of veteran QA professionals, we bridge the gap between development and deployment, ensuring that your products meet the highest standards of quality.
                         </p>
@@ -102,7 +102,7 @@ export default function AboutUsPage() {
                              <CheckCircle className="h-12 w-12 text-accent" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                            <h2 className="text-3xl font-bold mb-4">Our <span className="text-accent">Mission</span></h2>
                             <p className="text-muted-foreground">
                                 To empower businesses by ensuring their software applications are of the highest quality. We are committed to providing comprehensive, reliable, and innovative testing solutions that accelerate development cycles, reduce risks, and enhance user satisfaction.
                             </p>
@@ -113,7 +113,7 @@ export default function AboutUsPage() {
                             <Eye className="h-12 w-12 text-accent" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
+                            <h2 className="text-3xl font-bold mb-4">Our <span className="text-accent">Vision</span></h2>
                             <p className="text-muted-foreground">
                                 To be the globally recognized leader in software quality assurance, setting the industry standard for excellence, reliability, and innovation. We aim to build long-lasting partnerships with our clients, helping them launch flawless products.
                             </p>
@@ -127,7 +127,7 @@ export default function AboutUsPage() {
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                  <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Our Core Values</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Our <span className="text-accent">Core Values</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         The principles that guide our work and define our culture.
                     </p>
@@ -150,7 +150,7 @@ export default function AboutUsPage() {
         <section className="py-16 md:py-24 bg-primary/5">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Our Core Team</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Our <span className="text-accent">Core Team</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         Meet the leaders driving our mission forward.
                     </p>
@@ -179,7 +179,7 @@ export default function AboutUsPage() {
         <section className="py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold">Our Journey</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Our <span className="text-accent">Journey</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         Tracing our path from a small startup to a trusted QA partner.
                     </p>

@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -28,7 +29,7 @@ const TestimonialsSection = () => {
         <section id="testimonials" className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">What Our <span className="text-accent">Clients Say</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         We are proud to have earned the trust of innovative companies worldwide.
                     </p>

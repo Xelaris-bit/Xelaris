@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ const RecentCaseStudiesSection = () => {
         <section id="recent-case-studies" className="w-full py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Recent Case Studies</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Recent <span className="text-accent">Case Studies</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         Explore how we've helped our clients achieve their quality and performance goals.
                     </p>

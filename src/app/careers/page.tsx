@@ -16,7 +16,7 @@ export default function CareersPage() {
             <div className="absolute inset-0 bg-primary/10" />
             <div className="container mx-auto px-4 relative">
               <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">
-                Build Your Future with Xelaris.
+                Build Your <span className="text-accent">Future</span> with Xelaris.
               </h1>
             </div>
           </section>
@@ -27,7 +27,7 @@ export default function CareersPage() {
             <div className="grid md:grid-cols-2 gap-16 items-start">
                 <div className="space-y-8">
                     <div className="text-center md:text-left">
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">Careers at Xelaris</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary tracking-tight">Careers at <span className="text-accent">Xelaris</span></h2>
                         <p className="mt-4 text-lg text-muted-foreground">
                             Join our team of passionate experts and help us shape the future of software quality.
                         </p>

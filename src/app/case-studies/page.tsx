@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -64,7 +65,7 @@ export default function CaseStudiesPage() {
       <Header />
       <main className="flex-grow container mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Case Studies</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Case <span className="text-accent">Studies</span></h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
             See how we've helped companies like yours achieve their quality goals.
           </p>

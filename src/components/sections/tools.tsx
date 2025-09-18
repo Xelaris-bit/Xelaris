@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 
@@ -17,7 +18,7 @@ const ToolsSection = () => {
         <section id="tools" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold">Tools We Use</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold">Tools <span className="text-accent">We Use</span></h2>
                     <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                         Leveraging industry-leading tools to deliver robust and efficient testing solutions.
                     </p>
