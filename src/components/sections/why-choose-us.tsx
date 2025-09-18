@@ -1,29 +1,29 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Rocket, Award, Clock, FolderKanban } from "lucide-react";
+import { Users, Rocket, Award, Clock, FolderKanban, ShieldCheck, Scaling, Gauge } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
-import { ShieldCheck, Gauge, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { FadeIn } from "../fade-in";
 
 const benefits = [
     {
-        icon: <ShieldCheck className="w-8 h-8 text-accent" />,
+        icon: <ShieldCheck className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Unmatched Reliability",
-        description: "Our rigorous testing processes ensure your software is robust and dependable."
+        description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
     {
-        icon: <Gauge className="w-8 h-8 text-accent" />,
+        icon: <Scaling className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Scalable Solutions",
-        description: "We adapt our testing strategies to match your project's scale and complexity."
+        description: "We understand that growth is constant. That’s why our solutions are designed to scale seamlessly, supporting your business as it evolves—from ambitious start-ups to established enterprises."
     },
     {
-        icon: <Users className="w-8 h-8 text-accent" />,
+        icon: <Users className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Expert Team",
-        description: "Our certified professionals bring years of cross-industry experience."
+        description: "Behind every project is a team of highly skilled professionals with deep industry expertise. Our developers, designers, QA specialists, and digital strategists work collaboratively to deliver innovative solutions that drive measurable results."
     },
     {
-        icon: <Rocket className="w-8 h-8 text-accent" />,
+        icon: <Rocket className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Faster Time-to-Market",
-        description: "Streamline your development cycle and release products faster with our help."
+        description: "In today’s fast-moving world, speed matters. Through agile methodologies and streamlined processes, we accelerate delivery without compromising quality, helping you stay ahead of the competition."
     }
 ];
 
@@ -96,10 +96,10 @@ const WhyChooseUsSection = () => {
                         We deliver cutting-edge IT solutions designed to transform businesses. From custom web and software development to immersive eLearning platforms, 3D & multimedia design, quality assurance, and digital marketing—our team combines creativity and technology to bring your vision to life.
                     </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-16">
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start gap-4">
-                            <div className="flex-shrink-0">{benefit.icon}</div>
+                        <div key={index} className="flex items-start gap-4 group">
+                            <div className="flex-shrink-0 mt-1">{benefit.icon}</div>
                             <div>
                                 <h3 className="text-lg font-semibold">{benefit.title}</h3>
                                 <p className="mt-1 text-muted-foreground">{benefit.description}</p>
