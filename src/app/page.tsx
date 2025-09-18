@@ -7,6 +7,7 @@ import { FadeIn } from '@/components/fade-in';
 import RecentCaseStudiesSection from '@/components/sections/recent-case-studies';
 import DigitalChallengesSection from '@/components/sections/digital-challenges';
 import WhatWeDoSection from '@/components/sections/what-we-do';
+import CtaSection from '@/components/sections/cta';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <FadeIn><WhyChooseUsSection /></FadeIn>
         <FadeIn><RecentCaseStudiesSection /></FadeIn>
         <FadeIn><TestimonialsSection /></FadeIn>
+        <FadeIn><CtaSection /></FadeIn>
       </main>
       <Footer />
     </div>
