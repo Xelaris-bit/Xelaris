@@ -46,7 +46,7 @@ const ContactSection = () => {
                         </div>
                         <div className="rounded-lg overflow-hidden border">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d371.0477525432783!2d86.23367077280695!3d20.463295488628745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a197d2acfba326b%3A0xb1358de08ae7b4a9!2sKULASUKARPADA%20POST%20OFFICE!5e0!3m2!1sen!2sin!4v1758165318807!5m2!1sen!2sin" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478573.39203724137!2d85.74487751531404!3d20.430062772367847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a197d8a91ad8c5f%3A0xd12ad111b7dcfd88!2sLaxminarayan%20Temple!5e0!3m2!1sen!2sin!4v1758165482095!5m2!1sen!2sin" 
                                 width="600" 
                                 height="450" 
                                 style={{border:0}} 
