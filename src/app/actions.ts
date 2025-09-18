@@ -148,7 +148,7 @@ export async function handleResumeSubmission(prevState: any, formData: FormData)
         const resend = new Resend(process.env.RESEND_API_KEY);
 
         await resend.emails.send({
-            from: 'Xelaris Careers <onboarding@resend.dev>',
+            from: 'Xelaris Careers <noreply@resend.dev>',
             to: 'anshumanseoczar+careers@gmail.com', 
             subject: `New Resume Submission from ${name}`,
             reply_to: email,
