@@ -52,7 +52,7 @@ export default function ResumeSubmissionForm() {
         <form ref={formRef} action={formAction} className="space-y-4">
             <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" placeholder="John Doe" required />
+                <Input id="name" name="name" placeholder="Anshuman Sahoo" required />
                 {state.errors?.name && <p className="text-sm font-medium text-destructive">{state.errors.name[0]}</p>}
             </div>
             <div className="space-y-2 relative">
@@ -61,7 +61,7 @@ export default function ResumeSubmissionForm() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="john.doe@example.com"
+                    placeholder="xelaris@example.com"
                     required
                 />
                  {state.errors?.email && <p className="text-sm font-medium text-destructive">{state.errors.email[0]}</p>}
