@@ -5,6 +5,7 @@ import WhyChooseUsSection from '@/components/sections/why-choose-us';
 import TestimonialsSection from '@/components/sections/testimonials';
 import { FadeIn } from '@/components/fade-in';
 import RecentCaseStudiesSection from '@/components/sections/recent-case-studies';
+import DigitalChallengesSection from '@/components/sections/digital-challenges';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <FadeIn><DigitalChallengesSection /></FadeIn>
         <FadeIn><WhyChooseUsSection /></FadeIn>
         <FadeIn><RecentCaseStudiesSection /></FadeIn>
         <FadeIn><TestimonialsSection /></FadeIn>
