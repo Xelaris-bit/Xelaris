@@ -1,5 +1,8 @@
 
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const DigitalChallengesSection = () => {
   return (
@@ -21,12 +24,24 @@ const DigitalChallengesSection = () => {
               data-ai-hint="team collaboration"
             />
             <div className="absolute bottom-4 left-4 right-4 space-y-4">
-              <div className="bg-cyan-500/90 text-white p-4 rounded-lg shadow-lg">
+              <motion.div 
+                className="bg-primary/90 text-primary-foreground p-4 rounded-lg shadow-lg"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
                 <p className="text-2xl font-bold">8+ <span className="text-lg font-normal">YEARS IN BUSINESS</span></p>
-              </div>
-              <div className="bg-cyan-500/90 text-white p-4 rounded-lg shadow-lg">
+              </motion.div>
+              <motion.div 
+                className="bg-primary/90 text-primary-foreground p-4 rounded-lg shadow-lg"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 <p className="text-2xl font-bold">50+ <span className="text-lg font-normal">CLIENTS ACROSS SECTORS</span></p>
-              </div>
+              </motion.div>
             </div>
           </div>
           <div className="space-y-6">
