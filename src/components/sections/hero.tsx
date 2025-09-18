@@ -27,15 +27,7 @@ const HeroSection = () => {
 
     return (
         <section id="home" className="relative w-full overflow-hidden">
-             <Image
-                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop"
-                alt="Abstract technology background"
-                fill
-                className="object-cover -z-20"
-                priority
-                data-ai-hint="tech background"
-            />
-            <div className="absolute inset-0 bg-background/80 -z-10" />
+             <div className="absolute inset-0 bg-secondary -z-10" />
             <div className="container mx-auto px-4 md:px-6 min-h-screen flex items-center">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div className="relative z-10 text-center md:text-left animate-fade-in">
