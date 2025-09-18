@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bot, Check, Code, GraduationCap, Megaphone, Palette, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { FadeIn } from '@/components/fade-in';
 
 const servicesByCategory = [
     {
@@ -72,37 +73,41 @@ export default function ServicesPage() {
       <main className="flex-grow">
          <section id="services" className="w-full py-16 md:py-24 bg-primary/5">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Our <span className="text-accent">Services</span></h1>
-                    <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        Comprehensive solutions tailored to your unique needs, ensuring excellence from every angle.
-                    </p>
-                </div>
+                <FadeIn>
+                    <div className="text-center mb-12">
+                        <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Our <span className="text-accent">Services</span></h1>
+                        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                            Comprehensive solutions tailored to your unique needs, ensuring excellence from every angle.
+                        </p>
+                    </div>
+                </FadeIn>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {servicesByCategory.map((service, index) => (
-                        <Card key={index} className="p-6 hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                           <CardHeader className="flex flex-row items-center gap-4 p-0">
-                                {service.icon}
-                                <CardTitle className="text-xl">{service.category}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="p-0 mt-6 flex-grow flex flex-col">
-                                {service.items.length > 0 ? (
-                                    <ul className="space-y-2 flex-grow">
-                                        {service.items.map((item, itemIndex) => (
-                                            <li key={itemIndex} className="flex items-start gap-3">
-                                                <Check className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
-                                                <span className="text-muted-foreground">{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p className="text-muted-foreground flex-grow">Comprehensive digital marketing strategies to elevate your brand.</p>
-                                )}
-                                <Button variant="outline" asChild className="self-start mt-4">
-                                    <Link href={service.href}>Learn More <ArrowRight className="ml-2 w-4 h-4" /></Link>
-                                </Button>
-                            </CardContent>
-                        </Card>
+                        <FadeIn key={index}>
+                            <Card className="p-6 hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                            <CardHeader className="flex flex-row items-center gap-4 p-0">
+                                    {service.icon}
+                                    <CardTitle className="text-xl">{service.category}</CardTitle>
+                                </CardHeader>
+                                <CardContent className="p-0 mt-6 flex-grow flex flex-col">
+                                    {service.items.length > 0 ? (
+                                        <ul className="space-y-2 flex-grow">
+                                            {service.items.map((item, itemIndex) => (
+                                                <li key={itemIndex} className="flex items-start gap-3">
+                                                    <Check className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                                                    <span className="text-muted-foreground">{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : (
+                                        <p className="text-muted-foreground flex-grow">Comprehensive digital marketing strategies to elevate your brand.</p>
+                                    )}
+                                    <Button variant="outline" asChild className="self-start mt-4">
+                                        <Link href={service.href}>Learn More <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        </FadeIn>
                     ))}
                 </div>
             </div>

@@ -31,11 +31,21 @@ const HeroSection = () => {
              <div className="absolute inset-0 bg-secondary -z-10" />
             <div className="container mx-auto px-4 md:px-6 min-h-screen flex items-center">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
-                    <div className="relative z-10 text-center md:text-left animate-fade-in">
-                        <h1 className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight mb-4">
+                    <div className="relative z-10 text-center md:text-left">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="text-4xl md:text-6xl font-bold text-primary tracking-tight leading-tight mb-4"
+                        >
                             Empowering <span className="text-accent">Innovation</span> Through Technology
-                        </h1>
-                        <div className="h-12 mb-8 flex items-center justify-center md:justify-start">
+                        </motion.h1>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                            className="h-12 mb-8 flex items-center justify-center md:justify-start"
+                        >
                              <AnimatePresence mode="wait">
                                 <motion.div
                                     key={services[index]}
@@ -69,15 +79,20 @@ const HeroSection = () => {
                                     </div>
                                 </motion.div>
                             </AnimatePresence>
-                        </div>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        </motion.div>
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                        >
                             <Button asChild size="lg">
                                 <Link href="/services">Explore Services</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline">
                                 <Link href="/contact">Get in Touch</Link>
                             </Button>
-                        </div>
+                        </motion.div>
                     </div>
                     <div className="relative z-10 flex items-center justify-center">
                         <Player
@@ -89,15 +104,6 @@ const HeroSection = () => {
                     </div>
                 </div>
             </div>
-             <style jsx>{`
-                @keyframes fade-in {
-                    from { opacity: 0; transform: translateY(20px); }
-                    to { opacity: 1; transform: translateY(0); }
-                }
-                .animate-fade-in {
-                    animation: fade-in 0.8s ease-out forwards;
-                }
-            `}</style>
         </section>
     );
 };

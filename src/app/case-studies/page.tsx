@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { FadeIn } from '@/components/fade-in';
 
 const allCaseStudies = [
   {
@@ -64,32 +65,36 @@ export default function CaseStudiesPage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow container mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Case <span className="text-accent">Studies</span></h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            See how we've helped companies like yours achieve their quality goals.
-          </p>
-        </div>
+        <FadeIn>
+            <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Case <span className="text-accent">Studies</span></h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                See how we've helped companies like yours achieve their quality goals.
+            </p>
+            </div>
+        </FadeIn>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12">
           {visibleCaseStudies.map((study, index) => (
-            <Card key={index} className="overflow-hidden flex flex-col">
-              <Image
-                src={study.imageUrl}
-                alt={study.title}
-                width={600}
-                height={400}
-                className="w-full h-48 object-cover"
-                data-ai-hint={study.aiHint}
-              />
-              <CardHeader>
-                <CardTitle>{study.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col">
-                <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
-                <Button variant="link" className="p-0 self-start">Read More</Button>
-              </CardContent>
-            </Card>
+            <FadeIn key={index}>
+                <Card className="overflow-hidden flex flex-col h-full">
+                <Image
+                    src={study.imageUrl}
+                    alt={study.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-48 object-cover"
+                    data-ai-hint={study.aiHint}
+                />
+                <CardHeader>
+                    <CardTitle>{study.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col">
+                    <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
+                    <Button variant="link" className="p-0 self-start">Read More</Button>
+                </CardContent>
+                </Card>
+            </FadeIn>
           ))}
         </div>
 
@@ -101,7 +106,7 @@ export default function CaseStudiesPage() {
           </div>
         )}
 
-        <TestimonialsSection />
+        <FadeIn><TestimonialsSection /></FadeIn>
       </main>
       <Footer />
     </div>
