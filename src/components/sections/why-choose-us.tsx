@@ -5,9 +5,17 @@ import AnimatedCounter from "@/components/animated-counter";
 import { CheckCircle } from "lucide-react";
 import { FadeIn } from "../fade-in";
 
+const ReliabilityIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="m9 12 2 2 4-4"></path>
+    </svg>
+);
+
+
 const benefits = [
     {
-        icon: <ShieldCheck className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        icon: <ReliabilityIcon />,
         title: "Unmatched Reliability",
         description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
