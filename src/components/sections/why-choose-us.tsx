@@ -7,22 +7,22 @@ import { FadeIn } from "../fade-in";
 
 const benefits = [
     {
-        icon: <ShieldCheck className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
+        icon: <ShieldCheck className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Unmatched Reliability",
         description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
     {
-        icon: <Scaling className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
+        icon: <Scaling className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Scalable Solutions",
         description: "We understand that growth is constant. That’s why our solutions are designed to scale seamlessly, supporting your business as it evolves—from ambitious start-ups to established enterprises."
     },
     {
-        icon: <Users className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
+        icon: <Users className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Expert Team",
         description: "Behind every project is a team of highly skilled professionals with deep industry expertise. Our developers, designers, QA specialists, and digital strategists work collaboratively to deliver innovative solutions that drive measurable results."
     },
     {
-        icon: <Rocket className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
+        icon: <Rocket className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
         title: "Faster Time-to-Market",
         description: "In today’s fast-moving world, speed matters. Through agile methodologies and streamlined processes, we accelerate delivery without compromising quality, helping you stay ahead of the competition."
     }
@@ -99,7 +99,7 @@ const WhyChooseUsSection = () => {
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-16">
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start gap-4 group">
+                        <div key={index} className="flex items-start gap-4">
                             <div className="flex-shrink-0 mt-1">{benefit.icon}</div>
                             <div>
                                 <h3 className="text-lg font-semibold">{benefit.title}</h3>
