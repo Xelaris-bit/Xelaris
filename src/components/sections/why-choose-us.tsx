@@ -78,12 +78,12 @@ const WhyChooseUsSection = () => {
                     </div>
 
                     {/* Orbiting Icon Buttons */}
-                    <div className="absolute w-[500px] h-[500px]">
+                    <div className="absolute w-[500px] h-[500px] animate-orbit" style={{ animationDuration: '40s' }}>
                         {benefits.map((benefit, index) => {
-                            const radius = 230; // Reduced radius
+                            const radius = 230;
                             const containerSize = 500;
                             const buttonSize = 96;
-                            const angle = (index / benefits.length) * 2 * Math.PI - Math.PI / 2; // Start from top
+                            const angle = (index / benefits.length) * 2 * Math.PI - Math.PI / 2;
                             const x = (containerSize / 2) + radius * Math.cos(angle) - (buttonSize / 2);
                             const y = (containerSize / 2) + radius * Math.sin(angle) - (buttonSize / 2);
                             return (
@@ -91,10 +91,13 @@ const WhyChooseUsSection = () => {
                                     key={benefit.id}
                                     onClick={() => setSelectedBenefit(benefit)}
                                     className={cn(
-                                        "absolute w-24 h-24 rounded-full flex items-center justify-center bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110 z-10",
+                                        "absolute w-24 h-24 rounded-full flex items-center justify-center bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110 z-10 animate-counter-orbit",
                                         selectedBenefit.id === benefit.id ? 'border-4 border-accent text-accent' : 'text-primary/70 hover:text-accent'
                                     )}
-                                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                                    style={{ 
+                                        transform: `translate(${x}px, ${y}px)`,
+                                        animationDuration: '40s'
+                                    }}
                                 >
                                     {benefit.icon}
                                 </button>
