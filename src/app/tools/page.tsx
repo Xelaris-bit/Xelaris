@@ -9,9 +9,7 @@ export default function ToolsPage() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
-        <FadeIn>
-          <ToolsSection />
-        </FadeIn>
+        <ToolsSection />
       </main>
       <Footer />
     </div>
