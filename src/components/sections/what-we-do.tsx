@@ -109,8 +109,8 @@ const WhatWeDoSection = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-[-50px]" />
-                        <CarouselNext className="right-[-50px]" />
+                        <CarouselPrevious className="left-[-16px]" />
+                        <CarouselNext className="right-[-16px]" />
                     </Carousel>
                 </div>
             </div>
