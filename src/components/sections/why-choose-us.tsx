@@ -122,7 +122,7 @@ const WhyChooseUsSection = () => {
                     <div className="relative w-full max-w-2xl lg:max-w-3xl mx-auto aspect-square">
                         {/* Central Content */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-1/2 h-1/2 bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -132,10 +132,10 @@ const WhyChooseUsSection = () => {
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '15%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
-                                { top: '50%', right: '15%', transform: 'translate(50%, -50%)' }, // Right
-                                { bottom: '15%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
-                                { top: '50%', left: '15%', transform: 'translate(-50%, -50%)' } // Left
+                                { top: '12%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
+                                { top: '50%', right: '12%', transform: 'translate(50%, -50%)' }, // Right
+                                { bottom: '12%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
+                                { top: '50%', left: '12%', transform: 'translate(-50%, -50%)' } // Left
                             ][index];
 
                             return (
