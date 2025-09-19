@@ -1,7 +1,8 @@
+
 'use client';
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Rocket, TrendingUp } from "lucide-react";
+import { Users, Rocket, TrendingUp, ShieldCheck } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -60,53 +61,44 @@ const WhyChooseUsSection = () => {
                 </div>
                 
                 {/* Desktop View: Circular Interactive Layout */}
-                <div className="hidden md:flex justify-center items-center h-[500px]">
-                    <div className="relative w-[500px] h-[500px] flex items-center justify-center">
-                        {/* The central content circle */}
-                        <div className="absolute w-[300px] h-[300px] bg-background rounded-full flex items-center justify-center p-8 text-center shadow-2xl">
-                             <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={selectedBenefit.id}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="flex flex-col items-center"
-                                >
-                                    <h3 className="text-2xl font-bold text-primary mb-3">{selectedBenefit.title}</h3>
-                                    <p className="text-muted-foreground">{selectedBenefit.description}</p>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
+                <div className="hidden md:flex justify-center items-center h-[500px] relative">
+                     {/* The central content circle */}
+                    <div className="absolute w-[300px] h-[300px] bg-background rounded-full flex items-center justify-center p-8 text-center shadow-2xl">
+                            <AnimatePresence mode="wait">
+                            <motion.div
+                                key={selectedBenefit.id}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex flex-col items-center"
+                            >
+                                <h3 className="text-2xl font-bold text-primary mb-3">{selectedBenefit.title}</h3>
+                                <p className="text-muted-foreground">{selectedBenefit.description}</p>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
 
-                        {/* Orbiting Icon Buttons */}
-                        <div className="absolute w-full h-full animate-orbit" style={{ animationDuration: '30s' }}>
-                            {benefits.map((benefit, index) => {
-                                const angle = (index / benefits.length) * 360;
-                                return (
-                                    <div
-                                        key={benefit.id}
-                                        className="absolute w-full h-full"
-                                        style={{ transform: `rotate(${angle}deg)` }}
-                                    >
-                                        <div 
-                                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-counter-orbit" 
-                                            style={{ animationDuration: '30s' }}
-                                        >
-                                            <button
-                                                onClick={() => setSelectedBenefit(benefit)}
-                                                className={cn(
-                                                    "w-24 h-24 rounded-full flex items-center justify-center bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110",
-                                                    selectedBenefit.id === benefit.id ? 'border-4 border-accent text-accent' : 'text-primary/70 hover:text-accent'
-                                                )}
-                                            >
-                                                {benefit.icon}
-                                            </button>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                    {/* Orbiting Icon Buttons */}
+                    <div className="absolute w-[500px] h-[500px]">
+                        {benefits.map((benefit, index) => {
+                            const angle = (index / benefits.length) * 2 * Math.PI - Math.PI / 2; // Start from top
+                            const x = 250 + 250 * Math.cos(angle) - 48; // 250 is radius, 48 is half of button width
+                            const y = 250 + 250 * Math.sin(angle) - 48; // 250 is radius, 48 is half of button height
+                            return (
+                                <button
+                                    key={benefit.id}
+                                    onClick={() => setSelectedBenefit(benefit)}
+                                    className={cn(
+                                        "absolute w-24 h-24 rounded-full flex items-center justify-center bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110 z-10",
+                                        selectedBenefit.id === benefit.id ? 'border-4 border-accent text-accent' : 'text-primary/70 hover:text-accent'
+                                    )}
+                                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                                >
+                                    {benefit.icon}
+                                </button>
+                            );
+                        })}
                     </div>
                 </div>
 
