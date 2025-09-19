@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Users, TrendingUp, Rocket, ShieldCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Logo } from '@/components/logo';
 
 const benefits = [
@@ -61,7 +61,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4 relative left-[3.75rem]" />
+                                    <Logo className="h-16 w-16 mb-4 relative left-[4rem]" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
