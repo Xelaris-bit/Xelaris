@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -47,9 +46,9 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="relative h-[450px] w-full mx-auto hidden md:flex items-center justify-center">
+        <div className="relative h-[500px] w-full max-w-2xl mx-auto flex items-center justify-center">
             {/* Central Content Circle */}
-            <Card className="absolute w-80 h-80 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
+            <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeIndex === null ? 'default' : benefits[activeIndex].title}
@@ -62,8 +61,8 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16" />
-                                    <p className="text-muted-foreground text-sm mt-4">
+                                    <Logo className="h-16 w-16 mb-4" />
+                                    <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
                                 </>
@@ -94,7 +93,7 @@ const WhyChooseUsSection = () => {
                         className={cn(
                             'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20',
                             activeIndex === index
-                            ? 'bg-primary text-primary-foreground scale-110 shadow-lg'
+                            ? 'bg-primary text-primary-foreground shadow-lg'
                             : 'bg-background text-primary'
                         )}
                         animate={{
