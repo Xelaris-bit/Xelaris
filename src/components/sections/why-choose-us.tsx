@@ -121,7 +121,7 @@ const WhyChooseUsSection = () => {
                 {/* Desktop Circular Layout */}
                 <div className="hidden md:block mb-16">
                     <motion.div 
-                        className="relative w-full max-w-2xl lg:max-w-3xl mx-auto aspect-square"
+                        className="relative w-full max-w-3xl mx-auto aspect-square"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.5 }}
@@ -135,7 +135,7 @@ const WhyChooseUsSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
                         >
-                            <div className="w-[50%] h-[50%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[55%] h-[55%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -144,11 +144,11 @@ const WhyChooseUsSection = () => {
 
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
-                             const position = [
-                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, // Unmatched Reliability
-                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, // Scalable Solutions
-                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' }, // Expert Team
-                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } // Faster Time-to-Market
+                             const positionStyles = [
+                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, 
+                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, 
+                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' },
+                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } 
                             ][index];
                             
                             const variants = {
@@ -161,18 +161,18 @@ const WhyChooseUsSection = () => {
                                     key={benefit.id}
                                     onClick={() => setActiveTab(benefit)}
                                     className={cn(
-                                        'absolute w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group',
+                                        'absolute w-36 h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group',
                                         activeTab.id === benefit.id
                                             ? 'bg-primary text-primary-foreground scale-110 z-10'
                                             : 'bg-background text-foreground'
                                     )}
-                                    style={position}
+                                    style={positionStyles}
                                     variants={variants}
                                     whileHover={{ scale: 1.15, zIndex: 20 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
                                     <div className="mb-1">{benefit.icon}</div>
-                                    <span className="text-xs md:text-sm font-semibold">{benefit.title}</span>
+                                    <span className="text-sm font-semibold">{benefit.title}</span>
                                 </motion.button>
                             )
                         })}
