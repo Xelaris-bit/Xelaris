@@ -119,7 +119,7 @@ const WhyChooseUsSection = () => {
                 
                 {/* Desktop Circular Layout */}
                 <div className="hidden md:block mb-16">
-                    <div className="relative w-full max-w-xl lg:max-w-2xl mx-auto aspect-square">
+                    <div className="relative w-full max-w-xl lg:max-w-3xl mx-auto aspect-square">
                         {/* Central Content */}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="w-3/5 h-3/5 bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
