@@ -33,6 +33,7 @@ const benefits = [
 
 const WhyChooseUsSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
@@ -77,24 +78,29 @@ const WhyChooseUsSection = () => {
 
              {/* Orbiting Icon Buttons */}
             {benefits.map((benefit, index) => {
-                const angle = (index / benefits.length) * 360;
+                const angle = (index / benefits.length) * (2 * Math.PI) - (Math.PI / 2);
                 const radius = 200;
+                const x = Math.round(radius * Math.cos(angle));
+                const y = Math.round(radius * Math.sin(angle));
 
                 return (
                     <motion.button
                         key={index}
                         onClick={() => setActiveIndex(index)}
+                        onHoverStart={() => setHoveredIndex(index)}
+                        onHoverEnd={() => setHoveredIndex(null)}
                         className={cn(
                             'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20',
                             activeIndex === index
                             ? 'bg-primary text-primary-foreground scale-110 shadow-lg'
                             : 'bg-background text-primary'
                         )}
-                        style={{
-                            transform: `rotate(${angle}deg) translateX(${radius}px) rotate(-${angle}deg)`
+                        animate={{
+                            x: x,
+                            y: y,
+                            scale: hoveredIndex === index || activeIndex === index ? 1.1 : 1,
                         }}
-                         whileHover={{ scale: 1.1, zIndex: 30, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
-                         transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                        {benefit.icon}
                     </motion.button>
