@@ -107,8 +107,6 @@ const differentiators = [
 ];
 
 const WhyChooseUsSection = () => {
-    const [activeTab, setActiveTab] = useState<(typeof benefits[0]) | null>(null);
-
     return (
         <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
@@ -119,67 +117,50 @@ const WhyChooseUsSection = () => {
                     </p>
                 </div>
                 
-                {/* Desktop Interactive Layout */}
+                 {/* Orbiting Tabs Layout */}
                 <div className="hidden md:flex flex-col items-center justify-center mb-16 relative h-[600px]">
-                    {/* The semi-circle path */}
-                    <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[700px] h-[350px] border-b-2 border-l-2 border-r-2 border-dashed border-border rounded-b-full"></div>
-                    
                     {/* Central Content Area */}
                     <div className="relative w-[320px] h-[320px] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm z-10">
-                         <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab ? activeTab.id : 'initial'}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.8 }}
-                                transition={{ duration: 0.3 }}
-                                className="flex flex-col items-center justify-center"
-                            >
-                                {activeTab ? (
-                                    <>
-                                        <div className="mb-4">{activeTab.icon}</div>
-                                        <h3 className="text-xl font-semibold text-primary mb-2">{activeTab.title}</h3>
-                                        <p className="text-sm text-muted-foreground">{activeTab.description}</p>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Logo className="w-24 h-24 text-primary opacity-80" />
-                                        <p className="mt-4 text-muted-foreground">Click an icon to learn more about our strengths.</p>
-                                    </>
-                                )}
-                            </motion.div>
-                        </AnimatePresence>
+                        <Logo className="w-24 h-24 text-primary opacity-80" />
+                        <p className="mt-4 text-muted-foreground">Reliable, Scalable, and Expert solutions delivered fast.</p>
                     </div>
 
-                    {/* Interactive Icons */}
-                    {benefits.map((benefit, index) => {
-                         const angle = 225 + index * 30; // Start at 225 deg, 30 deg increments
-                         const x = 350 * Math.cos(angle * Math.PI / 180);
-                         const y = 200 * Math.sin(angle * Math.PI / 180);
+                    {/* Orbital Path */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] border-2 border-dashed border-border rounded-full"></div>
 
-                        return (
-                            <motion.button
-                                key={benefit.id}
-                                onClick={() => setActiveTab(benefit)}
-                                className={cn(
-                                    'absolute w-24 h-24 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group z-20',
-                                    activeTab?.id === benefit.id
-                                        ? 'bg-primary text-primary-foreground scale-110'
-                                        : 'bg-background text-foreground'
-                                )}
-                                style={{
-                                    top: 'calc(50% - 48px)',
-                                    left: 'calc(50% - 48px)',
-                                    transform: `translate(${x}px, ${y}px)`
-                                }}
-                                whileHover={{ scale: 1.1, zIndex: 30 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                {benefit.icon}
-                            </motion.button>
-                        )
-                    })}
+                    {/* Orbiting Container */}
+                    <div className="absolute top-1/2 left-1/2 w-[480px] h-[480px] animate-orbit [animation-duration:30s] z-20">
+                        {/* Tab 1: Top */}
+                        <div className="absolute top-[0%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
+                                <ReliabilityIcon />
+                                <h3 className="text-sm font-semibold text-primary mt-1">Unmatched Reliability</h3>
+                            </div>
+                        </div>
+                        {/* Tab 2: Right */}
+                        <div className="absolute top-1/2 right-[0%] -translate-y-1/2 translate-x-1/2">
+                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
+                                 <Scaling className="w-8 h-8 text-accent" />
+                                <h3 className="text-sm font-semibold text-primary mt-1">Scalable Solutions</h3>
+                            </div>
+                        </div>
+                        {/* Tab 3: Bottom */}
+                        <div className="absolute bottom-[0%] left-1/2 -translate-x-1/2 translate-y-1/2">
+                           <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
+                                 <Users className="w-8 h-8 text-accent" />
+                                <h3 className="text-sm font-semibold text-primary mt-1">Expert Team</h3>
+                            </div>
+                        </div>
+                        {/* Tab 4: Left */}
+                        <div className="absolute top-1/2 left-[0%] -translate-y-1/2 -translate-x-1/2">
+                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
+                                <Rocket className="w-8 h-8 text-accent" />
+                                <h3 className="text-sm font-semibold text-primary mt-1">Faster Time-to-Market</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
 
                 {/* Mobile Accordion Layout */}
                 <div className="md:hidden mb-16 max-w-xl mx-auto">
