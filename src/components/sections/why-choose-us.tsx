@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -5,6 +6,7 @@ import { Users, TrendingUp, Rocket, ShieldCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Logo } from '@/components/logo';
 
 const benefits = [
   {
@@ -30,8 +32,7 @@ const benefits = [
 ];
 
 const WhyChooseUsSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeBenefit = benefits[activeIndex];
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
@@ -50,7 +51,7 @@ const WhyChooseUsSection = () => {
             <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
                     <motion.div
-                        key={activeIndex}
+                        key={activeIndex === null ? 'default' : benefits[activeIndex].title}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
@@ -58,8 +59,17 @@ const WhyChooseUsSection = () => {
                         className="flex flex-col items-center"
                     >
                         <CardContent className="p-0">
-                            <h3 className="text-xl font-bold text-primary mb-2">{activeBenefit.title}</h3>
-                            <p className="text-muted-foreground">{activeBenefit.description}</p>
+                            {activeIndex === null ? (
+                                <>
+                                    <Logo className="h-16 w-16 mb-4" />
+                                    <p className="text-muted-foreground">Click an icon to learn more about our advantages.</p>
+                                </>
+                            ) : (
+                                <>
+                                    <h3 className="text-xl font-bold text-primary mb-2">{benefits[activeIndex].title}</h3>
+                                    <p className="text-muted-foreground">{benefits[activeIndex].description}</p>
+                                </>
+                            )}
                         </CardContent>
                     </motion.div>
                 </AnimatePresence>
@@ -67,10 +77,8 @@ const WhyChooseUsSection = () => {
 
              {/* Orbiting Icon Buttons */}
             {benefits.map((benefit, index) => {
-                const angle = (index / benefits.length) * 2 * Math.PI - (Math.PI / 2); // Start from top
-                const radius = 200; // Radius of the orbit
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
+                const angle = (index / benefits.length) * 360;
+                const radius = 200;
 
                 return (
                     <motion.button
@@ -83,10 +91,10 @@ const WhyChooseUsSection = () => {
                             : 'bg-background text-primary'
                         )}
                         style={{
-                            x,
-                            y,
+                            transform: `rotate(${angle}deg) translateX(${radius}px) rotate(-${angle}deg)`
                         }}
-                        whileHover={{ scale: 1.15, zIndex: 30, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
+                         whileHover={{ scale: 1.1, zIndex: 30, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
+                         transition={{ duration: 0.2 }}
                     >
                        {benefit.icon}
                     </motion.button>
