@@ -7,6 +7,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Logo } from '@/components/logo';
+import AnimatedCounter from '@/components/animated-counter';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const benefits = [
   {
@@ -31,12 +34,48 @@ const benefits = [
   },
 ];
 
+const stats = [
+    { value: 50, label: 'Skilled IT Professionals', suffix: '+' },
+    { value: 9, label: 'Average team experience', suffix: ' years' },
+    { value: 20, label: 'Satisfied clients', suffix: '+' },
+    { value: 10, label: 'To assemble your dedicated team', suffix: ' days' },
+];
+
+const ExpertiseSection = () => {
+    return (
+        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+            <div className="container mx-auto px-4 md:px-6 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold">Accelerate development and innovation with our expertise</h2>
+                <p className="mt-4 text-primary-foreground/80 max-w-3xl mx-auto">
+                    We collaborate, strategize, design, and deliver tailored software solutions for clients globally
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 mb-12">
+                    {stats.map((stat, index) => (
+                        <div key={index} className="flex flex-col">
+                            <div className="flex items-center justify-center">
+                                <AnimatedCounter value={stat.value} />
+                                <span className="font-bold text-4xl md:text-5xl">{stat.suffix}</span>
+                            </div>
+                            <p className="text-primary-foreground/80 mt-2">{stat.label}</p>
+                        </div>
+                    ))}
+                </div>
+                <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+                    <Link href="/about">Discover More</Link>
+                </Button>
+            </div>
+        </section>
+    );
+};
+
+
 const WhyChooseUsSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [mobileTabIndex, setMobileTabIndex] = useState(0);
 
   return (
+    <>
     <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
@@ -151,6 +190,8 @@ const WhyChooseUsSection = () => {
 
       </div>
     </section>
+    <ExpertiseSection />
+    </>
   );
 };
 
