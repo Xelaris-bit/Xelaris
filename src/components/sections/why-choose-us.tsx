@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -94,7 +95,7 @@ const WhyChooseUsSection = () => {
                             'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20',
                             activeIndex === index
                             ? 'bg-primary text-primary-foreground shadow-lg'
-                            : 'bg-background text-primary'
+                            : 'bg-background text-primary hover:bg-accent hover:text-accent-foreground'
                         )}
                         animate={{
                             x: x,
