@@ -1,12 +1,15 @@
 
+'use client';
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Rocket, Award, Clock, FolderKanban, ShieldCheck, Scaling, Gauge } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
 import { CheckCircle } from "lucide-react";
 import { FadeIn } from "../fade-in";
+import { cn } from '@/lib/utils';
 
 const ReliabilityIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         <path d="m9 12 2 2 4-4"></path>
     </svg>
@@ -15,22 +18,26 @@ const ReliabilityIcon = () => (
 
 const benefits = [
     {
+        id: 'reliability',
         icon: <ReliabilityIcon />,
         title: "Unmatched Reliability",
         description: "At Xelaris, we are dedicated to delivering solutions that inspire confidence. Our proven track record of consistent performance ensures that your business runs without disruption, backed by technology you can truly rely on."
     },
     {
-        icon: <Scaling className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        id: 'scalability',
+        icon: <Scaling className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Scalable Solutions",
         description: "We understand that growth is constant. That’s why our solutions are designed to scale seamlessly, supporting your business as it evolves—from ambitious start-ups to established enterprises."
     },
     {
-        icon: <Users className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        id: 'team',
+        icon: <Users className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Expert Team",
         description: "Behind every project is a team of highly skilled professionals with deep industry expertise. Our developers, designers, QA specialists, and digital strategists work collaboratively to deliver innovative solutions that drive measurable results."
     },
     {
-        icon: <Rocket className="w-8 h-8 text-accent transition-transform duration-300 hover:scale-110" />,
+        id: 'speed',
+        icon: <Rocket className="w-8 h-8 text-accent transition-transform duration-300 group-hover:scale-110" />,
         title: "Faster Time-to-Market",
         description: "In today’s fast-moving world, speed matters. Through agile methodologies and streamlined processes, we accelerate delivery without compromising quality, helping you stay ahead of the competition."
     }
@@ -96,6 +103,8 @@ const differentiators = [
 ];
 
 const WhyChooseUsSection = () => {
+    const [activeTab, setActiveTab] = useState(benefits[0]);
+
     return (
         <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
@@ -105,16 +114,45 @@ const WhyChooseUsSection = () => {
                         We deliver cutting-edge IT solutions designed to transform businesses. From custom web and software development to immersive eLearning platforms, 3D & multimedia design, quality assurance, and digital marketing—our team combines creativity and technology to bring your vision to life.
                     </p>
                 </div>
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 mb-16">
-                    {benefits.map((benefit, index) => (
-                        <div key={index} className="flex items-start gap-4">
-                            <div className="flex-shrink-0 mt-1">{benefit.icon}</div>
-                            <div>
-                                <h3 className="text-lg font-semibold">{benefit.title}</h3>
-                                <p className="mt-1 text-muted-foreground">{benefit.description}</p>
+                
+                <div className="mb-16">
+                    <div className="relative w-full max-w-2xl mx-auto aspect-square">
+                        {/* Central Content */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-3/5 h-3/5 bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                                <div className="mb-4">{activeTab.icon}</div>
+                                <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
+                                <p className="text-sm text-muted-foreground">{activeTab.description}</p>
                             </div>
                         </div>
-                    ))}
+
+                        {/* Tabs */}
+                        {benefits.map((benefit, index) => {
+                             const position = [
+                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
+                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, // Right
+                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
+                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } // Left
+                            ][index];
+
+                            return (
+                                <button
+                                    key={benefit.id}
+                                    onClick={() => setActiveTab(benefit)}
+                                    className={cn(
+                                        'absolute w-28 h-28 md:w-36 md:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group hover:scale-105',
+                                        activeTab.id === benefit.id
+                                            ? 'bg-primary text-primary-foreground scale-105 z-10'
+                                            : 'bg-background text-foreground'
+                                    )}
+                                    style={position}
+                                >
+                                    <div className="mb-1">{benefit.icon}</div>
+                                    <span className="text-xs md:text-sm font-semibold">{benefit.title}</span>
+                                </button>
+                            )
+                        })}
+                    </div>
                 </div>
 
                 <Card className="bg-background mb-16">
