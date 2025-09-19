@@ -45,7 +45,7 @@ const ExpertiseSection = () => {
     return (
         <section className="py-16 md:py-24 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 md:px-6 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold">Accelerate development and innovation with our expertise</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">Drive development and innovation forward with our industry-leading expertise</h2>
                 <p className="mt-4 text-primary-foreground/80 max-w-3xl mx-auto">
                     We collaborate, strategize, design, and deliver tailored software solutions for clients globally
                 </p>
