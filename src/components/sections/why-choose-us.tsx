@@ -61,7 +61,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 relative left-[4.5rem]" />
+                                    <Logo className="h-16 w-16 relative left-[4.5rem] mb-4" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
@@ -77,36 +77,35 @@ const WhyChooseUsSection = () => {
                 </AnimatePresence>
             </Card>
 
-            <motion.div className="absolute w-full h-full animate-orbit [animation-duration:30s]">
+            <div className="absolute w-full h-full animate-orbit [animation-duration:30s]">
                 {benefits.map((benefit, index) => {
                     const angle = (index / benefits.length) * 360;
                     return (
-                         <motion.div
+                         <div
                             key={index}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24"
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 group"
                             style={{
                                 transform: `rotate(${angle}deg) translateX(200px) rotate(-${angle}deg)`
                             }}
-                             whileHover={{ scale: 1.1 }}
-                             transition={{ type: "spring", stiffness: 300, damping: 20 }}
                          >
                             <button
                                 onClick={() => setActiveIndex(index)}
-                                onHoverStart={() => setHoveredIndex(index)}
-                                onHoverEnd={() => setHoveredIndex(null)}
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
                                 className={cn(
-                                    'w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20 animate-counter-orbit [animation-duration:30s]',
+                                    'w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20 animate-counter-orbit [animation-duration:30s] group-hover:scale-110',
                                     activeIndex === index
                                     ? 'bg-primary text-primary-foreground shadow-lg'
-                                    : 'bg-background text-primary hover:bg-accent hover:text-accent-foreground'
+                                    : 'bg-background text-primary',
+                                    hoveredIndex === index && activeIndex !== index ? 'bg-accent text-accent-foreground' : ''
                                 )}
                             >
                             {benefit.icon}
                             </button>
-                        </motion.div>
+                        </div>
                     );
                 })}
-            </motion.div>
+            </div>
         </div>
         
         {/* Mobile View */}
