@@ -124,7 +124,7 @@ const WhyChooseUsSection = () => {
                         className="relative w-full max-w-3xl mx-auto aspect-square"
                     >
                         {/* The Orbit Path */}
-                        <div className="absolute inset-0 border-2 border-dashed border-border rounded-full"></div>
+                        <div className="absolute inset-[10%] border-2 border-dashed border-border rounded-full"></div>
 
                         {/* Central Content */}
                          <div 
@@ -148,10 +148,10 @@ const WhyChooseUsSection = () => {
                         >
                             {benefits.map((benefit, index) => {
                                 const positionStyles = [
-                                    { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, 
-                                    { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, 
-                                    { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' },
-                                    { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } 
+                                    { top: '10%', left: '50%', transform: 'translate(-50%, -50%)' }, 
+                                    { top: '50%', right: '10%', transform: 'translate(50%, -50%)' }, 
+                                    { bottom: '10%', left: '50%', transform: 'translate(-50%, 50%)' },
+                                    { top: '50%', left: '10%', transform: 'translate(-50%, -50%)' } 
                                 ][index];
                                 
                                 const variants = {
