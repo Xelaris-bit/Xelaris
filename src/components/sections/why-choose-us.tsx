@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -33,6 +34,7 @@ const benefits = [
 const WhyChooseUsSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [mobileTabIndex, setMobileTabIndex] = useState(0);
 
   return (
     <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
@@ -83,22 +85,17 @@ const WhyChooseUsSection = () => {
                 return (
                   <div
                     key={index}
-                    className="absolute top-1/2 left-1/2 w-24 h-24 group"
+                    className="absolute top-1/2 left-1/2 w-24 h-24"
                     style={{
-                      transform: `
-                        rotate(${angle}deg) 
-                        translateX(${radius}px) 
-                        rotate(-${angle}deg)
-                        translateX(-50%) 
-                        translateY(-50%)`
+                      transform: `rotate(${angle}deg) translateX(${radius}px) rotate(-${angle}deg) translateX(-50%) translateY(-50%)`
                     }}
                   >
-                    <button
+                     <button
                       onClick={() => setActiveIndex(index)}
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
                       className={cn(
-                        'w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20 animate-counter-orbit [animation-duration:30s] group-hover:scale-110',
+                        'w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20 animate-counter-orbit [animation-duration:30s] hover:scale-110',
                          activeIndex === index
                            ? 'bg-primary text-primary-foreground shadow-lg'
                            : 'bg-background text-primary',
@@ -113,17 +110,40 @@ const WhyChooseUsSection = () => {
             </div>
         </div>
         
-        {/* Mobile View */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:hidden">
-            {benefits.map((benefit, index) => (
-                <Card key={index} className="text-center p-6 flex flex-col items-center bg-background hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                    <div className="p-0 mb-4 text-accent">{benefit.icon}</div>
-                    <CardContent className="p-0">
-                        <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-                        <p className="text-muted-foreground">{benefit.description}</p>
-                    </CardContent>
-                </Card>
-            ))}
+        {/* Mobile View - Tab Interaction */}
+        <div className="md:hidden">
+            <div className="flex justify-around mb-8">
+                {benefits.map((benefit, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setMobileTabIndex(index)}
+                        className={cn(
+                            'w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300',
+                            mobileTabIndex === index
+                                ? 'bg-primary text-primary-foreground shadow-lg scale-110'
+                                : 'bg-background text-primary'
+                        )}
+                    >
+                        {benefit.icon}
+                    </button>
+                ))}
+            </div>
+            <Card className="bg-background">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={mobileTabIndex}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <CardContent className="p-6 text-center">
+                            <h3 className="text-xl font-semibold mb-2">{benefits[mobileTabIndex].title}</h3>
+                            <p className="text-muted-foreground">{benefits[mobileTabIndex].description}</p>
+                        </CardContent>
+                    </motion.div>
+                </AnimatePresence>
+            </Card>
         </div>
 
       </div>
