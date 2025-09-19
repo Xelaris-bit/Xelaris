@@ -45,7 +45,7 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="relative h-[400px] w-[400px] mx-auto hidden md:flex items-center justify-center">
+        <div className="relative h-[450px] w-[450px] mx-auto hidden md:flex items-center justify-center">
             {/* Central Content Circle */}
             <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
@@ -68,7 +68,7 @@ const WhyChooseUsSection = () => {
              {/* Orbiting Icon Buttons */}
             {benefits.map((benefit, index) => {
                 const angle = (index / benefits.length) * 2 * Math.PI - (Math.PI / 2); // Start from top
-                const radius = 180; // Radius of the orbit
+                const radius = 200; // Radius of the orbit
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
 
@@ -77,16 +77,16 @@ const WhyChooseUsSection = () => {
                         key={index}
                         onClick={() => setActiveIndex(index)}
                         className={cn(
-                            'absolute w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20',
+                            'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20',
                             activeIndex === index
                             ? 'bg-primary text-primary-foreground scale-110 shadow-lg'
-                            : 'bg-background text-primary hover:bg-primary/10'
+                            : 'bg-background text-primary'
                         )}
                         style={{
                             x,
                             y,
                         }}
-                        whileHover={{ scale: activeIndex === index ? 1.15 : 1.05, zIndex: 30 }}
+                        whileHover={{ scale: 1.15, zIndex: 30, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
                     >
                        {benefit.icon}
                     </motion.button>
