@@ -131,28 +131,28 @@ const WhyChooseUsSection = () => {
                     {/* Orbiting Container */}
                     <div className="absolute top-1/2 left-1/2 w-[480px] h-[480px] animate-orbit [animation-duration:30s] z-20">
                         {/* Tab 1: Top */}
-                        <div className="absolute top-[0%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                             <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
                                 <ReliabilityIcon />
                                 <h3 className="text-sm font-semibold text-primary mt-1">Unmatched Reliability</h3>
                             </div>
                         </div>
                         {/* Tab 2: Right */}
-                        <div className="absolute top-1/2 right-[0%] -translate-y-1/2 translate-x-1/2">
+                        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2">
                             <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
                                  <Scaling className="w-8 h-8 text-accent" />
                                 <h3 className="text-sm font-semibold text-primary mt-1">Scalable Solutions</h3>
                             </div>
                         </div>
                         {/* Tab 3: Bottom */}
-                        <div className="absolute bottom-[0%] left-1/2 -translate-x-1/2 translate-y-1/2">
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
                                  <Users className="w-8 h-8 text-accent" />
                                 <h3 className="text-sm font-semibold text-primary mt-1">Expert Team</h3>
                             </div>
                         </div>
                         {/* Tab 4: Left */}
-                        <div className="absolute top-1/2 left-[0%] -translate-y-1/2 -translate-x-1/2">
+                        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
                             <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
                                 <Rocket className="w-8 h-8 text-accent" />
                                 <h3 className="text-sm font-semibold text-primary mt-1">Faster Time-to-Market</h3>
