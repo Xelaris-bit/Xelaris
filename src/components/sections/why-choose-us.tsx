@@ -124,13 +124,13 @@ const WhyChooseUsSection = () => {
                         className="relative w-full max-w-3xl mx-auto aspect-square"
                     >
                         {/* The Orbit Path */}
-                        <div className="absolute inset-[10%] border-2 border-dashed border-border rounded-full z-0"></div>
+                        <div className="absolute inset-[15%] border-2 border-dashed border-border rounded-full"></div>
 
                         {/* Central Content */}
                          <div 
                             className="absolute inset-0 flex items-center justify-center"
                         >
-                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[50%] h-[50%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -148,12 +148,15 @@ const WhyChooseUsSection = () => {
                         >
                             {benefits.map((benefit, index) => {
                                 const positionStyles = [
-                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, 
-                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, 
-                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' },
-                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' } 
-                                ][index];
+                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, // 12 o'clock
+                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, // 3 o'clock
+                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }, // 9 o'clock
+                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' } // 6 o'clock
+                                ];
                                 
+                                const correctOrder = [0, 1, 3, 2];
+                                const style = positionStyles[correctOrder[index]];
+
                                 const variants = {
                                     hidden: { opacity: 0, scale: 0.5 },
                                     visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 300, damping: 20 } },
@@ -169,7 +172,7 @@ const WhyChooseUsSection = () => {
                                                 ? 'bg-primary text-primary-foreground scale-110 z-10'
                                                 : 'bg-background text-foreground'
                                         )}
-                                        style={{ ...positionStyles, animationDuration: '30s' }}
+                                        style={{ ...style, animationDuration: '30s' }}
                                         variants={variants}
                                         whileHover={{ scale: 1.15, zIndex: 20 }}
                                         whileTap={{ scale: 0.95 }}
