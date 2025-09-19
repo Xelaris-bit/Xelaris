@@ -1,8 +1,11 @@
+
+'use client';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Bot, Code, GraduationCap, Megaphone, Palette } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const services = [
   {
@@ -47,6 +50,31 @@ const services = [
   }
 ];
 
+const ServiceCard = ({ service }: { service: typeof services[0] }) => (
+    <Card className="overflow-hidden flex flex-col bg-card text-card-foreground hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 h-full">
+        <CardContent className="p-6 flex flex-col flex-grow">
+            <div className="flex items-center gap-4 mb-4">
+                {service.icon}
+                <h3 className="text-xl font-semibold">{service.title}</h3>
+            </div>
+            <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
+                <Image
+                    src={service.imageUrl}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={service.aiHint}
+                />
+            </div>
+            <p className="text-muted-foreground mb-4 flex-grow text-sm">{service.description}</p>
+            <Button variant="outline" asChild className="self-start mt-auto">
+                <Link href={service.href}>Read More <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            </Button>
+        </CardContent>
+    </Card>
+);
+
+
 const WhatWeDoSection = () => {
     return (
         <section id="what-we-do" className="w-full py-16 md:py-24 bg-primary text-primary-foreground">
@@ -55,30 +83,35 @@ const WhatWeDoSection = () => {
                     <h2 className="text-3xl md:text-4xl font-bold">Our Best Services</h2>
                     <div className="mt-4 w-24 h-1.5 bg-accent mx-auto rounded-full" />
                 </div>
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+                
+                {/* Mobile and Desktop Grid View */}
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 md:hidden lg:grid">
                     {services.map((service, index) => (
-                        <Card key={index} className="overflow-hidden flex flex-col bg-card text-card-foreground hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                           <CardContent className="p-6 flex flex-col flex-grow">
-                                <div className="flex items-center gap-4 mb-4">
-                                    {service.icon}
-                                    <h3 className="text-xl font-semibold">{service.title}</h3>
-                                </div>
-                                <div className="relative h-40 w-full mb-4 rounded-md overflow-hidden">
-                                    <Image
-                                        src={service.imageUrl}
-                                        alt={service.title}
-                                        fill
-                                        className="object-cover"
-                                        data-ai-hint={service.aiHint}
-                                    />
-                                </div>
-                                <p className="text-muted-foreground mb-4 flex-grow text-sm">{service.description}</p>
-                                <Button variant="outline" asChild className="self-start mt-auto">
-                                    <Link href={service.href}>Read More <ArrowRight className="ml-2 w-4 h-4" /></Link>
-                                </Button>
-                           </CardContent>
-                        </Card>
+                        <ServiceCard key={index} service={service} />
                     ))}
+                </div>
+
+                {/* Tablet Carousel View */}
+                <div className="hidden md:block lg:hidden">
+                     <Carousel
+                        opts={{
+                            align: "start",
+                            loop: true,
+                        }}
+                        className="w-full max-w-sm mx-auto sm:max-w-md"
+                    >
+                        <CarouselContent className="-ml-4">
+                            {services.map((service, index) => (
+                                <CarouselItem key={index} className="pl-4 sm:basis-1/2 md:basis-1/2">
+                                     <div className="h-full">
+                                        <ServiceCard service={service} />
+                                    </div>
+                                </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious className="left-[-50px]" />
+                        <CarouselNext className="right-[-50px]" />
+                    </Carousel>
                 </div>
             </div>
         </section>
