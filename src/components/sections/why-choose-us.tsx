@@ -47,23 +47,25 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="relative h-[450px] w-[450px] mx-auto hidden md:flex items-center justify-center">
+        <div className="relative h-[450px] w-full mx-auto hidden md:flex items-center justify-center">
             {/* Central Content Circle */}
-            <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
+            <Card className="absolute w-80 h-80 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeIndex === null ? 'default' : benefits[activeIndex].title}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.3 }}
                         className="flex flex-col items-center"
                     >
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4" />
-                                    <p className="text-muted-foreground">Click an icon to learn more about our advantages.</p>
+                                    <Logo className="h-16 w-16" />
+                                    <p className="text-muted-foreground text-sm mt-4">
+                                        Click an icon to learn more about our advantages.
+                                    </p>
                                 </>
                             ) : (
                                 <>
