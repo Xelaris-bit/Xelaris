@@ -47,7 +47,7 @@ const ExpertiseSection = () => {
             <div className="container mx-auto px-4 md:px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold">Drive development and innovation forward with our industry-leading expertise</h2>
                 <p className="mt-4 text-primary-foreground/80 max-w-3xl mx-auto">
-                    We collaborate, strategize, design, and deliver tailored software solutions for clients globally
+                    We partner with clients worldwide to strategize, design, and implement customized software solutions
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 mb-12">
                     {stats.map((stat, index) => (
