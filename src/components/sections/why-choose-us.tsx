@@ -1,4 +1,3 @@
-
 'use client';
 import { useState } from 'react';
 import { Users, Rocket, TrendingUp, ShieldCheck } from "lucide-react";
