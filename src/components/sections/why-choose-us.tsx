@@ -54,7 +54,7 @@ const ExpertiseSection = () => {
                         <div key={index} className="flex flex-col">
                             <div className="flex items-end justify-center">
                                 <AnimatedCounter value={stat.value} />
-                                <span className="font-bold text-2xl md:text-3xl pb-1">{stat.suffix}</span>
+                                <span className="font-bold text-xl md:text-2xl pb-1">{stat.suffix}</span>
                             </div>
                             <p className="text-primary-foreground/80 mt-2 whitespace-pre-line">{stat.label}</p>
                         </div>
