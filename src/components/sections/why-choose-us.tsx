@@ -62,7 +62,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4 relative left-2" />
+                                    <Logo className="h-16 w-16 mb-4 relative left-8" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
@@ -98,8 +98,8 @@ const WhyChooseUsSection = () => {
                             : 'bg-background text-primary'
                         )}
                         animate={{
-                            x,
-                            y,
+                            x: x,
+                            y: y,
                             scale: hoveredIndex === index || activeIndex === index ? 1.1 : 1,
                         }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
