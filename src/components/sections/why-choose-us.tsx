@@ -2,20 +2,25 @@
 'use client';
 import { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Rocket, Award, Clock, FolderKanban, ShieldCheck, Scaling, Gauge, Handshake } from "lucide-react";
+import { Users, Rocket, Award, Clock, FolderKanban } from "lucide-react";
 import AnimatedCounter from "@/components/animated-counter";
-import { CheckCircle } from "lucide-react";
-import { FadeIn } from "../fade-in";
 import { cn } from '@/lib/utils';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Logo } from '../logo';
 
-
 const ReliabilityIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-accent">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         <path d="m9 12 2 2 4-4"></path>
+    </svg>
+);
+
+const ScalingIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-accent">
+        <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+        <path d="M14 2v4h4"></path><path d="M22 22l-6-6"></path>
+        <path d="M19 13l3 3"></path>
     </svg>
 );
 
@@ -29,7 +34,7 @@ const benefits = [
     },
     {
         id: 'scalability',
-        icon: <Scaling className="w-8 h-8 text-accent" />,
+        icon: <ScalingIcon />,
         title: "Scalable Solutions",
         description: "We understand that growth is constant. That’s why our solutions are designed to scale seamlessly, supporting your business as it evolves—from ambitious start-ups to established enterprises."
     },
@@ -73,40 +78,10 @@ const stats = [
     }
 ];
 
-const differentiators = [
-    {
-        number: "01",
-        title: "Comprehensive Quality Assessment",
-        description: "We provide in-depth analysis and feedback to ensure every aspect of your software meets the highest quality standards."
-    },
-    {
-        number: "02",
-        title: "Highly Skilled Team",
-        description: "Our team of certified professionals brings extensive experience and expertise to every project, guaranteeing exceptional results."
-    },
-    {
-        number: "03",
-        title: "Robust Test Automation",
-        description: "We implement powerful test automation frameworks to accelerate release cycles, improve accuracy, and reduce long-term costs."
-    },
-    {
-        number: "04",
-        title: "Support Across Time Zones",
-        description: "Our global team offers round-the-clock support, ensuring seamless collaboration and timely delivery regardless of your location."
-    },
-    {
-        number: "05",
-        title: "Maximum Device Coverage",
-        description: "We test on a vast range of real devices and platforms to ensure your application performs flawlessly for every user."
-    },
-    {
-        number: "06",
-        title: "Flexible Engagement Models",
-        description: "We offer adaptable engagement models tailored to your specific project needs, timelines, and budget for a perfect fit."
-    }
-];
 
 const WhyChooseUsSection = () => {
+    const [activeBenefit, setActiveBenefit] = useState<(typeof benefits)[number] | null>(null);
+
     return (
         <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
@@ -117,53 +92,73 @@ const WhyChooseUsSection = () => {
                     </p>
                 </div>
                 
-                 {/* Orbiting Tabs Layout */}
-                <div className="hidden md:flex flex-col items-center justify-center mb-16 relative h-[600px]">
-                    {/* Central Content Area */}
-                    <div className="relative w-[320px] h-[320px] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm z-10">
-                        <Logo className="w-24 h-24 text-primary opacity-80" />
-                        <p className="mt-4 text-muted-foreground">Reliable, Scalable, and Expert solutions delivered fast.</p>
+                {/* Desktop: Interactive Semi-Circle Layout */}
+                <div className="hidden md:flex items-center justify-center min-h-[450px] relative">
+                    <div 
+                        className="absolute inset-0 bg-no-repeat bg-center"
+                        style={{
+                            backgroundImage: 'url("data:image/svg+xml,%3csvg width=\'100%25\' height=\'100%25\' xmlns=\'http://www.w3.org/2000/svg\'%3e%3crect width=\'100%25\' height=\'100%25\' fill=\'none\'/%3e%3cpath d=\'M200,200 a150,150 0 1,1 300,0\' stroke=\'%23e0e0e0\' stroke-width=\'2\' stroke-dasharray=\'6,6\' stroke-linecap=\'square\'/%3e%3c/svg%3e")',
+                            backgroundSize: '700px 350px',
+                            transform: 'translateY(40px)'
+                        }}
+                    />
+                    
+                    <div className="relative w-80 h-80 rounded-full bg-background/50 flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm z-10">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activeBenefit ? activeBenefit.id : 'initial'}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex flex-col items-center justify-center"
+                            >
+                                {activeBenefit ? (
+                                    <>
+                                        {activeBenefit.icon}
+                                        <h3 className="text-2xl font-bold text-primary mt-4">{activeBenefit.title}</h3>
+                                        <p className="text-muted-foreground mt-2">{activeBenefit.description}</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Logo className="w-24 h-24 text-primary opacity-80" />
+                                        <p className="mt-4 text-muted-foreground">Click an icon to discover why clients choose us.</p>
+                                    </>
+                                )}
+                            </motion.div>
+                        </AnimatePresence>
                     </div>
 
-                    {/* Orbital Path */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] border-2 border-dashed border-border rounded-full"></div>
-
-                    {/* Orbiting Container */}
-                    <div className="absolute top-1/2 left-1/2 w-[480px] h-[480px] animate-orbit [animation-duration:30s] z-20">
-                        {/* Tab 1: Top */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
-                                <ReliabilityIcon />
-                                <h3 className="text-sm font-semibold text-primary mt-1">Unmatched Reliability</h3>
-                            </div>
-                        </div>
-                        {/* Tab 2: Right */}
-                        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2">
-                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
-                                 <Scaling className="w-8 h-8 text-accent" />
-                                <h3 className="text-sm font-semibold text-primary mt-1">Scalable Solutions</h3>
-                            </div>
-                        </div>
-                        {/* Tab 3: Bottom */}
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                           <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
-                                 <Users className="w-8 h-8 text-accent" />
-                                <h3 className="text-sm font-semibold text-primary mt-1">Expert Team</h3>
-                            </div>
-                        </div>
-                        {/* Tab 4: Left */}
-                        <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
-                            <div className="w-48 h-24 rounded-lg flex flex-col items-center justify-center p-2 text-center bg-background shadow-lg animate-counter-orbit [animation-duration:30s]">
-                                <Rocket className="w-8 h-8 text-accent" />
-                                <h3 className="text-sm font-semibold text-primary mt-1">Faster Time-to-Market</h3>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Benefit Icons */}
+                    {benefits.map((benefit, index) => {
+                        const angle = -135 + index * (180 / (benefits.length - 1));
+                        const x = 50 + 48 * Math.cos(angle * Math.PI / 180);
+                        const y = 50 + 48 * Math.sin(angle * Math.PI / 180);
+                        return (
+                             <motion.button
+                                key={benefit.id}
+                                className={cn(
+                                    "absolute w-28 h-28 rounded-full bg-background shadow-lg flex flex-col items-center justify-center text-center p-2 z-20 cursor-pointer transition-all duration-300",
+                                    activeBenefit?.id === benefit.id ? 'border-2 border-accent scale-110' : 'hover:scale-110'
+                                )}
+                                style={{
+                                    left: `${x}%`,
+                                    top: `${y}%`,
+                                    transform: 'translate(-50%, -50%)'
+                                }}
+                                onClick={() => setActiveBenefit(benefit)}
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                {benefit.icon}
+                                <span className="text-xs font-semibold text-primary mt-1">{benefit.title}</span>
+                            </motion.button>
+                        );
+                    })}
                 </div>
 
-
                 {/* Mobile Accordion Layout */}
-                <div className="md:hidden mb-16 max-w-xl mx-auto">
+                <div className="md:hidden mt-8 max-w-xl mx-auto">
                     <Accordion type="single" collapsible defaultValue="reliability" className="w-full">
                         {benefits.map(benefit => (
                             <AccordionItem value={benefit.id} key={benefit.id}>
@@ -181,7 +176,7 @@ const WhyChooseUsSection = () => {
                     </Accordion>
                 </div>
 
-                <Card className="bg-background mb-16">
+                <Card className="bg-background mt-16">
                     <CardContent className="p-8 md:p-12">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                             {stats.map((stat, index) => (
@@ -203,28 +198,6 @@ const WhyChooseUsSection = () => {
                         </div>
                     </CardContent>
                 </Card>
-                
-                <div className="relative mt-16">
-                    {/* The timeline line */}
-                    <div className="hidden md:block absolute top-5 left-1/2 w-0.5 h-[calc(100%-2.5rem)] bg-border -translate-x-1/2"></div>
-
-                    {differentiators.map((item, index) => (
-                        <FadeIn key={index}>
-                            <div className={`relative flex items-center mb-12 md:mb-0 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                                <div className="hidden md:block absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <CheckCircle className="h-10 w-10 text-accent p-2 bg-secondary rounded-full border-4 border-secondary"/>
-                                </div>
-                                <div className={`md:w-5/12 p-6 rounded-lg shadow-lg bg-background ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                                    <div className="flex items-center gap-4">
-                                        <span className="text-5xl font-bold text-primary/20">{item.number}</span>
-                                        <h3 className="text-xl font-semibold">{item.title}</h3>
-                                    </div>
-                                    <p className="text-muted-foreground mt-2 pl-16">{item.description}</p>
-                                </div>
-                            </div>
-                        </FadeIn>
-                    ))}
-                </div>
             </div>
         </section>
     );
