@@ -46,7 +46,7 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="relative h-[500px] w-full max-w-2xl mx-auto flex items-center justify-center">
+        <div className="relative h-[500px] w-full max-w-2xl mx-auto hidden md:flex items-center justify-center">
             {/* Central Content Circle */}
             <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
@@ -86,11 +86,11 @@ const WhyChooseUsSection = () => {
                     className="absolute top-1/2 left-1/2 w-24 h-24 group"
                     style={{
                       transform: `
-                        translateX(-50%) 
-                        translateY(-50%) 
                         rotate(${angle}deg) 
                         translateX(${radius}px) 
-                        rotate(-${angle}deg)`
+                        rotate(-${angle}deg)
+                        translateX(-50%) 
+                        translateY(-50%)`
                     }}
                   >
                     <button
@@ -114,7 +114,7 @@ const WhyChooseUsSection = () => {
         </div>
         
         {/* Mobile View */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:hidden">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:hidden">
             {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center p-6 flex flex-col items-center bg-background hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
                     <div className="p-0 mb-4 text-accent">{benefit.icon}</div>
