@@ -4,7 +4,7 @@ import { Linkedin, Twitter, Facebook } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const Footer = () => {
-  const mapUrl = "https://www.google.com/maps/search/?api=1&query=Laxminarayan+Temple,Kulasukarpada,Cuttack";
+  const mapUrl = "https://maps.app.goo.gl/UGRazSsR7j4Na2UcA";
 
   return (
     <footer className="bg-secondary text-secondary-foreground">
