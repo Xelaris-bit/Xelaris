@@ -123,6 +123,9 @@ const WhyChooseUsSection = () => {
                     <div 
                         className="relative w-full max-w-3xl mx-auto aspect-square"
                     >
+                        {/* The Orbit Path */}
+                        <div className="absolute inset-0 border-2 border-dashed border-border rounded-full"></div>
+
                         {/* Central Content */}
                          <div 
                             className="absolute inset-0 flex items-center justify-center"
