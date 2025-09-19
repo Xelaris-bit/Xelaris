@@ -98,11 +98,11 @@ const WhatWeDoSection = () => {
                             align: "start",
                             loop: true,
                         }}
-                        className="w-full max-w-sm mx-auto sm:max-w-md"
+                        className="w-full max-w-sm mx-auto sm:max-w-md lg:max-w-3xl"
                     >
                         <CarouselContent className="-ml-4">
                             {services.map((service, index) => (
-                                <CarouselItem key={index} className="pl-4 sm:basis-1/2 md:basis-1/2">
+                                <CarouselItem key={index} className="pl-4 sm:basis-1/2">
                                      <div className="h-full">
                                         <ServiceCard service={service} />
                                     </div>
