@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -35,11 +34,12 @@ const benefits = [
 ];
 
 const stats = [
-    { value: 50, label: 'Skilled IT Professionals', suffix: '+' },
-    { value: 9, label: 'Average team experience', suffix: ' years' },
+    { value: 50, label: 'Skilled IT\nProfessionals', suffix: '+' },
+    { value: 9, label: 'Average team\nexperience', suffix: 'years' },
     { value: 20, label: 'Satisfied clients', suffix: '+' },
-    { value: 10, label: 'To assemble your dedicated team', suffix: ' days' },
+    { value: 10, label: 'To assemble your\ndedicated team', suffix: 'days' },
 ];
+
 
 const ExpertiseSection = () => {
     return (
@@ -56,7 +56,7 @@ const ExpertiseSection = () => {
                                 <AnimatedCounter value={stat.value} />
                                 <span className="font-bold text-4xl md:text-5xl">{stat.suffix}</span>
                             </div>
-                            <p className="text-primary-foreground/80 mt-2">{stat.label}</p>
+                            <p className="text-primary-foreground/80 mt-2 whitespace-pre-line">{stat.label}</p>
                         </div>
                     ))}
                 </div>
