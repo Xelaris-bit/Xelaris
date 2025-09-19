@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -61,7 +62,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4" />
+                                    <Logo className="h-16 w-16 mb-4 relative left-2" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
@@ -97,11 +98,11 @@ const WhyChooseUsSection = () => {
                             : 'bg-background text-primary'
                         )}
                         animate={{
-                            x: x,
-                            y: y,
+                            x,
+                            y,
                             scale: hoveredIndex === index || activeIndex === index ? 1.1 : 1,
                         }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
                     >
                        {benefit.icon}
                     </motion.button>
