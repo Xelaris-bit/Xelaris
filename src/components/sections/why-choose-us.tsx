@@ -130,7 +130,7 @@ const WhyChooseUsSection = () => {
                          <div 
                             className="absolute inset-0 flex items-center justify-center"
                         >
-                            <div className="w-[55%] h-[55%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[60%] h-[60%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <motion.div
                                     key={activeTab.id}
                                     initial={{ opacity: 0, scale: 0.8 }}
