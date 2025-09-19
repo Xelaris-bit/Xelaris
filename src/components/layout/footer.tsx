@@ -42,7 +42,7 @@ const Footer = () => {
                 <span className="absolute left-0 -bottom-1 h-[3px] w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
               <ul className="space-y-3 antialiased pt-2">
-                  <li><Link href="/smart-responder" className="hover:text-accent transition-colors text-sm">Smart Responder</Link></li>
+                  <li><Link href="/ai-tools" className="hover:text-accent transition-colors text-sm">AI Tools</Link></li>
                   <li><a href="#" className="hover:text-accent transition-colors text-sm">Privacy Policy</a></li>
                   <li><a href="#" className="hover:text-accent transition-colors text-sm">Terms of Service</a></li>
               </ul>
