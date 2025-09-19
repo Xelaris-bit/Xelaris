@@ -135,7 +135,7 @@ const WhyChooseUsSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
                         >
-                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[50%] h-[50%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -145,10 +145,10 @@ const WhyChooseUsSection = () => {
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' },
-                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' },
-                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' },
-                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' }
+                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, // Unmatched Reliability
+                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, // Scalable Solutions
+                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' }, // Expert Team
+                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } // Faster Time-to-Market
                             ][index];
                             
                             const variants = {
