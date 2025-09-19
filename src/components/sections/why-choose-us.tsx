@@ -124,7 +124,7 @@ const WhyChooseUsSection = () => {
                         className="relative w-full max-w-3xl mx-auto aspect-square"
                     >
                         {/* The Orbit Path */}
-                        <div className="absolute inset-[10%] border-2 border-dashed border-border rounded-full"></div>
+                        <div className="absolute inset-[10%] border-2 border-dashed border-border rounded-full z-0"></div>
 
                         {/* Central Content */}
                          <div 
@@ -139,7 +139,7 @@ const WhyChooseUsSection = () => {
 
                         {/* Orbiting Tabs Container */}
                         <motion.div 
-                            className="relative w-full h-full animate-orbit"
+                            className="relative w-full h-full animate-orbit z-10"
                             style={{ animationDuration: '30s' }}
                             initial="hidden"
                             whileInView="visible"
