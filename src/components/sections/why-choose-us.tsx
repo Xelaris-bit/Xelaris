@@ -1,6 +1,7 @@
+
 'use client';
 import { useState } from 'react';
-import { Users, Rocket, TrendingUp, ShieldCheck } from "lucide-react";
+import { Users, Rocket, TrendingUp } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
