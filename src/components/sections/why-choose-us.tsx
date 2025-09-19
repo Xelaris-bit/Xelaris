@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -62,7 +61,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4 relative left-[4.5rem]" />
+                                    <Logo className="h-16 w-16 relative left-[4.5rem]" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
@@ -78,36 +77,37 @@ const WhyChooseUsSection = () => {
                 </AnimatePresence>
             </Card>
 
-             {/* Orbiting Icon Buttons */}
-            {benefits.map((benefit, index) => {
-                const angle = (index / benefits.length) * (2 * Math.PI) - (Math.PI / 2);
-                const radius = 200;
-                const x = Math.round(radius * Math.cos(angle));
-                const y = Math.round(radius * Math.sin(angle));
+            <motion.div className="absolute w-full h-full animate-orbit [animation-duration:30s]">
+                {benefits.map((benefit, index) => {
+                    const angle = (index / benefits.length) * (2 * Math.PI) - (Math.PI / 2);
+                    const radius = 200;
+                    const x = Math.round(radius * Math.cos(angle));
+                    const y = Math.round(radius * Math.sin(angle));
 
-                return (
-                    <motion.button
-                        key={index}
-                        onClick={() => setActiveIndex(index)}
-                        onHoverStart={() => setHoveredIndex(index)}
-                        onHoverEnd={() => setHoveredIndex(null)}
-                        className={cn(
-                            'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20',
-                            activeIndex === index
-                            ? 'bg-primary text-primary-foreground shadow-lg'
-                            : 'bg-background text-primary hover:bg-accent hover:text-accent-foreground'
-                        )}
-                        animate={{
-                            x: x,
-                            y: y,
-                            scale: hoveredIndex === index || activeIndex === index ? 1.1 : 1,
-                        }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    >
-                       {benefit.icon}
-                    </motion.button>
-                );
-            })}
+                    return (
+                        <motion.button
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            onHoverStart={() => setHoveredIndex(index)}
+                            onHoverEnd={() => setHoveredIndex(null)}
+                            className={cn(
+                                'absolute w-24 h-24 rounded-full flex items-center justify-center transition-colors duration-300 z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-counter-orbit [animation-duration:30s]',
+                                activeIndex === index
+                                ? 'bg-primary text-primary-foreground shadow-lg'
+                                : 'bg-background text-primary hover:bg-accent hover:text-accent-foreground'
+                            )}
+                            animate={{
+                                x: x,
+                                y: y,
+                                scale: hoveredIndex === index || activeIndex === index ? 1.1 : 1,
+                            }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        >
+                        {benefit.icon}
+                        </motion.button>
+                    );
+                })}
+            </motion.div>
         </div>
         
         {/* Mobile View */}
