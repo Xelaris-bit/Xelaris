@@ -130,10 +130,17 @@ const WhyChooseUsSection = () => {
                          <div 
                             className="absolute inset-0 flex items-center justify-center"
                         >
-                            <div className="w-[50%] h-[50%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
-                                <div className="mb-4">{activeTab.icon}</div>
-                                <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
-                                <p className="text-sm text-muted-foreground">{activeTab.description}</p>
+                            <div className="w-[55%] h-[55%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                                <motion.div
+                                    key={activeTab.id}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <div className="mb-4">{activeTab.icon}</div>
+                                    <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
+                                    <p className="text-sm text-muted-foreground">{activeTab.description}</p>
+                                </motion.div>
                             </div>
                         </div>
 
@@ -148,10 +155,10 @@ const WhyChooseUsSection = () => {
                         >
                             {benefits.map((benefit, index) => {
                                 const positionStyles = [
-                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top-center
-                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, // Right-center
-                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom-center
-                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }, // Left-center
+                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' },
+                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' },
+                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' },
+                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' },
                                 ];
                                 
                                 const style = positionStyles[index];
