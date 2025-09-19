@@ -109,8 +109,8 @@ const WhatWeDoSection = () => {
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
-                        <CarouselPrevious className="left-[-16px]" />
-                        <CarouselNext className="right-[-16px]" />
+                        <CarouselPrevious className="left-[-16px] bg-background/50 hover:bg-background/80 text-foreground" />
+                        <CarouselNext className="right-[-16px] bg-background/50 hover:bg-background/80 text-foreground" />
                     </Carousel>
                 </div>
             </div>
