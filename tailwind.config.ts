@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -88,10 +89,20 @@ export default {
             height: '0',
           },
         },
+        'orbit': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'counter-orbit': {
+            '0%': { transform: 'rotate(0deg)' },
+            '100%': { transform: 'rotate(-360deg)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'orbit': 'orbit linear infinite',
+        'counter-orbit': 'counter-orbit linear infinite',
       },
     },
   },
