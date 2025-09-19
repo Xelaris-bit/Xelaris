@@ -154,8 +154,7 @@ const WhyChooseUsSection = () => {
                                     { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }, // Left-center
                                 ];
                                 
-                                const correctOrder = [0, 1, 3, 2];
-                                const style = positionStyles[correctOrder[index]];
+                                const style = positionStyles[index];
 
                                 const variants = {
                                     hidden: { opacity: 0, scale: 0.5 },
@@ -255,5 +254,3 @@ const WhyChooseUsSection = () => {
 };
 
 export default WhyChooseUsSection;
-
-    
