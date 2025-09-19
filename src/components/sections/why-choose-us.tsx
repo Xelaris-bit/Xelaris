@@ -49,6 +49,9 @@ const WhyChooseUsSection = () => {
         </div>
 
         <div className="relative h-[500px] w-full max-w-2xl mx-auto hidden md:flex items-center justify-center">
+            {/* Dotted Path */}
+            <div className="absolute w-[400px] h-[400px] rounded-full border-2 border-dashed border-primary/50 animate-orbit" style={{ animationDuration: '30s' }}></div>
+
             {/* Central Content Circle */}
             <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
