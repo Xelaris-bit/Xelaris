@@ -135,7 +135,7 @@ const WhyChooseUsSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
                         >
-                            <div className="w-[40%] h-[40%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -145,10 +145,10 @@ const WhyChooseUsSection = () => {
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '5%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
-                                { top: '50%', right: '5%', transform: 'translate(50%, -50%)' }, // Right
-                                { bottom: '5%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
-                                { top: '50%', left: '5%', transform: 'translate(-50%, -50%)' } // Left
+                                { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
+                                { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, // Right
+                                { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
+                                { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' } // Left
                             ][index];
                             
                             const variants = {
@@ -161,7 +161,7 @@ const WhyChooseUsSection = () => {
                                     key={benefit.id}
                                     onClick={() => setActiveTab(benefit)}
                                     className={cn(
-                                        'absolute w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group hover:scale-110',
+                                        'absolute w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group',
                                         activeTab.id === benefit.id
                                             ? 'bg-primary text-primary-foreground scale-110 z-10'
                                             : 'bg-background text-foreground'
