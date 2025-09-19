@@ -4,6 +4,8 @@ import { Linkedin, Twitter, Facebook } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const Footer = () => {
+  const mapUrl = "https://www.google.com/maps/search/?api=1&query=Laxminarayan+Temple,Kulasukarpada,Cuttack";
+
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6 py-12">
@@ -51,7 +53,7 @@ const Footer = () => {
                  <span className="absolute left-0 -bottom-1 h-[3px] w-10 bg-gradient-to-r from-primary to-accent rounded-full"></span>
               </h4>
               <ul className="space-y-3 text-sm text-secondary-foreground/80 antialiased pt-2 break-words">
-                  <li>89, Kulasukarpada, Cuttack City, 754209</li>
+                  <li><a href={mapUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">89, Kulasukarpada, Cuttack City, 754209</a></li>
                   <li><a href="mailto:contact.xelaris@gmail.com" className="hover:text-accent transition-colors">contact.xelaris@gmail.com</a></li>
                   <li><a href="tel:+919776198414" className="hover:text-accent transition-colors">+91 9776198414</a></li>
               </ul>
