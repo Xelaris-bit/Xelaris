@@ -9,16 +9,6 @@ import { Logo } from '@/components/logo';
 
 const benefits = [
   {
-    icon: <ShieldCheck className="w-10 h-10" />,
-    title: 'Unmatched Reliability',
-    description: 'Our proven track record ensures your business runs without disruption, backed by technology you can trust.',
-  },
-  {
-    icon: <TrendingUp className="w-10 h-10" />,
-    title: 'Scalable Solutions',
-    description: 'Our solutions are designed to scale seamlessly, supporting your business as it evolves.',
-  },
-  {
     icon: <Users className="w-10 h-10" />,
     title: 'Expert Team',
     description: 'Our professionals deliver innovative solutions that drive measurable results and foster growth.',
@@ -27,6 +17,16 @@ const benefits = [
     icon: <Rocket className="w-10 h-10" />,
     title: 'Faster Time-to-Market',
     description: 'We accelerate delivery without compromising quality, helping you stay ahead of the competition.',
+  },
+    {
+    icon: <ShieldCheck className="w-10 h-10" />,
+    title: 'Unmatched Reliability',
+    description: 'Our proven track record ensures your business runs without disruption, backed by technology you can trust.',
+  },
+  {
+    icon: <TrendingUp className="w-10 h-10" />,
+    title: 'Scalable Solutions',
+    description: 'Our solutions are designed to scale seamlessly, supporting your business as it evolves.',
   },
 ];
 
@@ -76,35 +76,40 @@ const WhyChooseUsSection = () => {
                     </motion.div>
                 </AnimatePresence>
             </Card>
-
             <div className="absolute w-full h-full animate-orbit [animation-duration:30s]">
-                {benefits.map((benefit, index) => {
-                    const angle = (index / benefits.length) * 360;
-                    return (
-                         <div
-                            key={index}
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 group"
-                            style={{
-                                transform: `rotate(${angle}deg) translateX(200px) rotate(-${angle}deg)`
-                            }}
-                         >
-                            <button
-                                onClick={() => setActiveIndex(index)}
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                                className={cn(
-                                    'w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20 animate-counter-orbit [animation-duration:30s] group-hover:scale-110',
-                                    activeIndex === index
-                                    ? 'bg-primary text-primary-foreground shadow-lg'
-                                    : 'bg-background text-primary',
-                                    hoveredIndex === index && activeIndex !== index ? 'bg-accent text-accent-foreground' : ''
-                                )}
-                            >
-                            {benefit.icon}
-                            </button>
-                        </div>
-                    );
-                })}
+              {benefits.map((benefit, index) => {
+                const angle = (index * 360) / benefits.length;
+                const radius = 200; // The radius of the orbit in pixels
+                return (
+                  <div
+                    key={index}
+                    className="absolute top-1/2 left-1/2 w-24 h-24 group"
+                    style={{
+                      transform: `
+                        translateX(-50%) 
+                        translateY(-50%) 
+                        rotate(${angle}deg) 
+                        translateX(${radius}px) 
+                        rotate(-${angle}deg)`
+                    }}
+                  >
+                    <button
+                      onClick={() => setActiveIndex(index)}
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                      className={cn(
+                        'w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20 animate-counter-orbit [animation-duration:30s] group-hover:scale-110',
+                         activeIndex === index
+                           ? 'bg-primary text-primary-foreground shadow-lg'
+                           : 'bg-background text-primary',
+                         hoveredIndex === index && activeIndex !== index ? 'bg-accent text-accent-foreground' : ''
+                      )}
+                    >
+                      {benefit.icon}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
         </div>
         
