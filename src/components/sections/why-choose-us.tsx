@@ -135,7 +135,7 @@ const WhyChooseUsSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
                         >
-                            <div className="w-[40%] h-[40%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -145,10 +145,10 @@ const WhyChooseUsSection = () => {
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
-                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, // Right
-                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
-                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } // Left
+                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' },
+                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' },
+                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' },
+                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' }
                             ][index];
                             
                             const variants = {
