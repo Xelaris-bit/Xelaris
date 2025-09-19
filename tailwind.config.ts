@@ -96,6 +96,11 @@ export default {
         'counter-orbit': {
             '0%': { transform: 'rotate(0deg)' },
             '100%': { transform: 'rotate(-360deg)' },
+        },
+        'scroll': {
+          'to': {
+            transform: 'translate(calc(-100% - 2rem))'
+          }
         }
       },
       animation: {
@@ -103,6 +108,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'orbit': 'orbit linear infinite',
         'counter-orbit': 'counter-orbit linear infinite',
+        'scroll': 'scroll 40s linear infinite',
       },
     },
   },

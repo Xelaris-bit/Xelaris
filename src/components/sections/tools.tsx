@@ -23,20 +23,41 @@ const ToolsSection = () => {
                         Leveraging industry-leading tools to deliver robust and efficient testing solutions.
                     </p>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-8">
-                    {tools.map((tool) => (
-                        <Card key={tool.name} className="p-6 flex justify-center items-center h-28 bg-background hover:shadow-md transition-shadow">
-                            <div className="relative w-40 h-10">
-                                <Image
-                                    src={tool.src}
-                                    alt={`${tool.name} logo`}
-                                    layout="fill"
-                                    objectFit="contain"
-                                    data-ai-hint={tool.hint}
-                                />
-                            </div>
-                        </Card>
-                    ))}
+                <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+                    <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-scroll">
+                        {tools.map((tool) => (
+                           <li key={tool.name}>
+                                <Card className="p-6 flex justify-center items-center h-28 w-60 bg-background hover:shadow-md transition-shadow">
+                                    <div className="relative w-40 h-10">
+                                        <Image
+                                            src={tool.src}
+                                            alt={`${tool.name} logo`}
+                                            fill
+                                            objectFit="contain"
+                                            data-ai-hint={tool.hint}
+                                        />
+                                    </div>
+                                </Card>
+                            </li>
+                        ))}
+                    </ul>
+                     <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-scroll" aria-hidden="true">
+                        {tools.map((tool) => (
+                           <li key={tool.name}>
+                                <Card className="p-6 flex justify-center items-center h-28 w-60 bg-background hover:shadow-md transition-shadow">
+                                    <div className="relative w-40 h-10">
+                                        <Image
+                                            src={tool.src}
+                                            alt={`${tool.name} logo`}
+                                            fill
+                                            objectFit="contain"
+                                            data-ai-hint={tool.hint}
+                                        />
+                                    </div>
+                                </Card>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </section>
