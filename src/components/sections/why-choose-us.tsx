@@ -1,7 +1,6 @@
 
 'use client';
 import { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
 import { Users, Rocket, TrendingUp, ShieldCheck } from "lucide-react";
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -82,9 +81,12 @@ const WhyChooseUsSection = () => {
                     {/* Orbiting Icon Buttons */}
                     <div className="absolute w-[500px] h-[500px]">
                         {benefits.map((benefit, index) => {
+                            const radius = 230; // Reduced radius
+                            const containerSize = 500;
+                            const buttonSize = 96;
                             const angle = (index / benefits.length) * 2 * Math.PI - Math.PI / 2; // Start from top
-                            const x = 250 + 250 * Math.cos(angle) - 48; // 250 is radius, 48 is half of button width
-                            const y = 250 + 250 * Math.sin(angle) - 48; // 250 is radius, 48 is half of button height
+                            const x = (containerSize / 2) + radius * Math.cos(angle) - (buttonSize / 2);
+                            const y = (containerSize / 2) + radius * Math.sin(angle) - (buttonSize / 2);
                             return (
                                 <button
                                     key={benefit.id}
