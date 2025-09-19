@@ -8,6 +8,7 @@ import { CheckCircle } from "lucide-react";
 import { FadeIn } from "../fade-in";
 import { cn } from '@/lib/utils';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { motion } from 'framer-motion';
 
 
 const ReliabilityIcon = () => (
@@ -119,43 +120,63 @@ const WhyChooseUsSection = () => {
                 
                 {/* Desktop Circular Layout */}
                 <div className="hidden md:block mb-16">
-                    <div className="relative w-full max-w-2xl lg:max-w-3xl mx-auto aspect-square">
+                    <motion.div 
+                        className="relative w-full max-w-2xl lg:max-w-3xl mx-auto aspect-square"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{ staggerChildren: 0.2 }}
+                    >
                         {/* Central Content */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-[45%] h-[45%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                         <motion.div 
+                            className="absolute inset-0 flex items-center justify-center"
+                            initial={{ scale: 0, opacity: 0 }}
+                            whileInView={{ scale: 1, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
+                        >
+                            <div className="w-[40%] h-[40%] bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '12%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
-                                { top: '50%', right: '12%', transform: 'translate(50%, -50%)' }, // Right
-                                { bottom: '12%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
-                                { top: '50%', left: '12%', transform: 'translate(-50%, -50%)' } // Left
+                                { top: '5%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
+                                { top: '50%', right: '5%', transform: 'translate(50%, -50%)' }, // Right
+                                { bottom: '5%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
+                                { top: '50%', left: '5%', transform: 'translate(-50%, -50%)' } // Left
                             ][index];
+                            
+                            const variants = {
+                                hidden: { opacity: 0, scale: 0.5 },
+                                visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 300, damping: 20 } },
+                            };
 
                             return (
-                                <button
+                                <motion.button
                                     key={benefit.id}
                                     onClick={() => setActiveTab(benefit)}
                                     className={cn(
-                                        'absolute w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group hover:scale-105',
+                                        'absolute w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full flex flex-col items-center justify-center p-2 text-center transition-all duration-300 shadow-lg group hover:scale-110',
                                         activeTab.id === benefit.id
-                                            ? 'bg-primary text-primary-foreground scale-105 z-10'
+                                            ? 'bg-primary text-primary-foreground scale-110 z-10'
                                             : 'bg-background text-foreground'
                                     )}
                                     style={position}
+                                    variants={variants}
+                                    whileHover={{ scale: 1.15, zIndex: 20 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
                                     <div className="mb-1">{benefit.icon}</div>
                                     <span className="text-xs md:text-sm font-semibold">{benefit.title}</span>
-                                </button>
+                                </motion.button>
                             )
                         })}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Mobile Accordion Layout */}
