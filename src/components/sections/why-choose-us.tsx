@@ -1,10 +1,19 @@
-
 'use client';
-import { Card } from "@/components/ui/card";
+import { useState } from 'react';
+import { Card, CardContent } from "@/components/ui/card";
 import { Users, Rocket, TrendingUp } from "lucide-react";
+import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 const ReliabilityIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-accent">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         <path d="m9 12 2 2 4-4"></path>
     </svg>
@@ -19,25 +28,27 @@ const benefits = [
     },
     {
         id: 'scalability',
-        icon: <TrendingUp className="w-10 h-10 text-accent" />,
+        icon: <TrendingUp className="w-8 h-8" />,
         title: "Scalable Solutions",
         description: "Our solutions are designed to scale seamlessly, supporting your business as it evolves—from ambitious start-ups to established enterprises."
     },
     {
         id: 'team',
-        icon: <Users className="w-10 h-10 text-accent" />,
+        icon: <Users className="w-8 h-8" />,
         title: "Expert Team",
         description: "Our team of highly skilled professionals work collaboratively to deliver innovative solutions that drive measurable results."
     },
     {
         id: 'speed',
-        icon: <Rocket className="w-10 h-10 text-accent" />,
+        icon: <Rocket className="w-8 h-8" />,
         title: "Faster Time-to-Market",
         description: "Through agile methodologies and streamlined processes, we accelerate delivery without compromising quality, helping you stay ahead."
     }
 ];
 
 const WhyChooseUsSection = () => {
+    const [selectedBenefit, setSelectedBenefit] = useState(benefits[0]);
+
     return (
         <section id="why-us" className="w-full py-16 md:py-24 bg-secondary">
             <div className="container mx-auto px-4 md:px-6">
@@ -48,18 +59,74 @@ const WhyChooseUsSection = () => {
                     </p>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {benefits.map((benefit) => (
-                        <Card key={benefit.id} className="bg-background p-6 flex items-start gap-6 hover:shadow-xl transition-shadow duration-300">
-                           <div className="flex-shrink-0">
-                                {benefit.icon}
-                           </div>
-                           <div>
-                                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                                <p className="text-muted-foreground">{benefit.description}</p>
-                           </div>
-                        </Card>
-                    ))}
+                {/* Desktop View: Circular Interactive Layout */}
+                <div className="hidden md:flex justify-center items-center h-[500px]">
+                    <div className="relative w-[500px] h-[500px] flex items-center justify-center">
+                        {/* The central content circle */}
+                        <div className="absolute w-[300px] h-[300px] bg-background rounded-full flex items-center justify-center p-8 text-center shadow-2xl">
+                             <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={selectedBenefit.id}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="flex flex-col items-center"
+                                >
+                                    <h3 className="text-2xl font-bold text-primary mb-3">{selectedBenefit.title}</h3>
+                                    <p className="text-muted-foreground">{selectedBenefit.description}</p>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Orbiting Icon Buttons */}
+                        <div className="absolute w-full h-full animate-orbit" style={{ animationDuration: '30s' }}>
+                            {benefits.map((benefit, index) => {
+                                const angle = (index / benefits.length) * 360;
+                                return (
+                                    <div
+                                        key={benefit.id}
+                                        className="absolute w-full h-full"
+                                        style={{ transform: `rotate(${angle}deg)` }}
+                                    >
+                                        <div 
+                                            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-counter-orbit" 
+                                            style={{ animationDuration: '30s' }}
+                                        >
+                                            <button
+                                                onClick={() => setSelectedBenefit(benefit)}
+                                                className={cn(
+                                                    "w-24 h-24 rounded-full flex items-center justify-center bg-background shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-110",
+                                                    selectedBenefit.id === benefit.id ? 'border-4 border-accent text-accent' : 'text-primary/70 hover:text-accent'
+                                                )}
+                                            >
+                                                {benefit.icon}
+                                            </button>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Mobile View: Accordion */}
+                <div className="md:hidden">
+                     <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
+                        {benefits.map((benefit, index) => (
+                            <AccordionItem value={`item-${index}`} key={benefit.id}>
+                                <AccordionTrigger>
+                                    <div className="flex items-center gap-4">
+                                        <span className="text-accent">{benefit.icon}</span>
+                                        <span className="text-lg font-semibold">{benefit.title}</span>
+                                    </div>
+                                </AccordionTrigger>
+                                <AccordionContent className="pl-14 text-muted-foreground">
+                                    {benefit.description}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
                 </div>
             </div>
         </section>
