@@ -148,10 +148,10 @@ const WhyChooseUsSection = () => {
                         >
                             {benefits.map((benefit, index) => {
                                 const positionStyles = [
-                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, // 12 o'clock
-                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, // 3 o'clock
-                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }, // 9 o'clock
-                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' } // 6 o'clock
+                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top-center
+                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, // Right-center
+                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom-center
+                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' }, // Left-center
                                 ];
                                 
                                 const correctOrder = [0, 1, 3, 2];
@@ -255,3 +255,5 @@ const WhyChooseUsSection = () => {
 };
 
 export default WhyChooseUsSection;
+
+    
