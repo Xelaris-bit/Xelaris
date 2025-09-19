@@ -85,14 +85,14 @@ const WhatWeDoSection = () => {
                 </div>
                 
                 {/* Mobile and Desktop Grid View */}
-                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5 md:hidden lg:grid">
+                <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-5 md:hidden xl:grid">
                     {services.map((service, index) => (
                         <ServiceCard key={index} service={service} />
                     ))}
                 </div>
 
                 {/* Tablet Carousel View */}
-                <div className="hidden md:block lg:hidden">
+                <div className="hidden md:block xl:hidden">
                      <Carousel
                         opts={{
                             align: "start",
