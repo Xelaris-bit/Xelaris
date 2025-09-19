@@ -52,9 +52,9 @@ const ExpertiseSection = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 mb-12">
                     {stats.map((stat, index) => (
                         <div key={index} className="flex flex-col">
-                            <div className="flex items-center justify-center">
+                            <div className="flex items-start justify-center">
                                 <AnimatedCounter value={stat.value} />
-                                <span className="font-bold text-4xl md:text-5xl">{stat.suffix}</span>
+                                <span className="font-bold text-3xl md:text-4xl align-top">{stat.suffix}</span>
                             </div>
                             <p className="text-primary-foreground/80 mt-2 whitespace-pre-line">{stat.label}</p>
                         </div>
