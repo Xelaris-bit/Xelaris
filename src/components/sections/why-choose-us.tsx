@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -48,7 +47,7 @@ const WhyChooseUsSection = () => {
 
         <div className="relative h-[400px] w-[400px] mx-auto hidden md:flex items-center justify-center">
             {/* Central Content Circle */}
-            <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl">
+            <Card className="absolute w-72 h-72 rounded-full flex flex-col items-center justify-center text-center p-8 bg-background shadow-2xl z-10">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeIndex}
@@ -68,7 +67,7 @@ const WhyChooseUsSection = () => {
 
              {/* Orbiting Icon Buttons */}
             {benefits.map((benefit, index) => {
-                const angle = (index / benefits.length) * 2 * Math.PI; // Angle in radians
+                const angle = (index / benefits.length) * 2 * Math.PI - (Math.PI / 2); // Start from top
                 const radius = 180; // Radius of the orbit
                 const x = Math.cos(angle) * radius;
                 const y = Math.sin(angle) * radius;
@@ -78,15 +77,16 @@ const WhyChooseUsSection = () => {
                         key={index}
                         onClick={() => setActiveIndex(index)}
                         className={cn(
-                            'absolute w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300',
+                            'absolute w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 z-20',
                             activeIndex === index
                             ? 'bg-primary text-primary-foreground scale-110 shadow-lg'
-                            : 'bg-background text-primary hover:bg-primary/10 hover:scale-105'
+                            : 'bg-background text-primary hover:bg-primary/10'
                         )}
                         style={{
-                            transform: `translate(${x}px, ${y}px) scale(1)`,
+                            x,
+                            y,
                         }}
-                        whileHover={{ scale: activeIndex === index ? 1.15 : 1.05 }}
+                        whileHover={{ scale: activeIndex === index ? 1.15 : 1.05, zIndex: 30 }}
                     >
                        {benefit.icon}
                     </motion.button>
@@ -94,7 +94,7 @@ const WhyChooseUsSection = () => {
             })}
         </div>
         
-        {/* Mobile Accordion View */}
+        {/* Mobile View */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:hidden">
             {benefits.map((benefit, index) => (
                 <Card key={index} className="text-center p-6 flex flex-col items-center bg-background hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
