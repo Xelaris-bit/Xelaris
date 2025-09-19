@@ -61,7 +61,7 @@ const WhyChooseUsSection = () => {
                         <CardContent className="p-0">
                             {activeIndex === null ? (
                                 <>
-                                    <Logo className="h-16 w-16 mb-4 relative left-[4rem]" />
+                                    <Logo className="h-16 w-16 mb-4 relative left-[4.5rem]" />
                                     <p className="text-muted-foreground text-sm">
                                         Click an icon to learn more about our advantages.
                                     </p>
