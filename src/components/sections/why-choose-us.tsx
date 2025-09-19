@@ -139,7 +139,7 @@ const WhyChooseUsSection = () => {
 
                         {/* Orbiting Tabs Container */}
                         <motion.div 
-                            className="relative w-full h-full animate-orbit z-10"
+                            className="absolute inset-0 w-full h-full animate-orbit z-10"
                             style={{ animationDuration: '30s' }}
                             initial="hidden"
                             whileInView="visible"
@@ -148,10 +148,10 @@ const WhyChooseUsSection = () => {
                         >
                             {benefits.map((benefit, index) => {
                                 const positionStyles = [
-                                    { top: '10%', left: '50%', transform: 'translate(-50%, -50%)' }, 
-                                    { top: '50%', right: '10%', transform: 'translate(50%, -50%)' }, 
-                                    { bottom: '10%', left: '50%', transform: 'translate(-50%, 50%)' },
-                                    { top: '50%', left: '10%', transform: 'translate(-50%, -50%)' } 
+                                    { top: '0%', left: '50%', transform: 'translate(-50%, -50%)' }, 
+                                    { top: '50%', right: '0%', transform: 'translate(50%, -50%)' }, 
+                                    { bottom: '0%', left: '50%', transform: 'translate(-50%, 50%)' },
+                                    { top: '50%', left: '0%', transform: 'translate(-50%, -50%)' } 
                                 ][index];
                                 
                                 const variants = {
