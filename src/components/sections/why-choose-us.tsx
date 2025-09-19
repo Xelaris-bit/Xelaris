@@ -119,10 +119,10 @@ const WhyChooseUsSection = () => {
                 
                 {/* Desktop Circular Layout */}
                 <div className="hidden md:block mb-16">
-                    <div className="relative w-full max-w-2xl lg:max-w-4xl mx-auto aspect-square">
+                    <div className="relative w-full max-w-2xl lg:max-w-3xl mx-auto aspect-square">
                         {/* Central Content */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-3/5 h-3/5 bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
+                            <div className="w-1/2 h-1/2 bg-background/50 rounded-full flex flex-col items-center justify-center text-center p-6 shadow-2xl backdrop-blur-sm">
                                 <div className="mb-4">{activeTab.icon}</div>
                                 <h3 className="text-lg font-semibold text-primary mb-2">{activeTab.title}</h3>
                                 <p className="text-sm text-muted-foreground">{activeTab.description}</p>
@@ -132,10 +132,10 @@ const WhyChooseUsSection = () => {
                         {/* Tabs */}
                         {benefits.map((benefit, index) => {
                              const position = [
-                                { top: '0', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
-                                { top: '50%', right: '0', transform: 'translate(50%, -50%)' }, // Right
-                                { bottom: '0', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
-                                { top: '50%', left: '0', transform: 'translate(-50%, -50%)' } // Left
+                                { top: '15%', left: '50%', transform: 'translate(-50%, -50%)' }, // Top
+                                { top: '50%', right: '15%', transform: 'translate(50%, -50%)' }, // Right
+                                { bottom: '15%', left: '50%', transform: 'translate(-50%, 50%)' }, // Bottom
+                                { top: '50%', left: '15%', transform: 'translate(-50%, -50%)' } // Left
                             ][index];
 
                             return (
