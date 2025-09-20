@@ -91,7 +91,9 @@ export default function CaseStudiesPage() {
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col">
                     <p className="text-muted-foreground mb-4 flex-grow">{study.description}</p>
-                    <Button variant="link" className="p-0 self-start">Read More</Button>
+                    <Link href="/case-studies" passHref>
+                      <Button variant="link" className="p-0 self-start">Read More</Button>
+                    </Link>
                 </CardContent>
                 </Card>
             </FadeIn>
