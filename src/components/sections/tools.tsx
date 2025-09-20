@@ -18,21 +18,11 @@ const ToolsSection = () => {
     return (
         <>
             <FadeIn>
-                <section className="relative w-full py-20 md:py-32 bg-secondary">
-                     {/* You can add a background image here like this:
-                        <Image
-                            src="/path-to-your-image.jpg"
-                            alt="Background"
-                            layout="fill"
-                            objectFit="cover"
-                            className="-z-10"
-                        /> 
-                    */}
-                    <div className="absolute inset-0 bg-primary/10 -z-0" />
-                    <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <section className="w-full py-16 md:py-24 bg-secondary">
+                    <div className="container mx-auto px-4 md:px-6">
                         <div className="text-center">
-                            <h1 className="text-4xl md:text-5xl font-bold text-primary tracking-tight">Tools <span className="text-accent">We Use</span></h1>
-                            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-bold">Tools <span className="text-accent">We Use</span></h2>
+                            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                                 Leveraging industry-leading tools to deliver robust and efficient testing solutions.
                             </p>
                         </div>
@@ -40,13 +30,13 @@ const ToolsSection = () => {
                 </section>
             </FadeIn>
             <FadeIn>
-                 <section className="w-full py-16 md:py-24 bg-background">
+                 <section className="w-full py-16 md:py-24 bg-secondary">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
                             <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-scroll">
                                 {tools.map((tool) => (
                                 <li key={tool.name}>
-                                        <Card className="p-6 flex justify-center items-center h-28 w-60 bg-card hover:shadow-md transition-shadow">
+                                        <Card className="p-6 flex justify-center items-center h-28 w-60 bg-background hover:shadow-md transition-shadow">
                                             <div className="relative w-40 h-10">
                                                 <Image
                                                     src={tool.src}
@@ -63,7 +53,7 @@ const ToolsSection = () => {
                             <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:max-w-none animate-scroll" aria-hidden="true">
                                 {tools.map((tool) => (
                                 <li key={tool.name}>
-                                        <Card className="p-6 flex justify-center items-center h-28 w-60 bg-card hover:shadow-md transition-shadow">
+                                        <Card className="p-6 flex justify-center items-center h-28 w-60 bg-background hover:shadow-md transition-shadow">
                                             <div className="relative w-40 h-10">
                                                 <Image
                                                     src={tool.src}
