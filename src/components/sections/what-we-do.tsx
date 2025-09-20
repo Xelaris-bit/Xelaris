@@ -67,11 +67,9 @@ const ServiceCard = ({ service }: { service: typeof services[0] }) => (
                 />
             </div>
             <p className="text-muted-foreground mb-4 flex-grow text-sm">{service.description}</p>
-            <Link href={service.href} passHref>
-                <Button variant="outline" asChild className="self-start mt-auto">
-                    <span>Read More <ArrowRight className="ml-2 w-4 h-4" /></span>
-                </Button>
-            </Link>
+            <Button variant="outline" asChild className="self-start mt-auto">
+                <Link href={service.href}>Read More <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            </Button>
         </CardContent>
     </Card>
 );
