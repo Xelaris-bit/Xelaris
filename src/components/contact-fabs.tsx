@@ -27,45 +27,59 @@ const ContactFABs = () => {
 
     return (
         <motion.div
-            drag
-            dragMomentum={false} // Disables the "flick" effect
-            whileDrag={{ scale: 1.05, cursor: 'grabbing' }}
-            className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4"
-        >
-            {fabActions.map((action, index) => (
-                <div 
-                    key={index}
-                    className={cn(
-                        'transition-all duration-300 ease-in-out',
-                        isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
-                    )}
-                    style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
-                >
-                    <Button
-                        asChild
-                        size="icon"
-                        className={cn("rounded-full w-14 h-14 shadow-lg transition-transform duration-200 hover:scale-110 hover:shadow-xl", action.className)}
-                        aria-label={action.label}
-                    >
-                        <Link href={action.href} target="_blank" rel="noopener noreferrer">
-                            {action.icon}
-                        </Link>
-                    </Button>
-                </div>
-            ))}
-            <Button
-                size="icon"
-                className="rounded-full w-14 h-14 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl cursor-grab"
-                onPointerUp={handleMainButtonClick}
-                aria-expanded={isOpen}
-            >
-                <div className="relative w-8 h-8 flex items-center justify-center">
-                    <X className={cn("w-8 h-8 transition-all duration-300 absolute", isOpen ? 'transform rotate-0 opacity-100' : 'transform -rotate-90 opacity-0')} />
-                    <MessageSquare className={cn("w-8 h-8 transition-all duration-300 absolute", isOpen ? 'transform rotate-90 opacity-0' : 'transform rotate-0 opacity-100')} />
-                </div>
-                <span className="sr-only">{isOpen ? 'Close contact options' : 'Open contact options'}</span>
-            </Button>
-        </motion.div>
+  drag
+  dragMomentum={false} // Disables the "flick" effect
+  whileDrag={{ scale: 1.05, cursor: 'grabbing' }}
+  className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-4 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6"
+>
+  {fabActions.map((action, index) => (
+    <div
+      key={index}
+      className={cn(
+        'transition-all duration-300 ease-in-out',
+        isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none',
+      )}
+      style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
+    >
+      <Button
+        asChild
+        size="icon"
+        className={cn(
+          "rounded-full w-14 h-14 shadow-lg transition-transform duration-200 hover:scale-110 hover:shadow-xl",
+          action.className
+        )}
+        aria-label={action.label}
+      >
+        <Link href={action.href} target="_blank" rel="noopener noreferrer">
+          {action.icon}
+        </Link>
+      </Button>
+    </div>
+  ))}
+  <Button
+    size="icon"
+    className="rounded-full w-14 h-14 bg-primary text-primary-foreground hover:bg-gradient-to-r from-primary to-accent shadow-xl cursor-grab"
+    onPointerUp={handleMainButtonClick}
+    aria-expanded={isOpen}
+  >
+    <div className="relative w-8 h-8 flex items-center justify-center">
+      <X
+        className={cn(
+          "w-8 h-8 transition-all duration-300 absolute",
+          isOpen ? 'transform rotate-0 opacity-100' : 'transform -rotate-90 opacity-0'
+        )}
+      />
+      <MessageSquare
+        className={cn(
+          "w-8 h-8 transition-all duration-300 absolute",
+          isOpen ? 'transform rotate-90 opacity-0' : 'transform rotate-0 opacity-100'
+        )}
+      />
+    </div>
+    <span className="sr-only">{isOpen ? 'Close contact options' : 'Open contact options'}</span>
+  </Button>
+</motion.div>
+
     );
 };
 

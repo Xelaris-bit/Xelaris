@@ -7,8 +7,8 @@ import ContactFABs from '@/components/contact-fabs';
 import ScrollToTopButton from '@/components/scroll-to-top-button';
 
 export const metadata: Metadata = {
-  title: 'Xelaris: Software Testing Excellence',
-  description: 'Reliable & Scalable Software Testing Solutions by Xelaris',
+  title: 'Xelaris: Software Excellence',
+  description: 'Xelaris: Delivering Reliable and Scalable Software Solutions',
 };
 
 export default function RootLayout({

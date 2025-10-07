@@ -69,33 +69,47 @@ export default function AboutUsPage() {
         </FadeIn>
 
         {/* Who We Are Section */}
-        <FadeIn>
-            <section className="py-16 md:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h2 className="text-3xl font-bold text-primary">Who <span className="text-accent">We Are</span></h2>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Xelaris is a premier software testing and quality assurance company dedicated to helping businesses deliver flawless, high-performing, and secure software. Founded by a team of veteran QA professionals, we bridge the gap between development and deployment, ensuring that your products meet the highest standards of quality.
-                            </p>
-                            <p className="text-muted-foreground leading-relaxed">
-                                Our expertise spans across various domains, from manual and automation testing to performance and security assessments. We leverage industry-leading tools and innovative methodologies to provide comprehensive testing solutions tailored to your unique needs.
-                            </p>
-                        </div>
-                        <div>
-                            <Image
-                                src="https://images.unsplash.com/photo-1521737852577-684822188716?q=80&w=600"
-                                alt="Team discussing project at Xelaris"
-                                width={600}
-                                height={400}
-                                className="rounded-lg shadow-lg"
-                                data-ai-hint="team collaboration"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </FadeIn>
+        {/* Who We Are Section */}
+<FadeIn>
+  <section className="py-16 md:py-24">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col md:grid md:grid-cols-2 gap-12 items-center">
+      {/* Text Content */}
+      <div className="w-full max-w-full break-words">
+        <h2 className="text-3xl font-bold text-primary">
+          Who <span className="text-accent">We Are</span>
+        </h2>
+        <p className="mt-4 text-muted-foreground leading-relaxed text-justify">
+          Xelaris is a premier software testing and quality assurance company
+          dedicated to helping businesses deliver flawless, high-performing,
+          and secure software. Founded by a team of veteran QA professionals,
+          we bridge the gap between development and deployment, ensuring that
+          your products meet the highest standards of quality.
+        </p>
+        <p className="mt-4 text-muted-foreground leading-relaxed text-justify">
+          Our expertise spans across various domains, from manual and automation
+          testing to performance and security assessments. We leverage
+          industry-leading tools and innovative methodologies to provide
+          comprehensive testing solutions tailored to your unique needs.
+        </p>
+      </div>
+
+      {/* Image */}
+      <div className="w-full flex justify-center">
+        <Image
+          src="https://images.unsplash.com/photo-1521737852577-684822188716?q=80&w=600"
+          alt="Team discussing project at Xelaris"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-lg max-w-full h-auto"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+</FadeIn>
+
 
         {/* Mission and Vision Section */}
         <FadeIn>
